@@ -20,37 +20,6 @@
             @Html.EditorFor(model => model.Email)
             @Html.ValidationMessageFor(model => model.Email)
         </p>
-        
-        <p>
-            @Html.LabelFor(model => model.FirstName)
-            @Html.EditorFor(model => model.FirstName)
-            @Html.ValidationMessageFor(model => model.FirstName)
-        </p>
-        
-        <p>
-            @Html.LabelFor(model => model.LastName)
-            @Html.EditorFor(model => model.LastName)
-            @Html.ValidationMessageFor(model => model.LastName)
-        </p>
-
-        <p>
-            @Html.LabelFor(model => model.Password)
-            @Html.PasswordFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
-        </p>
-        
-        <p>
-            @Html.LabelFor(model => model.ConfirmPassword)
-            @Html.PasswordFor(model => model.ConfirmPassword)
-            @Html.ValidationMessageFor(model => model.ConfirmPassword)
-        </p>
-        
-        <p>
-            @Html.LabelFor(model => model.RememberMe)
-            @Html.CheckBoxFor(model => model.RememberMe)
-            @Html.ValidationMessageFor(model => model.RememberMe)
-        </p>
-
         <p>
             <input type="submit" value="Register" />
         </p>
