@@ -1,0 +1,61 @@
+﻿@using System.Web.Script.Serialization
+@using DomainService.Enumerations
+@using PresentationService.Models.AdminModels.ConsignmentModels
+@model ConsignmentEditModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section head
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/Styles/jquery-ui-1.9.0.custom.min.css")"/>
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jquery-ui-1.9.0.custom.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/admin/knockout-models/ConsignmentEditModel.js")"></script>
+    <script type="text/javascript">
+        $(function () {
+            ko.applyBindings(new ConsignmentEditModel(@Html.Raw(Json.Encode(Model.Products))));
+        });
+    </script>
+}
+
+<style>
+    input[type="button"]
+    {
+        width: 90px;
+    }
+
+    .product-row
+    {
+        width: 100%;
+        margin-top: 0px;
+        padding-top: 20px;
+    }
+
+        .product-row .remove-button
+        {
+            display: none;
+        }
+
+        .product-row:hover .remove-button
+        {
+            display: inline;
+        }
+</style>
+
+<form action="@Url.Action("Edit", "Consignment", new { id = Model.Id})" method="POST">
+    <div>
+        @Html.ValidationSummary()
+        @Html.DropDownListFor(m => m.Status, new SelectList(Enum.GetNames(typeof(ConsignmentStatus))))
+    </div>
+    <div data-bind="foreach: Products">
+        <div class="product-row">
+            <input type="text" class="product-name" data-bind="value: Name, attr: { name: 'Products['+$index()+'].Name'}, ko_autocomplete: { source: '@Url.Action("ProductNames")', minLength: 2 }" />
+            <input type="text" class="product-count" data-bind="value: Count, attr: { name: 'Products['+$index()+'].Count'}" />
+            <input type="button" class="remove-button" value="Удалить" data-bind="click: $parent.RemoveProduct" />
+        </div>
+    </div>
+    <div>
+        <input type="button" value="Добавить" data-bind="click: AddProduct" />
+        <input type="submit" value="Сохранить" data-bind="enable: Products().length > 0" />
+    </div>
+</form>

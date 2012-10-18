@@ -1,0 +1,31 @@
+﻿@model PresentationService.Models.HomeModels.HomeIndexModel
+           
+<div class="about">
+    Добро пожаловать<br />
+    <p>
+        Illum secundum exerci erat plaga illum, enim, venio. Tamen causa ut diam torqueo
+        sagaciter inhibeo si quae exerci lobortis. Appellatio vel hos autem, ludus luptatum
+        mauris ratis jugis interdico. Gilvus consequat abico demoveo lenis validus typicus
+        ut commodo. Consequat, eu voco cui eros, euismod quis illum, commodo. Nibh valde
+        tincidunt ex quae ratis meus neo aliquam. Appellatio vel hos autem, ludus luptatum
+        mauris ratis jugis interdico. Gilvus consequat abico demoveo lenis validus typicus
+        ut commodo. Consequat, eu voco cui eros, euismod quis illum, commodo. Nibh valde
+        tincidunt ex quae ratis meus neo aliquam.
+    </p>
+    <a href="#">more info</a>
+</div>
+<div class="news">
+    Объявление<br />
+    <p>
+        Illum secundum exerci erat plaga illum, enim, venio. Tamen causa ut diam torqueo
+        sagaciter inhibeo si quae exerci lobortis. Appellatio vel hos autem, ludus luptatum
+        mauris ratis jugis interdico. Gilvus consequat abico demoveo lenis validus typicus
+        ut commodo. Consequat, eu voco cui eros, euismod quis illum, commodo.
+    </p>
+</div>
+<div id="items">
+    @foreach(var product in Model.TopProducts)
+    {
+        @Html.DisplayFor(m => product)
+    }
+</div>

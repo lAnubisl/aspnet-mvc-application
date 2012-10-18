@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PresentationService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ProductImagesPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Content/Images/Products</Value>
+    </Setting>
+    <Setting Name="ProductImagesBigPostfix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Big</Value>
+    </Setting>
+    <Setting Name="ProductImagesSmallPostfix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Small</Value>
+    </Setting>
+    <Setting Name="ProductImagesTempPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Content/Images/Products/Temp</Value>
+    </Setting>
+    <Setting Name="GoogleApiUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.googleapis.com/oauth2/v1/userinfo?access_token=</Value>
+    </Setting>
+    <Setting Name="FacebookApiUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://graph.facebook.com/me/?access_token=</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

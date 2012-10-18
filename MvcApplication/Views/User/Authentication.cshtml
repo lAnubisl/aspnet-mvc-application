@@ -1,0 +1,52 @@
+﻿@using MvcApplication.Properties
+
+@{
+    ViewBag.Title = "Authentication";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Authentication page</h2>
+@if (MVCApplication.MvcApplication.LoggedInUser == null)
+{
+    <p>
+        <a href="@Settings.Default.FacebookUrlAuth">Log In with facebook</a>
+        or
+        <a href="@Settings.Default.GoogleUrlAuth">Log In with google</a>
+        or
+        @Html.ActionLink("Log In", "LogOn", "User")
+        or
+        @Html.ActionLink("Register", "Register", "User")
+    </p>
+} else
+{
+    <p>
+        You logined as @Html.Raw(Html.Encode(MVCApplication.MvcApplication.LoggedInUser.FullName))
+    </p>
+    
+    @Html.ActionLink("Log Out", "LogOut", "User");
+}
+
+    <script type="text/javascript">
+
+        if (window.location.hash != 0) {
+                var state = window.location.hash.split(/[=&]/)[1];
+                var accessToken = window.location.hash.split(/[=&]/)[3];
+                var form = document.createElement("form");
+                form.setAttribute("method", 'post');
+                if (state === "fb") {
+                    form.setAttribute("action", '/user/ServiceLogOn?service=facebook');
+                } else if (state === "gl") {
+                    form.setAttribute("action", '/user/ServiceLogOn?service=google');
+                }
+
+                var field = document.createElement("input");
+                field.setAttribute("type", "hidden");
+                field.setAttribute("name", 'accessToken');
+                field.setAttribute("value", accessToken);
+                form.appendChild(field);
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+
+    </script>

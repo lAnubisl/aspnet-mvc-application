@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MvcApplication.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FacebookUrlAuth" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.facebook.com/dialog/oauth?client_id=343004015780294&amp;state=fb&amp;redirect_uri=http://localhost:8413/user/Authentication/&amp;scope=user_about_me,email&amp;response_type=token</Value>
+    </Setting>
+    <Setting Name="GoogleUrlAuth" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email&amp;state=gl&amp;redirect_uri=http://localhost:8413/user/Authentication&amp;response_type=token&amp;client_id=469786120708.apps.googleusercontent.com</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

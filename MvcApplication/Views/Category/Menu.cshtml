@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+@model PresentationService.Models.CategoryModels.CategoryMenuModel
+
+<div id="sidebar">
+    Категории<br />
+    <ul id="list">
+        @foreach (var category in Model.RootCategories)
+        {
+            <li class="color">
+                @Html.ActionLink(category.CategoryName, "View", "Category", new { id = category.CategoryId }, null)
+            </li>
+            foreach (var subCategory in category.Subcategories)
+            {
+                <li>
+                    @Html.ActionLink(subCategory.CategoryName, "View", "Category", new { id = subCategory.CategoryId }, null)
+                </li>
+            }
+        }
+    </ul>
+</div>

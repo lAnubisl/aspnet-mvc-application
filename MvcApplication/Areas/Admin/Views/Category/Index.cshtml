@@ -1,0 +1,17 @@
+﻿@model PresentationService.Models.AdminModels.CategoryModels.CategoryIndexModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<table class="categoriesTable">
+    <thead>
+        <td></td>
+        <td class="lastHeaderColumn" onclick="javascript:location.href='@Url.Action("Add", "Category")'"></td>
+    </thead>
+    @if (Model.Categories != null)
+    {
+        foreach (var category in Model.Categories)
+        {
+            @Html.DisplayFor(m => category, new { isOddRow = true, leftPadding = 0 })
+        }
+    }
+</table>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Styles/style.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Content/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/knockout-2.1.0.js")" type="text/javascript"></script>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div id="header">
+        <div id="header_inside">
+            <img src="@Url.Content("~/Content/Images/header.jpg")" alt="setalpm" width="999" height="222" border="0" usemap="#Map" />
+            <br />
+            <ul id="menu">
+                <li>@Html.ActionLink("Главная", "Index", "Home", null, new { @class = "but1_active" })</li>
+                <li><a href="index2.html" class="but2">О нас</a></li>
+                <li><a href="index2.html" class="but3">Новости</a></li>
+                <li><a href="index2.html" class="but4">Гарантия</a></li>
+                <li><a href="index2.html" class="but5">Корзина</a></li>
+                <li><a href="index2.html" class="but6">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="content_inside">
+            @Html.Action("Menu", "Category")
+            <div id="main_block">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer_inside">
+            <ul class="footer_menu">
+                <li>@Html.ActionLink("Главная", "Index", "Home", null, new { @class = "but1_active" })|</li>
+                <li><a href="index2.html">About Us</a>|</li>
+                <li><a href="index2.html">News &amp; Events</a>|</li>
+                <li><a href="index2.html">Services</a>|</li>
+                <li><a href="index2.html">My Account</a>|</li>
+                <li><a href="index2.html">Contacts</a></li>
+            </ul>
+            <br />
+            <br />
+            <p>
+                Copyright &copy;. All rights reserved. Design by <a href="http://www.bestfreetemplates.info" target="_blank" title="Best Free Templates">BFT</a></p>
+        </div>
+    </div>
+</body>
+</html>

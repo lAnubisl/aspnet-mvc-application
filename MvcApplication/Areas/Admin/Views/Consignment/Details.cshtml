@@ -1,0 +1,30 @@
+﻿@model PresentationService.Models.AdminModels.ConsignmentModels.ConsignmentDetailsModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.isOddRow = true;
+}
+<h2>Статус : завершено</h2>
+<br/>
+<table class="consignmentLoadTable">
+    <thead>
+        <tr>
+            <td>Имя продукта :</td>
+            <td>Количество :</td>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model.ProductNameToCountDictionary.Count != 0)
+        {
+            foreach(var productNameToCountPair in Model.ProductNameToCountDictionary)
+            {
+                <tr style="@(ViewBag.isOddRow ? "background-color: #ECECC5;" : string.Empty) font-size: 14px;">
+                    <td>@productNameToCountPair.Key</td>
+                    <td>@productNameToCountPair.Value</td>
+                </tr>
+                {
+                    ViewBag.isOddRow = !ViewBag.isOddRow;
+                }
+            }
+        }
+    </tbody>
+</table>
