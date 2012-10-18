@@ -1,0 +1,11 @@
+﻿@model PresentationService.Models.AdminModels.ConsignmentModels.Items.ConsignmentEditItemModel
+<tr>
+    <td>@Html.HiddenFor(m => m.Id)</td>
+    <td>@Html.EditorFor(m => m.Name)</td>
+    <td>@Html.EditorFor(m => m.Count)</td>
+    <td>
+         <div>@Html.ValidationMessageFor(m => m.Id)</div>
+         <div>@Html.ValidationMessageFor(m => m.Name)</div>
+         <div>@Html.ValidationMessageFor(m => m.Count)</div>
+    </td>
+</tr>

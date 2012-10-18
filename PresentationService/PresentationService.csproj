@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36D414DB-8BD6-4E27-84CF-701BC07B2589}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PresentationService</RootNamespace>
+    <AssemblyName>PresentationService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\rules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\External\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\External\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="MVC Foolproof Validation">
+      <HintPath>..\External\MVC Foolproof Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\EmailSenderHelper.cs" />
+    <Compile Include="Helpers\PasswordHashHelper.cs" />
+    <Compile Include="Helpers\ProductImageHelper.cs" />
+    <Compile Include="Helpers\SelectListItemPresenter.cs" />
+    <Compile Include="Interfaces\Admin\ICategoryPresentationService.cs" />
+    <Compile Include="Interfaces\Admin\IConsignmentPresentationService.cs" />
+    <Compile Include="Interfaces\Admin\IProductPresentationService.cs" />
+    <Compile Include="Interfaces\IBasePresentationService.cs" />
+    <Compile Include="Interfaces\IHomePresentationService.cs" />
+    <Compile Include="Interfaces\IOrderPresentationService.cs" />
+    <Compile Include="Interfaces\IProductPresentationService.cs" />
+    <Compile Include="Interfaces\ICategoryPresentationService.cs" />
+    <Compile Include="Interfaces\IUserPresentationService.cs" />
+    <Compile Include="IoC.cs" />
+    <Compile Include="Models\AdminModels\CategoryModels\CategoryEditModel.cs" />
+    <Compile Include="Models\AdminModels\CategoryModels\Items\CategoryIndexItemModel.cs" />
+    <Compile Include="Models\AdminModels\CategoryModels\CategoryIndexModel.cs" />
+    <Compile Include="Models\AdminModels\CategoryModels\Items\CategorySelectListItemModel.cs" />
+    <Compile Include="Models\AdminModels\ConsignmentModels\ConsignmentEditModel.cs" />
+    <Compile Include="Models\AdminModels\ConsignmentModels\ConsignmentIndexModel.cs" />
+    <Compile Include="Models\AdminModels\ConsignmentModels\ConsignmentDetailsModel.cs" />
+    <Compile Include="Models\AdminModels\ConsignmentModels\Items\ConsignmentEditItemModel.cs" />
+    <Compile Include="Models\AdminModels\ConsignmentModels\Items\ConsignmentIndexItemModel.cs" />
+    <Compile Include="Models\AdminModels\ProductModels\Items\ProductIndexItemModel.cs" />
+    <Compile Include="Models\AdminModels\ProductModels\ProductEditModel.cs" />
+    <Compile Include="Models\AdminModels\ProductModels\ProductIndexModel.cs" />
+    <Compile Include="Models\AdminModels\UserModels\Items\UserIndexItemModel.cs" />
+    <Compile Include="Models\AdminModels\UserModels\UserEditModel.cs" />
+    <Compile Include="Models\AdminModels\UserModels\UserIndexModel.cs" />
+    <Compile Include="Models\CategoryModels\Items\CategoryMenuElementModel.cs" />
+    <Compile Include="Models\CategoryModels\CategoryMenuModel.cs" />
+    <Compile Include="Models\CategoryModels\Items\CategoryListElementModel.cs" />
+    <Compile Include="Models\CategoryModels\CategoryViewModel.cs" />
+    <Compile Include="Models\HomeModels\HomeIndexModel.cs" />
+    <Compile Include="Models\ProductModels\ListProductModel.cs" />
+    <Compile Include="Models\ProductModels\ProductSmallModel.cs" />
+    <Compile Include="Models\ProductModels\TopProductsModel.cs" />
+    <Compile Include="Models\ProductModels\ViewProductModel.cs" />
+    <Compile Include="Models\ShoppingCard\ShoppingCardModel.cs" />
+    <Compile Include="Models\ProductModels\EditProductModel.cs" />
+    <Compile Include="Models\UserModels\FacebookUser.cs" />
+    <Compile Include="Models\UserModels\GoogleUser.cs" />
+    <Compile Include="Models\UserModels\IServiceUser.cs" />
+    <Compile Include="Models\UserModels\LogOnService.cs" />
+    <Compile Include="Models\UserModels\RegisterUserModel.cs" />
+    <Compile Include="Models\UserModels\LogOnUserModel.cs" />
+    <Compile Include="Models\UserModels\CookieModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Admin\CategoryPresentationService.cs" />
+    <Compile Include="Services\Admin\ConsignmentPresentationService.cs" />
+    <Compile Include="Services\Admin\ProductPresentationService.cs" />
+    <Compile Include="Services\CategoryPresentationService.cs" />
+    <Compile Include="Services\HomePresentationService.cs" />
+    <Compile Include="Services\OrderPresentationService.cs" />
+    <Compile Include="Services\ProductPresentationService.cs" />
+    <Compile Include="Services\UserPresentationService.cs" />
+    <Compile Include="ValidationAttributes\CategoryShouldHaveUniqueNameAttribute.cs" />
+    <Compile Include="ValidationAttributes\CheckLinkAttribute.cs" />
+    <Compile Include="ValidationAttributes\CommonEmailRegexAttribute.cs" />
+    <Compile Include="ValidationAttributes\CommonLinkRegexAttribute.cs" />
+    <Compile Include="ValidationAttributes\CommonRequiredAttribute.cs" />
+    <Compile Include="ValidationAttributes\CommonStringLengthAttribute.cs" />
+    <Compile Include="ValidationAttributes\CommonStringRequiredAttribute.cs" />
+    <Compile Include="ValidationAttributes\HttpsLinkAttribute.cs" />
+    <Compile Include="ValidationAttributes\ProductIdFromDatabaseAttribute.cs" />
+    <Compile Include="ValidationAttributes\ParentShouldNotBeCurrentChildAttribute.cs" />
+    <Compile Include="ValidationAttributes\PasswordValidationAttribute.cs" />
+    <Compile Include="ValidationAttributes\IsUniqueEmail.cs" />
+    <Compile Include="ValidationAttributes\ProductCountCorrectAttribute.cs" />
+    <Compile Include="ValidationAttributes\ProductNameCombinedWithIdAttribute.cs" />
+    <Compile Include="ValidationAttributes\UserShouldHaveUniqueEmailAttribute.cs" />
+    <Compile Include="ValidationAttributes\WordsCountAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainService\DomainService.csproj">
+      <Project>{794F3B04-7D46-4F1A-A497-20AF9A9C31AB}</Project>
+      <Name>DomainService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(ProjectDir)\..\External\StyleCop\StyleCop.Targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

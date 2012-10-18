@@ -1,0 +1,13 @@
+﻿@{Layout = null;}
+@model PresentationService.Models.ProductModels.ProductSmallModel
+@{
+    var images = PresentationService.Properties.Settings.Default.ProductImagesPath;
+    var big = PresentationService.Properties.Settings.Default.ProductImagesBigPostfix;
+}
+<div class="item">
+    <a href="@Url.Action("View", "Product", new { id = Model.ProductId })"><img src="@Url.Content(string.Format("~{0}/{1}", images + big, Model.ProductImage))" alt="@Model.ProductName" title="@Model.ProductName" height="173" /></a>
+    <br />
+    <span>$@Model.ProductPrice</span>
+    @Html.ActionLink("Подробно", "View", "Product", new { id = Model.ProductId }, new { @class="view", alt = Model.ProductName, title = Model.ProductName})
+    <a href="#" class="buy">Купить</a>
+</div>

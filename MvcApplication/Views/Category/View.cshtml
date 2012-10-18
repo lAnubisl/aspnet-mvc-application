@@ -1,0 +1,26 @@
+﻿@model PresentationService.Models.CategoryModels.CategoryViewModel
+
+<div class="about">
+    @Model.CategoryName<br />
+    <p>
+        <!-- TODO: если пустой, выводить подготовленный текст, иначе выводить Description  -->
+        @Html.Raw(Model.CategoryDescription)
+    </p>
+    @foreach(var category in Model.Subcategories)
+    {
+        @Html.ActionLink(category.CategoryName, "View", "Category", new { id = category.CategoryId }, null)
+    }
+</div>
+<div class="news">
+    Объявление<br />
+    <p>
+        Illum secundum exerci erat plaga illum, enim, venio. Tamen causa ut diam torqueo
+        sagaciter inhibeo si quae exerci lobortis. Appellatio vel hos autem, ludus luptatum
+        mauris ratis jugis interdico. Gilvus consequat abico demoveo lenis validus typicus
+        ut commodo. Consequat, eu voco cui eros, euismod quis illum, commodo.
+    </p>
+</div>
+@foreach(var product in Model.Products)
+{
+    @Html.DisplayFor(m => product)
+}

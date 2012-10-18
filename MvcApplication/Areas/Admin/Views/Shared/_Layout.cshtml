@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/style.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Styles/admin.css")"/>
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jquery-1.7.2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/admin/admin.js")"></script>     
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/knockout-2.1.0.js")"></script>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div id="header">
+        <div id="header_inside">
+            <img src="@Url.Content("~/Content/Images/header.jpg")" alt="setalpm" width="999" height="222" border="0" usemap="#Map" />
+            <br />
+            <ul id="menu">
+                @{
+                    var url = Request.Url.ToString();
+                }
+                <li>@Html.ActionLink("Категории", "Index", "Category", new { area = "Admin" }, new { @class = (url.EndsWith(Url.Action("Index", "Category", new { area = "Admin" }))) ? "but1_active" : "but1" })</li>
+                <li>@Html.ActionLink("Продукты", "Index", "Product", new { area = "Admin" }, new { @class = (url.EndsWith(Url.Action("Index", "Product", new { area = "Admin" }))) ? "but1_active" : "but1" })</li>
+                <li>@Html.ActionLink("Разгрузка", "Index", "Consignment", new { area = "Admin" }, new { @class = (url.EndsWith(Url.Action("Index", "Consignment", new { area = "Admin" }))) ? "but1_active" : "but1" })</li>
+            </ul>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="content_inside">
+            <div id="main_block">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

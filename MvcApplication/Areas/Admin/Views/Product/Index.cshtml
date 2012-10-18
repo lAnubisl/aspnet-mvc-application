@@ -1,0 +1,18 @@
+﻿@model PresentationService.Models.AdminModels.ProductModels.ProductIndexModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var isOddRow = false;
+}
+<table class="productsTable">
+    <thead>
+        <td></td>
+        <td class="lastHeaderColumn" onclick="javascript:location.href='@Url.Action("Add", "Product")'"></td>
+    </thead>
+    @if (Model.Products != null)
+    {
+        foreach (var product in Model.Products)
+        {
+            @Html.DisplayFor(m => product,  new { isOddRow = (isOddRow = !isOddRow) })
+        }
+    }
+</table>

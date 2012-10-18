@@ -1,0 +1,15 @@
+﻿@model PresentationService.Models.AdminModels.CategoryModels.Items.CategoryIndexItemModel
+@{
+    Layout = null;
+}
+<tr style="@(ViewBag.isOddRow ? "background-color: #ECECC5;" : string.Empty) font-size: 14px;">
+    <td style="padding-left: @(ViewBag.leftPadding)px">@Model.CategoryName</td>
+    <td class="lastColumn" onclick="javascript:location.href = '@Url.Action("Edit", "Category", new { id = Model.CategoryId })'">&nbsp;</td>
+</tr>
+@if(Model.Subcategories != null)
+{
+    foreach (var subCategory in Model.Subcategories)
+    {
+        @Html.DisplayFor(m => subCategory, new { isOddRow = !ViewBag.isOddRow, leftPadding = ViewBag.leftPadding + 15 })
+    }
+}

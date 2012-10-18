@@ -1,0 +1,72 @@
+17.10.2012 14:58:22	This log contains information about the import schema operation into project 'MVC.DB' on computer 'PANFILENOKA-2' by user 'a.panfilenok'.
+17.10.2012 14:58:22	Import of database schema has started.
+17.10.2012 14:58:32	Gathering database options
+17.10.2012 14:58:32	Gathering users
+17.10.2012 14:58:32	Gathering roles
+17.10.2012 14:58:32	Gathering application roles
+17.10.2012 14:58:32	Gathering role memberships
+17.10.2012 14:58:32	Gathering filegroups
+17.10.2012 14:58:32	Gathering full-text catalogs
+17.10.2012 14:58:32	Gathering assemblies
+17.10.2012 14:58:32	Gathering certificates
+17.10.2012 14:58:32	Gathering asymmetric keys
+17.10.2012 14:58:32	Gathering symmetric keys
+17.10.2012 14:58:32	Gathering encrypted symmetric keys
+17.10.2012 14:58:32	Gathering schemas
+17.10.2012 14:58:32	Gathering XML schema collections
+17.10.2012 14:58:32	Gathering user-defined data types
+17.10.2012 14:58:32	Gathering user-defined types
+17.10.2012 14:58:32	Gathering table types
+17.10.2012 14:58:32	Gathering unique keys for table types
+17.10.2012 14:58:32	Gathering primary keys for table types
+17.10.2012 14:58:32	Gathering check constraints for table types
+17.10.2012 14:58:32	Gathering default constraints for table types
+17.10.2012 14:58:32	Gathering partition functions
+17.10.2012 14:58:32	Gathering partition schemes
+17.10.2012 14:58:32	Gathering functions
+17.10.2012 14:58:32	Gathering encrypted functions
+17.10.2012 14:58:32	Gathering aggregates
+17.10.2012 14:58:32	Gathering procedures
+17.10.2012 14:58:33	Gathering encrypted procedures
+17.10.2012 14:58:33	Gathering tables
+17.10.2012 14:58:33	Gathering primary keys
+17.10.2012 14:58:33	Gathering unique constraints
+17.10.2012 14:58:33	Gathering foreign keys
+17.10.2012 14:58:33	Gathering default constraints
+17.10.2012 14:58:33	Gathering check constraints
+17.10.2012 14:58:33	Gathering views
+17.10.2012 14:58:33	Gathering encrypted views
+17.10.2012 14:58:33	Gathering indexes
+17.10.2012 14:58:33	Gathering statistics
+17.10.2012 14:58:33	Gathering full-text index stoplists
+17.10.2012 14:58:33	Gathering full-text indexes
+17.10.2012 14:58:33	Gathering spatial indexes
+17.10.2012 14:58:33	Gathering XML indexes
+17.10.2012 14:58:33	Gathering encrypted triggers
+17.10.2012 14:58:33	Gathering triggers
+17.10.2012 14:58:33	Gathering encrypted and clr ddl triggers
+17.10.2012 14:58:33	Gathering ddl triggers
+17.10.2012 14:58:33	Gathering synonyms
+17.10.2012 14:58:33	Gathering defaults
+17.10.2012 14:58:33	Gathering data constraint uddt bindings
+17.10.2012 14:58:33	Gathering rules
+17.10.2012 14:58:33	Gathering data constraint uddt bindings
+17.10.2012 14:58:33	Gathering message types
+17.10.2012 14:58:33	Gathering queues
+17.10.2012 14:58:33	Gathering contracts
+17.10.2012 14:58:33	Gathering services
+17.10.2012 14:58:33	Gathering event notifications
+17.10.2012 14:58:33	Gathering remote service bindings
+17.10.2012 14:58:33	Gathering broker priorities
+17.10.2012 14:58:33	Gathering signatures
+17.10.2012 14:58:33	Gathering data compression options
+17.10.2012 14:58:33	Gathering database permissions
+17.10.2012 14:58:33	Gathering extended properties
+17.10.2012 14:58:33	Gathering credentials
+17.10.2012 14:58:33	Gathering logins
+17.10.2012 14:58:33	Gathering server audits
+17.10.2012 14:58:35	Scanning project for duplicate elements
+17.10.2012 14:58:35	Finished duplicate element processing
+17.10.2012 14:58:35	Finished importing database.
+17.10.2012 14:58:35	A summary of the import was saved to the following location: D:\aspnet-mvc-application\MVCDB\Import Schema Logs\MVC.DB_20121017115822.log
+17.10.2012 14:58:35	Click Finish to continue...

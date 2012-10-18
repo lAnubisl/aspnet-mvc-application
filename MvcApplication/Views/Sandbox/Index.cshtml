@@ -1,0 +1,84 @@
+﻿@using System.Web.Script.Serialization
+@model MvcApplication.Models.SandboxModel
+@{
+    ViewBag.Title = "title";
+}
+<form method="POST">
+    
+    <select data-bind="foreach:PubCodes, optionsCaption: 'Please Select', value:SelectedPubCode">
+        <!-- ko if: Type === 1 -->
+        <optgroup label="__________"></optgroup>
+        <!-- /ko -->
+        <!-- ko if: Type !== 1 -->
+        <option data-bind="text: Text, value: Value"></option>
+        <!-- /ko -->
+    </select>
+
+    <br />
+    <br />
+    
+    @Html.DropDownListFor(m => m.VersionName.Value, new SelectList(Model.VersionNames, "Value", "Text"), new { data_bind="options:VersionNames, optionsText:'Text', optionsValue:'Value', optionsCaption: 'Please Select', value:SelectedVersionName"})
+    
+    <br />
+    <br />
+    
+    <div data-bind="visible:IsVisibleSomeBooleanFearue">
+        @Html.CheckBoxFor(m => m.SomeBooleanFeature, new { data_bind = "checked:SomeBooleanFeature" })
+    </div>
+
+    <br/>
+    <br />
+
+    <button type="submit">Save</button>
+</form>
+
+
+<script type="text/javascript">
+    @{ var serializer = new JavaScriptSerializer(); }
+    function ViewModel () {
+        var self = this;
+        
+        // Server Model Properties
+        self.SelectedPubCode = ko.observable(@Model.PubCode.Value);
+        self.SelectedVersionName = ko.observable(@Model.VersionName.Value);
+        self.SomeBooleanFeature = ko.observable(false);
+        
+        // Select lists
+        self.PubCodes = ko.observableArray(@Html.Raw(serializer.Serialize(Model.PubCodes)));
+        self.VersionNames = ko.observableArray(@Html.Raw(serializer.Serialize(Model.VersionNames)));
+        
+        // Computed properties
+        self.IsVisibleSomeBooleanFearue = ko.computed(function() {
+            return self.SelectedVersionName() != undefined;
+        }, self);
+
+        // Functions
+        self.LoadVersionNames = function(pubCode) {
+            var result = new Array();
+            if(pubCode != undefined) {
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: '@Url.Action("LoadVersionNames")',
+                    data: "pubCodeId=" + pubCode,
+                    success: function(data) {
+                        result = data;
+                    }
+                });
+            }
+            self.VersionNames(result);
+        };
+
+        // Events
+        self.SelectedPubCode.subscribe(function(newPubCode) {
+            self.LoadVersionNames(newPubCode);
+        });
+
+        self.SelectedVersionName.subscribe(function(newVersionName) {
+            if(newVersionName == undefined) {
+                self.SomeBooleanFeature(false);
+            }
+        });
+    };
+    ko.applyBindings(new ViewModel());
+</script>

@@ -1,0 +1,19 @@
+﻿@model PresentationService.Models.AdminModels.ConsignmentModels.Items.ConsignmentIndexItemModel
+@{
+    Layout = null;
+}
+<tr style="@(ViewBag.isOddRow ? "background-color: #ECECC5;" : string.Empty) font-size: 14px;">
+    <td style="padding-left: @(ViewBag.leftPadding)px">
+        @Model.DateLoad
+    </td>
+    <td style="padding-left: @(ViewBag.leftPadding)px">
+        @Model.UserEmail
+    </td>
+    <td style="padding-left: @(ViewBag.leftPadding)px">
+        @Model.CountDifferentProducts
+    </td>
+    <td style="padding-left: @(ViewBag.leftPadding)px">
+        @Model.CountProducts
+    </td>
+    <td class="lastColumn" onclick="javascript:location.href = '@Url.Action("Edit", "Consignment", new { id = Model.ConsignmentId })'">&nbsp;</td>
+</tr>
