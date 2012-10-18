@@ -468,6 +468,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Shared\EditorTemplates\" />
     <Folder Include="Content\Images\Products\Big\" />
     <Folder Include="Content\Images\Products\Small\" />
   </ItemGroup>
@@ -503,7 +504,6 @@
     <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\ProductIndexItemModel.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Web.config" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\ConsignmentEditItemModel.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\DisplayTemplates\ConsignmentIndexItemModel.cshtml" />
     <Content Include="Areas\Admin\Views\Consignment\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Consignment\Edit.cshtml" />
