@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Any CPU</Platform>
+    <SolutionPath>$(MSBuildProjectDirectory)</SolutionPath>
+    <SourcePath>$(SolutionPath)\..</SourcePath>
+    <PublishPath>$(SolutionPath)\Publish\$(PublishProject)\$(Configuration)</PublishPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <VSPprojects Include="$(SourcePath)\$(PublishProjectDir)\$(PublishProject).csproj" />
+    <VSSolution Include="$(SourcePath)\$(BuildSolution).sln" />
+  </ItemGroup>
+
+  <Target Name="Clean">
+    <Message Text="=======================================================================================" />
+    <Message Text="Clean..."/>
+    <Message Text="=======================================================================================" />
+
+    <RemoveDir Directories="$(PublishPath)" />
+  </Target>
+
+  <Target Name="Publish" DependsOnTargets="Clean">
+    <Message Text="=======================================================================================" />
+    <Message Text="Publishing $(PublishProject)" />
+    <Message Text="=======================================================================================" />
+
+    <MSBuild Projects="@(VSPprojects)" Properties="Configuration=$(Configuration);Platform=$(Platform);DeployOnBuild=true;DeployTarget=PipelinePreDeployCopyAllFilesToOneFolder;AutoParameterizationWebConfigConnectionStrings=false;_PackageTempDir=$(PublishPath);SolutionPath=$(SourcePath)\$(BuildSolution).sln"/>
+  </Target>
+
+  <Target Name="Build">
+    <Message Text="=======================================================================================" />
+    <Message Text="Build Debug $(BuildSolution)"/>
+    <Message Text="=======================================================================================" />
+
+    <MSBuild Projects="@(VSSolution)" Properties="Configuration=Debug;Platform=$(Platform);" />
+
+    <Message Text="=======================================================================================" />
+    <Message Text="Build Release $(BuildSolution)"/>
+    <Message Text="=======================================================================================" />
+
+    <MSBuild Projects="@(VSSolution)" Properties="Configuration=Release;Platform=$(Platform);" />
+  </Target>
+</Project>
