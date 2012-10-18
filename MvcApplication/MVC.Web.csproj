@@ -124,10 +124,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\mvc.mdf" />
-    <Content Include="App_Data\mvc_log.ldf">
-      <DependentUpon>mvc.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\fileuploader\fileuploader.css" />
     <Content Include="Content\fileuploader\fileuploader.js" />
     <Content Include="Content\fileuploader\loading.gif" />
