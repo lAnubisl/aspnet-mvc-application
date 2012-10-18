@@ -79,9 +79,6 @@
     <Compile Include="Models\AdminModels\ProductModels\Items\ProductIndexItemModel.cs" />
     <Compile Include="Models\AdminModels\ProductModels\ProductEditModel.cs" />
     <Compile Include="Models\AdminModels\ProductModels\ProductIndexModel.cs" />
-    <Compile Include="Models\AdminModels\UserModels\Items\UserIndexItemModel.cs" />
-    <Compile Include="Models\AdminModels\UserModels\UserEditModel.cs" />
-    <Compile Include="Models\AdminModels\UserModels\UserIndexModel.cs" />
     <Compile Include="Models\CategoryModels\Items\CategoryMenuElementModel.cs" />
     <Compile Include="Models\CategoryModels\CategoryMenuModel.cs" />
     <Compile Include="Models\CategoryModels\Items\CategoryListElementModel.cs" />
@@ -128,7 +125,6 @@
     <Compile Include="ValidationAttributes\IsUniqueEmail.cs" />
     <Compile Include="ValidationAttributes\ProductCountCorrectAttribute.cs" />
     <Compile Include="ValidationAttributes\ProductNameCombinedWithIdAttribute.cs" />
-    <Compile Include="ValidationAttributes\UserShouldHaveUniqueEmailAttribute.cs" />
     <Compile Include="ValidationAttributes\WordsCountAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
