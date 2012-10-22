@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
 using DomainService.RepositoryInterfaces;
@@ -15,14 +14,9 @@ namespace DomainService.DomainServices
             return Repository.Query().FirstOrDefault(u => u.Email == email);
         }
 
-        public bool IsUniqueEmail(long userId, string email)
-        {
-            return !Repository.Query().Any(u => u.Id != userId && u.Email == email);
-        }
-
         public bool IsUniqueEmail(string email)
         {
-            return Repository.Query().Any(u => u.Email == email);
+            return Repository.Query().Count(u => u.Email == email) == 0;
         }
 
         #endregion

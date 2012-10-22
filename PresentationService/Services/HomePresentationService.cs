@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using DomainService.DomainServiceInterfaces;
 using PresentationService.Interfaces;
 using PresentationService.Models.HomeModels;
-using PresentationService.Models.ProductModels;
 
 namespace PresentationService.Services
 {
@@ -18,7 +16,7 @@ namespace PresentationService.Services
 
         public HomeIndexModel LoadHomeIndexModel()
         {
-            return new HomeIndexModel(productDomainService.LoadTopProducts(6, DateTime.Now, DateTime.Now).Select(p => new ProductSmallModel(p.Id, p.Price, p.Name)));
+            return new HomeIndexModel(productDomainService.LoadTopProducts(6, DateTime.Now, DateTime.Now));
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using DomainService.DomainServiceInterfaces;
 using PresentationService.Interfaces;
 using PresentationService.Models.ProductModels;
@@ -28,26 +27,6 @@ namespace PresentationService.Services
         public ListProductModel LoadListProductModel(long categoryId)
         {
             return new ListProductModel(ProductDomainService.LoadByCategoryId(categoryId), categoryId);
-        }
-
-        public EditProductModel LoadNewEditProductModel()
-        {
-            throw new NotImplementedException();
-        }
-
-        public EditProductModel LoadEditProductModelById(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SaveEditProductModel(EditProductModel model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDictionary<string, string> ValidateEditProductModel(EditProductModel model)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

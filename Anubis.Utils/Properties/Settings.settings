@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Anubis.Utils.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SmtpUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">postmaster@app9076.mailgun.org</Value>
+    </Setting>
+    <Setting Name="SmtpPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2d8mnevsgyp8</Value>
+    </Setting>
+    <Setting Name="SmtpPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="SmtpServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.mailgun.org</Value>
+    </Setting>
+    <Setting Name="SupportEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">postmaster@app9076.mailgun.org</Value>
+    </Setting>
+    <Setting Name="SupportAlias" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mvctest-6</Value>
+    </Setting>
+    <Setting Name="SmtpIsBodyHtml" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SmtpIsSecured" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

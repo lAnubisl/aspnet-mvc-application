@@ -1,4 +1,5 @@
 ﻿using System;
+using Anubis.Utils;
 using DomainService.DomainModels;
 
 namespace PresentationService.Helpers
@@ -12,7 +13,8 @@ namespace PresentationService.Helpers
                 throw new ArgumentNullException("user");
             }
 
-            throw new NotImplementedException();
+            var sender = new EmailSender();
+            sender.FireEmail(user.Email, user.ToString(), "new user", password);
         }
     }
 }

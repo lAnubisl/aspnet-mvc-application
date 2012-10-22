@@ -48,7 +48,7 @@ namespace MVCApplication.Controllers
 
             if (cookieModel != null)
             {
-                RegisterAuthCookie(cookieModel.FullName, cookieModel.Email, cookieModel.Role, false);
+                RegisterAuthCookie(cookieModel.FullName, cookieModel.Email, cookieModel.Role);
 
                 if (Request.Cookies[ReturnUrlToken] != null)
                 {
@@ -71,7 +71,7 @@ namespace MVCApplication.Controllers
                 var cookieModel = userPresentationService.LoadCookieModel(model.Email);
                 if (cookieModel != null)
                 {
-                    RegisterAuthCookie(cookieModel.FullName, cookieModel.Email, cookieModel.Role, model.RememberMe);
+                    RegisterAuthCookie(cookieModel.FullName, cookieModel.Email, cookieModel.Role);
                 }
 
                 return RedirectToAction("Index", "Home");
@@ -87,7 +87,7 @@ namespace MVCApplication.Controllers
             {
                 if (userPresentationService.RegisterNewUser(model))
                 {
-                    RegisterAuthCookie(model.Email, model.Email, Role.User, true);
+                    RegisterAuthCookie(model.Email, model.Email, Role.User);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -102,15 +102,15 @@ namespace MVCApplication.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        private void RegisterAuthCookie(string name, string email, Role role, bool rememberMe)
+        private void RegisterAuthCookie(string name, string email, Role role)
         {
             var roles = role.ToString("G");
             var ticket = new FormsAuthenticationTicket(
                 1,
                 name + "/" + email,
                 DateTime.Now,
-                rememberMe ? DateTime.Now.AddYears(20) : DateTime.Now.AddHours(1),
-                rememberMe,
+                DateTime.Now.AddYears(20),
+                true,
                 roles,
                 FormsAuthentication.FormsCookiePath);
 

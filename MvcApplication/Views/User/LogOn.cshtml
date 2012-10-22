@@ -7,14 +7,8 @@
 
 <h2>Log On</h2>
 
-@section head {
-    <script src="@Url.Content("~/Content/Scripts/jquery.validate.min.js")" type="text/javascript"> </script>
-    <script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"> </script>
-}
-
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-    <fieldset>
         <p>
             @Html.LabelFor(model => model.Email)
             @Html.EditorFor(model => model.Email)
@@ -26,15 +20,8 @@
             @Html.PasswordFor(model => model.Password)
             @Html.ValidationMessageFor(model => model.Password)
         </p>
-  
-        <p>
-            @Html.LabelFor(model => model.RememberMe)
-            @Html.CheckBoxFor(model => model.RememberMe)
-            @Html.ValidationMessageFor(model => model.RememberMe)
-        </p>
 
         <p>
             <input type="submit" value="Log In" />
         </p>
-    </fieldset>
 }

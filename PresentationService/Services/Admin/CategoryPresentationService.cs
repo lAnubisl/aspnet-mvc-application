@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.CategoryModels;
-using PresentationService.Models.AdminModels.CategoryModels.Items;
 
 namespace PresentationService.Services.Admin
 {
@@ -32,7 +29,9 @@ namespace PresentationService.Services.Admin
             {
                 category.Name = model.CategoryName;
                 category.Description = model.CategoryDescription;
-                category.ParentCategory = model.ParentCategoryId.HasValue ? categoryDomainService.Load(model.ParentCategoryId.Value) : null;
+                category.ParentCategory = model.ParentCategoryId.HasValue 
+                    ? categoryDomainService.Load(model.ParentCategoryId.Value) 
+                    : null;
 
                 categoryDomainService.Save(category);
             }

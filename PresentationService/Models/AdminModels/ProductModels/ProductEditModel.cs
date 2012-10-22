@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
@@ -15,19 +16,28 @@ namespace PresentationService.Models.AdminModels.ProductModels
         private IEnumerable<string> productImages; 
 
         public ProductEditModel(
-            long productId,
-            long categoryId,
-            string productName,
-            float productPrice,
-            string productDescription,
-            IEnumerable<CategorySelectListItemModel> selectableCategories)
+            Product product,
+            IEnumerable<Category> availableCategories)
         {
-            ProductDescription = productDescription;
-            ProductPrice = productPrice;
-            ProductName = productName;
-            ProductId = productId;
-            AvailableCategories = selectableCategories;
-            CategoryId = categoryId;
+            if (product == null)
+            {
+                throw new ArgumentNullException("product");
+            }
+
+            if (availableCategories == null)
+            {
+                throw new ArgumentNullException("availableCategories");
+            }
+
+            ProductDescription = product.Description;
+            ProductPrice = product.Price;
+            ProductName = product.Name;
+            ProductId = product.Id;
+            AvailableCategories = availableCategories.Select(x => new CategorySelectListItemModel(x));
+            if (product.Category != null)
+            {
+                CategoryId = product.Category.Id;
+            }
         }
 
         public long ProductId { get; set; }

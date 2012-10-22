@@ -1,9 +1,24 @@
-﻿using DomainService.Enumerations;
+﻿using System;
+using DomainService.DomainModels;
+using DomainService.Enumerations;
 
 namespace PresentationService.Models.UserModels
 {
     public class CookieModel
     {
+        public CookieModel(User user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException("user");
+            }
+
+            FirstName = user.FirstName;
+            LastName = user.LastName;
+            Email = user.Email;
+            Role = user.Role;
+        }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -16,7 +31,7 @@ namespace PresentationService.Models.UserModels
         {
             get
             {
-                return string.Join(" ", this.FirstName, LastName);
+                return string.Join(" ", FirstName, LastName);
             }
         }
     }

@@ -1,11 +1,19 @@
-﻿namespace PresentationService.Models.CategoryModels.Items
+﻿using System;
+using DomainService.DomainModels;
+
+namespace PresentationService.Models.CategoryModels.Items
 {
     public class CategoryListElementModel
     {
-        public CategoryListElementModel(string categoryName, long categoryId)
+        public CategoryListElementModel(Category category)
         {
-            CategoryId = categoryId;
-            CategoryName = categoryName;
+            if (category == null)
+            {
+                throw new ArgumentNullException("category");
+            }
+
+            CategoryId = category.Id;
+            CategoryName = category.Name;
         }
 
         public long CategoryId { get; private set; }

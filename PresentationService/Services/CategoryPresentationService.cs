@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using DomainService.DomainServiceInterfaces;
+﻿using DomainService.DomainServiceInterfaces;
 using PresentationService.Interfaces;
 using PresentationService.Models.CategoryModels;
-using PresentationService.Models.CategoryModels.Items;
-using PresentationService.Models.ProductModels;
 
 namespace PresentationService.Services
 {
@@ -23,13 +20,7 @@ namespace PresentationService.Services
             var category = categoryDomainService.Load(categoryId);
             if (category != null)
             {
-                var products = productDomainService.LoadByCategoryId(categoryId);
-                var model = new CategoryViewModel(
-                    category.Name,
-                    category.Description,
-                    products.Select(p => new ProductSmallModel(p.Id, p.Price, p.Name)),
-                    category.ChildCategories.Select(c => new CategoryListElementModel(c.Name, c.Id)));
-                return model;
+                return new CategoryViewModel(category, productDomainService.LoadByCategoryId(categoryId));
             }
 
             return null;
@@ -37,16 +28,7 @@ namespace PresentationService.Services
 
         public CategoryMenuModel LoadCategoryMenuModel()
         {
-            return
-                new CategoryMenuModel(
-                    categoryDomainService.LoadRootCategories().Select(c =>
-                        new CategoryMenuElementModel(
-                            c.Name, 
-                            c.Id, 
-                            c.ChildCategories.Select(cc => new CategoryMenuElementModel(
-                                cc.Name, 
-                                cc.Id, 
-                                null)))));
+            return new CategoryMenuModel(categoryDomainService.LoadRootCategories());
         }
     }
 }

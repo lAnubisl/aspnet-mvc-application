@@ -11,7 +11,5 @@ namespace PresentationService.Models.UserModels
 
         [Required]
         public string Email { get; set; }
-
-        public bool RememberMe { get; set; }
     }
 }

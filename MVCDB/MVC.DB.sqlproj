@@ -85,6 +85,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunSqlCodeAnalysis>True</RunSqlCodeAnalysis>
   </PropertyGroup>
   <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
   <PropertyGroup>
@@ -116,6 +117,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MVC.DB.publish.xml" />
-    <None Include="MVC_1.DB.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
