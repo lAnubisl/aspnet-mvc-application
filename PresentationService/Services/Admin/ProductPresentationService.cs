@@ -8,7 +8,6 @@ using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
 using PresentationService.Helpers;
 using PresentationService.Interfaces.Admin;
-using PresentationService.Models.AdminModels.CategoryModels.Items;
 using PresentationService.Models.AdminModels.ProductModels;
 using PresentationService.Models.AdminModels.ProductModels.Items;
 
@@ -41,16 +40,7 @@ namespace PresentationService.Services.Admin
 
             if (product != null)
             {
-                var selectableCategories = categoryDomainService.Load()
-                                               .Select(c => new CategorySelectListItemModel(c.Name, c.Id));
-
-                return new ProductEditModel(
-                                    product.Id,
-                                    product.Category != null ? product.Category.Id : 0,
-                                    product.Name,
-                                    product.Price,
-                                    product.Description,
-                                    selectableCategories);
+                return new ProductEditModel(product, categoryDomainService.Load());
             }
 
             return null;

@@ -1,14 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DomainService.DomainModels;
 
 namespace PresentationService.Models.CategoryModels.Items
 {
     public class CategoryMenuElementModel
     {
-        public CategoryMenuElementModel(string categoryName, long categoryId, IEnumerable<CategoryMenuElementModel> subcategories)
+        public CategoryMenuElementModel(Category category, IEnumerable<Category> childCategories)
         {
-            Subcategories = subcategories;
-            CategoryId = categoryId;
-            CategoryName = categoryName;
+            if (category == null)
+            {
+                throw new ArgumentNullException("category");
+            }
+
+            CategoryId = category.Id;
+            CategoryName = category.Name;
+
+            if(childCategories != null)
+            {
+                Subcategories = childCategories.Select(c => new CategoryMenuElementModel(c, null));
+            }
         }
 
         public string CategoryName { get; private set; }

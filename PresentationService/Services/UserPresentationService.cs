@@ -24,18 +24,9 @@ namespace PresentationService.Services
         public CookieModel LoadCookieModel(string email)
         {
             var user = userDomainService.LoadByEmail(email);
-
             if (user != null)
             {
-                var model = new CookieModel
-                    {
-                        Email = user.Email,
-                        FirstName = user.FirstName,
-                        LastName = user.LastName,
-                        Role = user.Role
-                    };
-
-                return model;
+                return new CookieModel(user);
             }
 
             return null;

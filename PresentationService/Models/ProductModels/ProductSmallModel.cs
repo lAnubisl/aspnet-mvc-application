@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using DomainService.DomainModels;
 using PresentationService.Properties;
 
 namespace PresentationService.Models.ProductModels
@@ -10,11 +11,16 @@ namespace PresentationService.Models.ProductModels
     {
         private string productImage;
 
-        public ProductSmallModel(long productId, float productPrice, string productName)
+        public ProductSmallModel(Product product)
         {
-            ProductName = productName;
-            ProductPrice = productPrice;
-            ProductId = productId;
+            if (product == null)
+            {
+                throw new ArgumentNullException("product");
+            }
+
+            ProductName = product.Name;
+            ProductPrice = product.Price;
+            ProductId = product.Id;
         }
 
         public string ProductImage

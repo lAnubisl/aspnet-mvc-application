@@ -128,6 +128,10 @@
     <Compile Include="ValidationAttributes\WordsCountAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Anubis.Utils\Anubis.Utils.csproj">
+      <Project>{dafe9ada-476e-415c-a6f2-8a797b3c4e52}</Project>
+      <Name>Anubis.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DomainService\DomainService.csproj">
       <Project>{794F3B04-7D46-4F1A-A497-20AF9A9C31AB}</Project>
       <Name>DomainService</Name>
