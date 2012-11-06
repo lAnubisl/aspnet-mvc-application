@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MVC.DB.publish.xml" />
+    <None Include="MVC_1.DB.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="dbo\Script.PostDeployment.sql" />

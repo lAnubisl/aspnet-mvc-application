@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using DomainService.DomainModels;
 using PresentationService.Properties;
 
 namespace PresentationService.Models.ProductModels
@@ -11,12 +12,17 @@ namespace PresentationService.Models.ProductModels
     {
         private IEnumerable<string> productImages;
 
-        public ViewProductModel(long productId, string productName, float productPrice, string productDescription)
+        public ViewProductModel(Product product)
         {
-            ProductDescription = productDescription;
-            ProductPrice = productPrice;
-            ProductName = productName;
-            ProductId = productId;
+            if (product == null)
+            {
+                throw new ArgumentNullException("product");
+            }
+
+            ProductDescription = product.Description;
+            ProductPrice = product.Price;
+            ProductName = product.Name;
+            ProductId = product.Id;
         }
 
         public long ProductId { get; private set; }

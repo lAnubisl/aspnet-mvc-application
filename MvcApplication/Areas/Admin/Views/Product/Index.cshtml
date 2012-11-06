@@ -1,18 +1,19 @@
 ﻿@model PresentationService.Models.AdminModels.ProductModels.ProductIndexModel
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    var isOddRow = false;
 }
-<table class="productsTable">
-    <thead>
-        <td></td>
-        <td class="lastHeaderColumn" onclick="javascript:location.href='@Url.Action("Add", "Product")'"></td>
-    </thead>
+
+<div class="section-title">
+    <h1 class="title">Список <span>продуктов</span></h1>
+</div>
+
+<a href="@Url.Action("Add")" class="button medium grey">Добавить</a>
+<table class="categories-table">
     @if (Model.Products != null)
     {
-        foreach (var product in Model.Products)
+        foreach (var category in Model.Products)
         {
-            @Html.DisplayFor(m => product,  new { isOddRow = (isOddRow = !isOddRow) })
+            @Html.DisplayFor(m => category, new { isOddRow = true, leftPadding = 10 })
         }
     }
 </table>

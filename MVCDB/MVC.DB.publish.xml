@@ -2,9 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
-    <TargetDatabaseName>MVC</TargetDatabaseName>
+    <TargetDatabaseName>db053562fc9c1a47fa9809a0ef008a67b1</TargetDatabaseName>
     <DeployScriptFileName>MVC.DB.sql</DeployScriptFileName>
-    <TargetConnectionString>Data Source=LOCALHOST\SQLEXPRESS;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <TargetConnectionString>Data Source=053562fc-9c1a-47fa-9809-a0ef008a67b1.sqlserver.sequelizer.com;Persist Security Info=True;User ID=rqsfdwbtohappmjo;Pooling=False</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
 </Project>

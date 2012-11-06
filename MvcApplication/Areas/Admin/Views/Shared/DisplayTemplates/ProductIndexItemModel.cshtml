@@ -2,7 +2,6 @@
 @{
     Layout = null;
 }
-<tr style="@(ViewBag.isOddRow ? "background-color: #ECECC5;" : string.Empty) font-size: 14px;">
-    <td style="padding-left: @(ViewBag.leftPadding)px">@Model.ProductName</td>
-    <td class="lastColumn" onclick="javascript:location.href = '@Url.Action("Edit", "Product", new { id = Model.ProductId })'">&nbsp;</td>
+<tr class="@(ViewBag.isOddRow ? "odd" : "even")">
+    <td onclick="javascript:location.href = '@Url.Action("Edit", "Product", new { id = Model.ProductId })';" style="padding-left: @(ViewBag.leftPadding)px">@Model.ProductName</td>
 </tr>

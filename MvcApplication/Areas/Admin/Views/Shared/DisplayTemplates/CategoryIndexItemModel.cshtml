@@ -2,9 +2,8 @@
 @{
     Layout = null;
 }
-<tr style="@(ViewBag.isOddRow ? "background-color: #ECECC5;" : string.Empty) font-size: 14px;">
-    <td style="padding-left: @(ViewBag.leftPadding)px">@Model.CategoryName</td>
-    <td class="lastColumn" onclick="javascript:location.href = '@Url.Action("Edit", "Category", new { id = Model.CategoryId })'">&nbsp;</td>
+<tr class="@(ViewBag.isOddRow ? "odd" : "even")">
+    <td onclick="javascript:location.href = '@Url.Action("Edit", "Category", new { id = Model.CategoryId })';" style="padding-left: @(ViewBag.leftPadding)px">@Model.CategoryName</td>
 </tr>
 @if(Model.Subcategories != null)
 {

@@ -14,9 +14,12 @@ namespace PresentationService.Services
         public ViewProductModel LoadViewProductModel(long productId)
         {
             var product = ProductDomainService.Load(productId);
-            return product != null 
-                ? new ViewProductModel(product.Id, product.Name, product.Price, product.Description) 
-                : null;
+            if (product != null)
+            {
+                return new ViewProductModel(product);
+            }
+
+            return null;
         }
 
         public TopProductsModel LoadTopProductsModel(long count, DateTime startDate, DateTime endDate)

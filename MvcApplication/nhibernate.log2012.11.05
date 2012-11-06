@@ -1,0 +1,110 @@
+2012-11-05 17:22:43,788 INFO NHibernate 3.3.1.4000 (3.3.1.4000)
+2012-11-05 17:22:43,793 INFO hibernate-configuration section not found in application configuration file
+2012-11-05 17:22:43,794 INFO Bytecode provider name : lcg
+2012-11-05 17:22:43,794 INFO Using reflection optimizer
+2012-11-05 17:22:44,097 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,135 INFO Mapping class: DomainService.DomainModels.Category -> Category
+2012-11-05 17:22:44,185 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,185 INFO Mapping class: DomainService.DomainModels.Consignment -> Consignment
+2012-11-05 17:22:44,193 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,193 INFO Mapping class: DomainService.DomainModels.IncomingProduct -> IncomingProduct
+2012-11-05 17:22:44,194 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,195 INFO Mapping class: DomainService.DomainModels.OrderItem -> OrderItem
+2012-11-05 17:22:44,195 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,196 INFO Mapping class: DomainService.DomainModels.Order -> Order
+2012-11-05 17:22:44,207 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,207 INFO Mapping class: DomainService.DomainModels.Product -> Product
+2012-11-05 17:22:44,210 INFO Mapping joined-subclass: DomainService.DomainModels.AvailableProduct -> AvailableProduct
+2012-11-05 17:22:44,211 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,212 INFO Mapping class: DomainService.DomainModels.User -> User
+2012-11-05 17:22:44,212 INFO Mapping joined-subclass: DomainService.DomainModels.RegisteredUser -> RegisteredUser
+2012-11-05 17:22:44,213 INFO checking mappings queue
+2012-11-05 17:22:44,213 INFO processing one-to-many association mappings
+2012-11-05 17:22:44,215 INFO mapping collection: DomainService.DomainModels.Category.ChildCategories -> Category
+2012-11-05 17:22:44,217 INFO mapping collection: DomainService.DomainModels.Consignment.IncomingProducts -> IncomingProduct
+2012-11-05 17:22:44,217 INFO mapping collection: DomainService.DomainModels.Order.OrderItems -> OrderItem
+2012-11-05 17:22:44,217 INFO processing one-to-one association property references
+2012-11-05 17:22:44,217 INFO processing foreign key constraints
+2012-11-05 17:22:44,219 INFO processing filters (second pass)
+2012-11-05 17:22:44,234 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,236 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:22:44,274 INFO Using dialect defined converter
+2012-11-05 17:22:44,275 INFO Generate SQL with comments: disabled
+2012-11-05 17:22:44,275 INFO Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2012-11-05 17:22:44,276 INFO Configuring ConnectionProvider
+2012-11-05 17:22:44,276 INFO Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+2012-11-05 17:22:44,277 INFO Optimize cache for minimal puts: False
+2012-11-05 17:22:44,277 INFO Connection release mode: auto
+2012-11-05 17:22:44,277 INFO Default schema: dbo
+2012-11-05 17:22:44,277 INFO Default batch fetch size: 1
+2012-11-05 17:22:44,277 INFO echoing all SQL to stdout
+2012-11-05 17:22:44,277 INFO Statistics: disabled
+2012-11-05 17:22:44,277 INFO Deleted entity synthetic identifier rollback: disabled
+2012-11-05 17:22:44,278 INFO Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+2012-11-05 17:22:44,279 INFO Query language substitutions: {'true'='1', 'false'='0', 'yes'=''Y'', 'no'=''N''}
+2012-11-05 17:22:44,279 INFO cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2012-11-05 17:22:44,280 INFO Order SQL inserts for batching: enabled
+2012-11-05 17:22:44,280 INFO Batcher factory: NHibernate.AdoNet.SqlClientBatchingBatcherFactory, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2012-11-05 17:22:44,280 INFO Using Isolation Level: ReadCommitted
+2012-11-05 17:22:44,281 INFO Default entity-mode: Poco
+2012-11-05 17:22:44,281 INFO Named query checking : enabled
+2012-11-05 17:22:44,289 INFO building session factory
+2012-11-05 17:22:44,789 INFO no name configured
+2012-11-05 17:22:45,063 INFO select TOP (@p0)  availablep0_.ProductId as ProductId5_, availablep0_1_.Name as Name5_, availablep0_1_.Description as Descript3_5_, availablep0_1_.Price as Price5_, availablep0_1_.CategoryId as CategoryId5_, availablep0_1_.UserId as UserId5_, availablep0_.Count as Count6_ from dbo.[AvailableProduct] availablep0_ inner join dbo.[Product] availablep0_1_ on availablep0_.ProductId=availablep0_1_.ProductId
+2012-11-05 17:22:46,249 INFO handling property dereference [DomainService.DomainModels.Category (c) -> ParentCategory (Class)]
+2012-11-05 17:22:46,258 INFO select category0_.CategoryId as CategoryId0_, category0_.Name as Name0_, category0_.Description as Descript3_0_, category0_.ParentCategoryId as ParentCa4_0_ from dbo.[Category] category0_ where category0_.ParentCategoryId is null
+2012-11-05 17:26:49,412 INFO NHibernate 3.3.1.4000 (3.3.1.4000)
+2012-11-05 17:26:49,418 INFO hibernate-configuration section not found in application configuration file
+2012-11-05 17:26:49,419 INFO Bytecode provider name : lcg
+2012-11-05 17:26:49,419 INFO Using reflection optimizer
+2012-11-05 17:26:49,707 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,752 INFO Mapping class: DomainService.DomainModels.Category -> Category
+2012-11-05 17:26:49,809 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,810 INFO Mapping class: DomainService.DomainModels.Consignment -> Consignment
+2012-11-05 17:26:49,821 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,821 INFO Mapping class: DomainService.DomainModels.IncomingProduct -> IncomingProduct
+2012-11-05 17:26:49,834 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,834 INFO Mapping class: DomainService.DomainModels.OrderItem -> OrderItem
+2012-11-05 17:26:49,845 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,845 INFO Mapping class: DomainService.DomainModels.Order -> Order
+2012-11-05 17:26:49,865 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,866 INFO Mapping class: DomainService.DomainModels.Product -> Product
+2012-11-05 17:26:49,870 INFO Mapping joined-subclass: DomainService.DomainModels.AvailableProduct -> AvailableProduct
+2012-11-05 17:26:49,882 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,883 INFO Mapping class: DomainService.DomainModels.User -> User
+2012-11-05 17:26:49,883 INFO Mapping joined-subclass: DomainService.DomainModels.RegisteredUser -> RegisteredUser
+2012-11-05 17:26:49,885 INFO checking mappings queue
+2012-11-05 17:26:49,885 INFO processing one-to-many association mappings
+2012-11-05 17:26:49,886 INFO mapping collection: DomainService.DomainModels.Category.ChildCategories -> Category
+2012-11-05 17:26:49,889 INFO mapping collection: DomainService.DomainModels.Consignment.IncomingProducts -> IncomingProduct
+2012-11-05 17:26:49,889 INFO mapping collection: DomainService.DomainModels.Order.OrderItems -> OrderItem
+2012-11-05 17:26:49,889 INFO processing one-to-one association property references
+2012-11-05 17:26:49,889 INFO processing foreign key constraints
+2012-11-05 17:26:49,892 INFO processing filters (second pass)
+2012-11-05 17:26:49,908 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,910 INFO Using dialect: NHibernate.Dialect.MsSql2008Dialect
+2012-11-05 17:26:49,930 INFO Using dialect defined converter
+2012-11-05 17:26:49,931 INFO Generate SQL with comments: disabled
+2012-11-05 17:26:49,931 INFO Initializing connection provider: NHibernate.Connection.DriverConnectionProvider
+2012-11-05 17:26:49,932 INFO Configuring ConnectionProvider
+2012-11-05 17:26:49,933 INFO Transaction factory: NHibernate.Transaction.AdoNetWithDistributedTransactionFactory
+2012-11-05 17:26:49,933 INFO Optimize cache for minimal puts: False
+2012-11-05 17:26:49,933 INFO Connection release mode: auto
+2012-11-05 17:26:49,933 INFO Default schema: dbo
+2012-11-05 17:26:49,933 INFO Default batch fetch size: 1
+2012-11-05 17:26:49,933 INFO echoing all SQL to stdout
+2012-11-05 17:26:49,933 INFO Statistics: disabled
+2012-11-05 17:26:49,934 INFO Deleted entity synthetic identifier rollback: disabled
+2012-11-05 17:26:49,934 INFO Query translator: NHibernate.Hql.Ast.ANTLR.ASTQueryTranslatorFactory
+2012-11-05 17:26:49,935 INFO Query language substitutions: {'true'='1', 'false'='0', 'yes'=''Y'', 'no'=''N''}
+2012-11-05 17:26:49,936 INFO cache provider: NHibernate.Cache.NoCacheProvider, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2012-11-05 17:26:49,936 INFO Order SQL inserts for batching: enabled
+2012-11-05 17:26:49,937 INFO Batcher factory: NHibernate.AdoNet.SqlClientBatchingBatcherFactory, NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+2012-11-05 17:26:49,937 INFO Using Isolation Level: ReadCommitted
+2012-11-05 17:26:49,937 INFO Default entity-mode: Poco
+2012-11-05 17:26:49,937 INFO Named query checking : enabled
+2012-11-05 17:26:49,948 INFO building session factory
+2012-11-05 17:26:50,419 INFO no name configured
+2012-11-05 17:26:50,800 INFO select TOP (@p0)  availablep0_.ProductId as ProductId5_, availablep0_1_.Name as Name5_, availablep0_1_.Description as Descript3_5_, availablep0_1_.Price as Price5_, availablep0_1_.CategoryId as CategoryId5_, availablep0_1_.UserId as UserId5_, availablep0_.Count as Count6_ from dbo.[AvailableProduct] availablep0_ inner join dbo.[Product] availablep0_1_ on availablep0_.ProductId=availablep0_1_.ProductId
+2012-11-05 17:26:51,186 INFO handling property dereference [DomainService.DomainModels.Category (c) -> ParentCategory (Class)]
+2012-11-05 17:26:51,195 INFO select category0_.CategoryId as CategoryId0_, category0_.Name as Name0_, category0_.Description as Descript3_0_, category0_.ParentCategoryId as ParentCa4_0_ from dbo.[Category] category0_ where category0_.ParentCategoryId is null

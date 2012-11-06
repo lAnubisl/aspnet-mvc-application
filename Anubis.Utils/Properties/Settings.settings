@@ -6,7 +6,7 @@
       <Value Profile="(Default)">postmaster@app9076.mailgun.org</Value>
     </Setting>
     <Setting Name="SmtpPassword" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">2d8mnevsgyp8</Value>
+      <Value Profile="(Default)">883v1zdwrhm8</Value>
     </Setting>
     <Setting Name="SmtpPort" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">25</Value>

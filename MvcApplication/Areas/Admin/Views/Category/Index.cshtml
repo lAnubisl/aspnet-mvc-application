@@ -2,16 +2,18 @@
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<table class="categoriesTable">
-    <thead>
-        <td></td>
-        <td class="lastHeaderColumn" onclick="javascript:location.href='@Url.Action("Add", "Category")'"></td>
-    </thead>
+
+<div class="section-title">
+    <h1 class="title">Список <span>категорий</span></h1>
+</div>
+
+<a href="@Url.Action("Add")" class="button medium grey">Добавить</a>
+<table class="categories-table">
     @if (Model.Categories != null)
     {
         foreach (var category in Model.Categories)
         {
-            @Html.DisplayFor(m => category, new { isOddRow = true, leftPadding = 0 })
+            @Html.DisplayFor(m => category, new { isOddRow = true, leftPadding = 10 })
         }
     }
 </table>

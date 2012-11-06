@@ -34,7 +34,7 @@ namespace Anubis.Utils.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2d8mnevsgyp8")]
+        [global::System.Configuration.DefaultSettingValueAttribute("883v1zdwrhm8")]
         public string SmtpPassword {
             get {
                 return ((string)(this["SmtpPassword"]));

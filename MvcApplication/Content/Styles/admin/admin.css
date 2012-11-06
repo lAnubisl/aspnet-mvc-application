@@ -1,0 +1,11 @@
+﻿.categories-table { width: 100% }
+.categories-table tr { font-family: 'Oswald', sans-serif; font-size: 18px; }
+.categories-table tr.odd { background-color: #EEEEEE; }
+.categories-table tr td { padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #999999 }
+.categories-table tr:last-child td { border: none; }
+.categories-table tr td:hover { cursor: pointer; background-color:  #CCCCCC }
+
+select { width: 400px; }
+input[type="text"] { width: 388px; }
+form p { margin-bottom: 0px;margin-top: 14px;}
+a.button { float: right;margin-right: 0px;margin-left: 10px;margin-top: 5px;}
