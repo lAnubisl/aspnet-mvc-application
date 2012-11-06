@@ -1,31 +1,53 @@
 ﻿@model PresentationService.Models.HomeModels.HomeIndexModel
-           
-<div class="about">
-    Добро пожаловать<br />
-    <p>
-        Illum secundum exerci erat plaga illum, enim, venio. Tamen causa ut diam torqueo
-        sagaciter inhibeo si quae exerci lobortis. Appellatio vel hos autem, ludus luptatum
-        mauris ratis jugis interdico. Gilvus consequat abico demoveo lenis validus typicus
-        ut commodo. Consequat, eu voco cui eros, euismod quis illum, commodo. Nibh valde
-        tincidunt ex quae ratis meus neo aliquam. Appellatio vel hos autem, ludus luptatum
-        mauris ratis jugis interdico. Gilvus consequat abico demoveo lenis validus typicus
-        ut commodo. Consequat, eu voco cui eros, euismod quis illum, commodo. Nibh valde
-        tincidunt ex quae ratis meus neo aliquam.
-    </p>
-    <a href="#">more info</a>
+<div class="section-title text-align-center">
+    <h1 class="title">Hello and welcome, we are Brankic1979, one of <a href="http://themeforest.net">ThemeForest's</a> top authors.</h1>
+    <p>We like to make things for web, in fact we are little bit too obsessed.</p>
 </div>
-<div class="news">
-    Объявление<br />
-    <p>
-        Illum secundum exerci erat plaga illum, enim, venio. Tamen causa ut diam torqueo
-        sagaciter inhibeo si quae exerci lobortis. Appellatio vel hos autem, ludus luptatum
-        mauris ratis jugis interdico. Gilvus consequat abico demoveo lenis validus typicus
-        ut commodo. Consequat, eu voco cui eros, euismod quis illum, commodo.
-    </p>
+
+<div class="slideshow-container">
+    <div class="flexslider" id="index-slider">
+        <ul class="slides">
+            <li>
+                <a href="#">
+                    <img src="/Content/images/slider1.jpg" alt="" />
+                </a>
+                <p class="flex-caption">This is a place for a brief description.</p>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/Content/images/slider2.jpg" alt="" />
+                </a>
+                <p class="flex-caption">Here we go again, history repeating!</p>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/Content/images/slider3.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/Content/images/slider4.jpg" alt="" />
+                </a>
+                <p class="flex-caption">Promise I'll stop...one day.</p>
+            </li>
+        </ul>
+    </div>
 </div>
-<div id="items">
-    @foreach(var product in Model.TopProducts)
-    {
-        @Html.DisplayFor(m => product)
-    }
+<div class="filterable">
+    <ul id="portfolio-nav">
+        <li class="current"><a href="#" data-filter="*">All</a><span>/</span></li>
+        <li><a data-filter=".web" href="#">Web design</a><span>/</span></li>
+        <li><a data-filter=".logo-design" href="#">Logo</a><span>/</span></li>
+        <li><a data-filter=".branding" href="#branding">Branding</a><span>/</span></li>
+        <li><a data-filter=".video" href="#">Video</a><span>/</span></li>
+        <li><a data-filter=".video" href="#">Photography</a></li>
+    </ul>
+</div>
+<div class="portfolio-grid">
+    <ul id="thumbs">
+        @foreach (var product in Model.TopProducts)
+        {
+            @Html.DisplayFor(m => product)
+        }
+    </ul>
 </div>

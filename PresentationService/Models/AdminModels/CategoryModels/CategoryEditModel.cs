@@ -25,13 +25,13 @@ namespace PresentationService.Models.AdminModels.CategoryModels
             CategoryId = category.Id;
             CategoryName = category.Name;
             CategoryDescription = category.Description;
-            ParentCategories = parentCategories.Select(c => new CategorySelectListItemModel(c.Name, c.Id));
+            ParentCategories = parentCategories.Select(c => new CategorySelectListItemModel(c));
         }
 
         [DisplayName("Название"), CommonRequired, CommonStringLength(50), CategoryShouldHaveUniqueName]
         public string CategoryName { get; set; }
 
-        [DisplayName("Описание"), CommonRequired]
+        [DisplayName("Описание")]
         public string CategoryDescription { get; set; }
 
         public long CategoryId { get; set; }

@@ -17,7 +17,7 @@ namespace PresentationService.Models.CategoryModels.Items
             CategoryId = category.Id;
             CategoryName = category.Name;
 
-            if(childCategories != null)
+            if (childCategories != null)
             {
                 Subcategories = childCategories.Select(c => new CategoryMenuElementModel(c, null));
             }

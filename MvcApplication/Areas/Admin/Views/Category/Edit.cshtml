@@ -1,31 +1,25 @@
 ﻿@model PresentationService.Models.AdminModels.CategoryModels.CategoryEditModel
-           
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-}
-
-@section head
-{
-    <script src="@Url.Content("~/Content/ckeditor/ckeditor.js")" type="text/javascript" ></script>
 }
 
 @{Html.BeginForm(Model.CategoryId == default(long) ? "Add" : "Edit", "Category");}
 @Html.HiddenFor(m => m.CategoryId)
 <div>
-    <div>@Html.LabelFor(m => m.ParentCategoryId)</div>
+    <p><strong>@Html.LabelFor(m => m.ParentCategoryId)</strong> <em>(*)</em></p>
     @Html.DropDownListFor(m => m.ParentCategoryId, new SelectList(Model.ParentCategories, "CategoryId", "CategoryName"), "Нету категории")
     @Html.ValidationMessageFor(m => m.ParentCategoryId)
 </div>
+
 <div>
-    <div>@Html.LabelFor(m => m.CategoryName)</div>
+    <p><strong>@Html.LabelFor(m => m.CategoryName)</strong> <em>(*)</em></p>
     @Html.TextBoxFor(m => m.CategoryName)
     @Html.ValidationMessageFor(m => m.CategoryName)
 </div>
+<p><strong>@Html.LabelFor(m => m.CategoryDescription)</strong></p>
+@Html.TextAreaFor(m => m.CategoryDescription, new { @class = "ckeditor" })
 <div>
-    @Html.LabelFor(m => m.CategoryDescription)
-    @Html.TextAreaFor(m => m.CategoryDescription, new { @class = "ckeditor" })
-</div>
-<div>
-    <input type="submit"/>
+    <a href="#" onclick="$('form').submit();" class="button medium grey">Сохранить</a>
+    <a href="#" class="button medium grey">Удалить</a>
 </div>
 @{Html.EndForm();}

@@ -3,11 +3,20 @@
 @{
     var images = PresentationService.Properties.Settings.Default.ProductImagesPath;
     var big = PresentationService.Properties.Settings.Default.ProductImagesBigPostfix;
+    var productImageUrl = Url.Content(string.Format("~{0}/{1}", images + big, Model.ProductImage));
 }
-<div class="item">
-    <a href="@Url.Action("View", "Product", new { id = Model.ProductId })"><img src="@Url.Content(string.Format("~{0}/{1}", images + big, Model.ProductImage))" alt="@Model.ProductName" title="@Model.ProductName" height="173" /></a>
-    <br />
-    <span>$@Model.ProductPrice</span>
-    @Html.ActionLink("Подробно", "View", "Product", new { id = Model.ProductId }, new { @class="view", alt = Model.ProductName, title = Model.ProductName})
-    <a href="#" class="buy">Купить</a>
-</div>
+
+<li class="col4 item web">
+    <img src="@productImageUrl" alt="@Model.ProductName" title="@Model.ProductName" />
+    <div class="col4 item-info">
+        <h3 class="title"><a href="@Url.Action("View", "Product", new { id = Model.ProductId })">@Model.ProductName</a></h3>
+    </div>
+    <div class="item-info-overlay">
+        <div>
+            <h4>Web design</h4>
+            <p>Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae vitae explicabo.</p>
+            <a href="@Url.Action("View", "Product", new { id = Model.ProductId })" class="view">details</a>
+            <a href="@productImageUrl" class="preview" data-rel="prettyPhoto[web]">preview</a>
+        </div>
+    </div>
+</li>
