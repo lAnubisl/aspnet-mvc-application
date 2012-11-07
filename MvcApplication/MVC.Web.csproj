@@ -577,6 +577,7 @@
     <Content Include="Content\Styles\prettyPhoto.css" />
     <Content Include="Content\Styles\socialize-bookmarks.css" />
     <Content Include="Content\Styles\style.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

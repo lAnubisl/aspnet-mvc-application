@@ -103,7 +103,7 @@ namespace MVCApplication
             try
             {
                 var exception = HttpContext.Current.Server.GetLastError();
-                if (!(exception is MethodAccessException))
+                if (exception.Message != "File does not exist.")
                 {
                     Logger.Error("Error at application from " + Request.ServerVariables["REMOTE_ADDR"], HttpContext.Current.Server.GetLastError());
                 }

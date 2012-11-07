@@ -30,6 +30,11 @@ namespace PresentationService.Models.ProductModels
                 if (productImage == null && ProductId != default(long))
                 {
                     var dir = new DirectoryInfo(string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", AppDomain.CurrentDomain.BaseDirectory, Settings.Default.ProductImagesPath, Settings.Default.ProductImagesBigPostfix));
+                    if (!dir.Exists)
+                    {
+                        dir.Create();
+                    }
+
                     var images = dir.GetFiles(string.Format(CultureInfo.InvariantCulture, "{0}_*.jpg", ProductId));
                     productImage = images.Select(image => image.Name).FirstOrDefault();
                 }

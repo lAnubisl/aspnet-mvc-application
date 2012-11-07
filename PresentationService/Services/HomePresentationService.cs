@@ -1,5 +1,4 @@
 ﻿using System;
-using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
 using PresentationService.Interfaces;
 using PresentationService.Models.HomeModels;
