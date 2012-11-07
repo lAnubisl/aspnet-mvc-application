@@ -6,6 +6,7 @@
 }
 
 <h2>Authentication page</h2>
+
 @if (MVCApplication.MvcApplication.LoggedInUser == null)
 {
     <p>
@@ -23,7 +24,7 @@
         You logined as @Html.Raw(Html.Encode(MVCApplication.MvcApplication.LoggedInUser.FullName))
     </p>
     
-    @Html.ActionLink("Log Out", "LogOut", "User");
+    @Html.ActionLink("Log Out", "LogOff", "User");
 }
 
     <script type="text/javascript">
