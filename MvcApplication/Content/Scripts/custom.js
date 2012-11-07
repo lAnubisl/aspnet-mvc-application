@@ -1,8 +1,8 @@
-jQuery(document).ready(function($) { 
-var color = "blue"; // tealgreen, green, red, pink, purple, orange, navyblue, magenta, cream, blue, yellow
-var css_url = "/Content/Styles/colors/color-" + color + ".css";
-$('head').append('<link rel="stylesheet" href="' + css_url + '" type="text/css" />');
-})
+jQuery(document).ready(function($) {
+    var color = "orange"; // tealgreen, green, red, pink, purple, orange, navyblue, magenta, cream, blue, yellow
+    var css_url = "/Content/Styles/colors/color-" + color + ".css";
+    $('head').append('<link rel="stylesheet" href="' + css_url + '" type="text/css" />');
+});
 
 
 
@@ -141,37 +141,27 @@ jQuery(document).ready(function($){
 		return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom)
 		  && (elemBottom <= docViewBottom) &&  (elemTop >= docViewTop) );
 	}
-
-	
 	
 	function sliding_horizontal_graph(id, speed){
-		//alert(id);
-		$("#" + id + " li span").each(function(i){
-			var j = i + 1; 										  
-			var cur_li = $("#" + id + " li:nth-child(" + j + ") span");
-			var w = cur_li.attr("class");
-			cur_li.animate({width: w + "%"}, speed);
-		})
+	    $("#" + id + " li span").each(function(i) {
+	        var j = i + 1;
+	        var cur_li = $("#" + id + " li:nth-child(" + j + ") span");
+	        var w = cur_li.attr("class");
+	        cur_li.animate({ width: w + "%" }, speed);
+	    });
 	}
 	
 	function graph_init(id, speed){
-		$(window).scroll(function(){
-			if (isScrolledIntoView(id)){
-				sliding_horizontal_graph(id, speed);
-			}
-			else{
-				//$("#" + id + " li span").css("width", "0");
-			}
-		})
-		
+	    $(window).scroll(function() {
+	        if (isScrolledIntoView(id)) {
+	            sliding_horizontal_graph(id, speed);
+	        }
+	    });	
 		if (isScrolledIntoView(id)){
 			sliding_horizontal_graph(id, speed);
 		}
 	}
-	
 	graph_init("example-1", 1000);
-	
-
 });
 
 /*--------------------------------------------------
@@ -199,40 +189,40 @@ jQuery(document).ready(function($){
 })(jQuery);
 
 jQuery(document).ready(function($) {
-	$('.grid').bra_last_last_row();
-	//$(window).resize(function() {
-		//$('.grid').bra_last_last_row();
-	//});
-})
+    $('.grid').bra_last_last_row();
+});
 
 /***************************************************
 	  SELECT MENU ON SMALL DEVICES
 ***************************************************/
-jQuery(document).ready(function($){
-								
-	var $menu_select = $("<select />");	
-	$("<option />", {"selected": "selected", "value": "", "text": "Site Navigation"}).appendTo($menu_select);
-	$menu_select.appendTo("#primary-menu");
-	
-	$("#primary-menu ul li a").each(function(){
-		var menu_url = $(this).attr("href");
-		var menu_text = $(this).text();
+jQuery(document).ready(function($) {
 
-		if ($(this).parents("li").length == 2) { menu_text = '- ' + menu_text; }
-		if ($(this).parents("li").length == 3) { menu_text = "-- " + menu_text; }
-		if ($(this).parents("li").length > 3) { menu_text = "--- " + menu_text; }
-		$("<option />", {"value": menu_url, "text": menu_text}).appendTo($menu_select)
-	})
-	
-	field_id = "#primary-menu select";
-	$(field_id).change(function()
-	{
-	   value = $(this).attr('value');
-	   window.location = value;
-		//go
-		
-	});
-})
+    var $menu_select = $("<select />");
+    $("<option />", { "selected": "selected", "value": "", "text": "Site Navigation" }).appendTo($menu_select);
+    $menu_select.appendTo("#primary-menu");
+
+    $("#primary-menu ul li a").each(function() {
+        var menu_url = $(this).attr("href");
+        var menu_text = $(this).text();
+
+        if ($(this).parents("li").length == 2) {
+            menu_text = '- ' + menu_text;
+        }
+        if ($(this).parents("li").length == 3) {
+            menu_text = "-- " + menu_text;
+        }
+        if ($(this).parents("li").length > 3) {
+            menu_text = "--- " + menu_text;
+        }
+        $("<option />", { "value": menu_url, "text": menu_text }).appendTo($menu_select)
+    });
+
+    field_id = "#primary-menu select";
+    $(field_id).change(function() {
+        value = $(this).attr('value');
+        window.location = value;
+    });
+});
 
 
 /***************************************************
