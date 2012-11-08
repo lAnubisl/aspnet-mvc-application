@@ -74,6 +74,13 @@ namespace MVCApplication.Controllers
                     RegisterAuthCookie(cookieModel.FullName, cookieModel.Email, cookieModel.Role);
                 }
 
+                if (Request.Cookies[ReturnUrlToken] != null)
+                {
+                    var returnUrl = Request.Cookies[ReturnUrlToken].Value;
+                    Request.Cookies.Remove(ReturnUrlToken);
+                    return Redirect(returnUrl);
+                }
+
                 return RedirectToAction("Index", "Home");
             }
 

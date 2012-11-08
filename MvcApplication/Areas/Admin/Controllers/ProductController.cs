@@ -54,33 +54,48 @@ namespace MVCApplication.Areas.Admin.Controllers
             return View("Edit", model);
         }
 
-        [HttpPost]
-        public JsonResult UploadImage(HttpPostedFileBase qqfile)
+        [HttpGet]
+        public ActionResult UploadImage()
         {
-            try
-                {
-                var fileStream = Request.InputStream;
+            return View("UploadImage");
+        }
 
-                if (qqfile != null)
-                {
-                    ////Internet explorer
-                    fileStream = qqfile.InputStream;
-                }   
-
-                var fileName = productPresentationService.SaveUploadedImage(fileStream);
-                var result = new
-                    {
-                        filename = fileName,
-                        image = Url.Content(ProductImageHelper.ProductTempImage(fileName, ImageSize.Big)),
-                        thumb = Url.Content(ProductImageHelper.ProductTempImage(fileName, ImageSize.Small)),
-                        success = true,
-                    };
-                return Json(result, "text/html");
-            }
-            catch (Exception ex)
+        [HttpPost]
+        public ActionResult UploadImage(HttpPostedFileBase qqfile)
+        {
+            if (qqfile != null)
             {
-                return Json(new { success = false, message = ex.Message }, "text/html");
+                if (qqfile.ContentType == "image/jpeg")
+                {
+                    if (qqfile.ContentLength < 1 * 1024 * 1024)
+                    {
+                        var fileName = productPresentationService.SaveUploadedImage(qqfile.InputStream);
+
+                        ViewBag.Result = new
+                        {
+                            filename = fileName,
+                            image = Url.Content(ProductImageHelper.ProductTempImage(fileName, ImageSize.Big)),
+                            thumb = Url.Content(ProductImageHelper.ProductTempImage(fileName, ImageSize.Small)),
+                        };
+                    } 
+                    else
+                    {
+                        ModelState.AddModelError("qqFile", "Вы можете загружать только файлы размером не больше 1Мб.");
+                    }
+            
+                } 
+                else 
+                {
+                    ModelState.AddModelError("qqFile", "Вы можете загружать только JPEG файлы.");
+                }
+
+            } 
+            else 
+            {
+                ModelState.AddModelError("qqFile", "Вы не загрузили файл.");
             }
+
+            return View("UploadImage");
         }
 
         [HttpPost]

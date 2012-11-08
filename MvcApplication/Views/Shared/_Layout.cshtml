@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
@@ -97,6 +97,12 @@
                                     <li><a href="contact2.html">Fullwidth map / popup box</a></li>
                                 </ul>
                             </li>
+                            @if (MVCApplication.MvcApplication.LoggedInUser != null)
+                            {
+                                <li>
+                                    <a href="@Url.Action("LogOff", "User")">Выход</a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>

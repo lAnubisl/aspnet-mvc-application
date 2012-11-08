@@ -12,9 +12,11 @@
 
         public virtual string Description { get; set; }
 
+        public virtual bool IsUnlimitedProduct { get; set; }
+
         public override int GetHashCode()
         {
-            return string.Concat(GetType().FullName, Name, Description, CreatedBy, Category).GetHashCode();
+            return string.Concat(GetType().FullName, Name, Description, CreatedBy, Category, IsUnlimitedProduct).GetHashCode();
         }
     }
 }

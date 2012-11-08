@@ -33,6 +33,7 @@ namespace PresentationService.Models.AdminModels.ProductModels
             ProductPrice = product.Price;
             ProductName = product.Name;
             ProductId = product.Id;
+            IsUnlimitedProduct = product.IsUnlimitedProduct;
             AvailableCategories = availableCategories.Select(x => new CategorySelectListItemModel(x));
             if (product.Category != null)
             {
@@ -50,6 +51,9 @@ namespace PresentationService.Models.AdminModels.ProductModels
 
         [DisplayName("Описание"), CommonRequired]
         public string ProductDescription { get; set; }
+
+        [DisplayName("Неограниченное количество")]
+        public bool IsUnlimitedProduct { get; set; }
 
         [DisplayName("Категория")]
         public long CategoryId { get; set; }

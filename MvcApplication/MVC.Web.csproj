@@ -658,6 +658,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Areas\Admin\Views\Consignment\Details.cshtml" />
     <Content Include="Content\Images\prettyPhoto\light_square\.DS_Store" />
+    <Content Include="Areas\Admin\Views\Product\UploadImage.cshtml" />
     <None Include="Properties\PublishProfiles\File System.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
