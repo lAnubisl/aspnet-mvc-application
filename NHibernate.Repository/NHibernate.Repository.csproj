@@ -54,6 +54,7 @@
     <Compile Include="Mapping\AvailableProductMap.cs" />
     <Compile Include="Mapping\CategoryMap.cs" />
     <Compile Include="Mapping\ConsignmentMap.cs" />
+    <Compile Include="Mapping\ImageMap.cs" />
     <Compile Include="Mapping\IncomingProductMap.cs" />
     <Compile Include="Mapping\OrderMap.cs" />
     <Compile Include="Mapping\OrderItemMap.cs" />

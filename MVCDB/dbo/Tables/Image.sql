@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Image]
+(
+	[ImageId] BIGINT NOT NULL  IDENTITY, 
+    [URL] NVARCHAR(512) NULL,
+	CONSTRAINT [PK_Image] PRIMARY KEY CLUSTERED ([ImageId] ASC)
+)
+
+GO

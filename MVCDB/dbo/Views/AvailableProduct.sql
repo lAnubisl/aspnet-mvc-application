@@ -16,7 +16,7 @@ FROM (
 	INNER JOIN dbo.Consignment AS C 
 		ON IP.ConsignmentId = C.ConsignmentId
     WHERE 
-		C.ConsignmentStatusId = 2 
+		P.IsUnlimitedProduct = 1 OR C.ConsignmentStatusId = 2 
 	GROUP BY P.ProductId, p.IsUnlimitedProduct
 	) AS T
 WHERE T.[Count] > 0 OR T.IsUnlimitedProduct = 1

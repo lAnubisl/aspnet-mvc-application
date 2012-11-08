@@ -14,4 +14,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IsUnlimitedProduct" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="00b94d40-82ae-4bf3-9494-bc5f1dcf6612" ChangeDateTime="11/08/2012 13:44:38">
+    <Property Name="ElementName" Value="[dbo].[Image].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Image]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ImageId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b1040ce0-c464-4cbd-b9f1-2e18c4ee3934" ChangeDateTime="11/08/2012 13:46:07">
+    <Property Name="ElementName" Value="[dbo].[ProductToImage].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ProductToImage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProductId" />
+  </Operation>
 </Operations>

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.IO;
 using System.Linq;
 using DomainService.DomainModels;
 using PresentationService.Properties;
@@ -9,8 +7,6 @@ namespace PresentationService.Models.ProductModels
 {
     public class ProductSmallModel
     {
-        private string productImage;
-
         public ProductSmallModel(Product product)
         {
             if (product == null)
@@ -21,27 +17,12 @@ namespace PresentationService.Models.ProductModels
             ProductName = product.Name;
             ProductPrice = product.Price;
             ProductId = product.Id;
+            ProductImage = product.Images != null && product.Images.Any() 
+                ? product.Images.First().URL 
+                : Settings.Default.ProductDefaultImage;
         }
 
-        public string ProductImage
-        {
-            get
-            {
-                if (productImage == null && ProductId != default(long))
-                {
-                    var dir = new DirectoryInfo(string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", AppDomain.CurrentDomain.BaseDirectory, Settings.Default.ProductImagesPath, Settings.Default.ProductImagesBigPostfix));
-                    if (!dir.Exists)
-                    {
-                        dir.Create();
-                    }
-
-                    var images = dir.GetFiles(string.Format(CultureInfo.InvariantCulture, "{0}_*.jpg", ProductId));
-                    productImage = images.Select(image => image.Name).FirstOrDefault();
-                }
-
-                return productImage;
-            }
-        }
+        public string ProductImage { get; private set; }
 
         public long ProductId { get; private set; }
 

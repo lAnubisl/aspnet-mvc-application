@@ -2,6 +2,6 @@
 @{
     Layout = null;
 }
-<tr class="@(ViewBag.isOddRow ? "odd" : "even")">
-    <td onclick="javascript:location.href = '@Url.Action("Edit", "Product", new { id = Model.ProductId })';" style="padding-left: @(ViewBag.leftPadding)px">@Model.ProductName</td>
+<tr class="@(ViewBag.isOddRow ? "odd" : "even")" onclick="javascript:location.href = '@Url.Action("Edit", "Product", new { id = Model.ProductId })';">
+    <td>@Model.ProductName</td>
 </tr>

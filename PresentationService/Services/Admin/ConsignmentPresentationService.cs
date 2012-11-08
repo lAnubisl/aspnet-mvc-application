@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
+using DomainService.Enumerations;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.ConsignmentModels;
 
@@ -28,7 +29,7 @@ namespace PresentationService.Services.Admin
         {
             var consignment = consignmentId != default(long)
                                   ? consignmentDomainService.Load(consignmentId)
-                                  : new Consignment();
+                                  : new Consignment { Status = ConsignmentStatus.Waiting };
 
             if (consignment != null)
             {

@@ -1,13 +1,8 @@
 ﻿@{Layout = null;}
 @model PresentationService.Models.ProductModels.ProductSmallModel
-@{
-    var images = PresentationService.Properties.Settings.Default.ProductImagesPath;
-    var big = PresentationService.Properties.Settings.Default.ProductImagesBigPostfix;
-    var productImageUrl = Url.Content(string.Format("~{0}/{1}", images + big, Model.ProductImage));
-}
 
 <li class="col4 item web">
-    <img src="@productImageUrl" alt="@Model.ProductName" title="@Model.ProductName" />
+    <img src="@Model.ProductImage" alt="@Model.ProductName" title="@Model.ProductName" />
     <div class="col4 item-info">
         <h3 class="title"><a href="@Url.Action("View", "Product", new { id = Model.ProductId })">@Model.ProductName</a></h3>
     </div>
@@ -16,7 +11,7 @@
             <h4>Web design</h4>
             <p>Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae vitae explicabo.</p>
             <a href="@Url.Action("View", "Product", new { id = Model.ProductId })" class="view">details</a>
-            <a href="@productImageUrl" class="preview" data-rel="prettyPhoto[web]">preview</a>
+            <a href="@Model.ProductImage" class="preview" data-rel="prettyPhoto[web]">preview</a>
         </div>
     </div>
 </li>
