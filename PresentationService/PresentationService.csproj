@@ -55,7 +55,6 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\EmailSenderHelper.cs" />
     <Compile Include="Helpers\PasswordHashHelper.cs" />
-    <Compile Include="Helpers\ProductImageHelper.cs" />
     <Compile Include="Helpers\SelectListItemPresenter.cs" />
     <Compile Include="Interfaces\Admin\ICategoryPresentationService.cs" />
     <Compile Include="Interfaces\Admin\IConsignmentPresentationService.cs" />
@@ -79,6 +78,7 @@
     <Compile Include="Models\AdminModels\ProductModels\Items\ProductIndexItemModel.cs" />
     <Compile Include="Models\AdminModels\ProductModels\ProductEditModel.cs" />
     <Compile Include="Models\AdminModels\ProductModels\ProductIndexModel.cs" />
+    <Compile Include="Models\AdminModels\ProductModels\ProductUploadImageModel.cs" />
     <Compile Include="Models\CategoryModels\Items\CategoryMenuElementModel.cs" />
     <Compile Include="Models\CategoryModels\CategoryMenuModel.cs" />
     <Compile Include="Models\CategoryModels\Items\CategoryListElementModel.cs" />

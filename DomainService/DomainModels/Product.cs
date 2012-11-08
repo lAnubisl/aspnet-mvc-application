@@ -1,4 +1,6 @@
-﻿namespace DomainService.DomainModels
+﻿using System.Collections.Generic;
+
+namespace DomainService.DomainModels
 {
     public class Product : DomainObject
     {
@@ -13,6 +15,8 @@
         public virtual string Description { get; set; }
 
         public virtual bool IsUnlimitedProduct { get; set; }
+
+        public virtual IList<Image> Images { get; set; }
 
         public override int GetHashCode()
         {

@@ -1,0 +1,216 @@
+﻿.stbr-dialog {
+    background: none repeat scroll 0 0 transparent;
+    border-radius: 0px;
+    border-width: 0px;
+    display: none;
+    font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+    font-size: 1.1em;
+    height: 200px;
+    height: auto;
+    left: 0px;
+    outline: 0 none;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 0px;
+    z-index: 1002;
+}
+
+.stbr-dialog .leftcorner {
+    background: url("/Content/Images/popupImages/left-corners.png") no-repeat scroll 0 0 transparent;
+    color: #362B36;
+    cursor: auto;
+    opacity: 1;
+    padding-left: 6px;
+}
+
+.stbr-dialog .leftcorner .rightcorner {
+    background: url("/Content/Images/popupImages/right-corners.png") no-repeat scroll right 0 transparent;
+    /* opacity: 1;*/
+    color: #362B36;
+    cursor: auto;
+    padding-right: 6px;
+}
+
+.stbr-dialog .titlebar {
+    background: url("/Content/Images/popupImages/top-bottom.png") repeat-x scroll 0 0 transparent;
+    border-radius: 0 0 0 0;
+    border-width: 0px;
+    color: #15428B;
+    cursor: move;
+    font: bold 11px tahoma, arial, verdana, sans-serif;
+    height: 16px;
+    /* opacity: 1;*/
+    margin: 0;
+    padding: 0.4em 0;
+    position: relative;
+}
+
+.stbr-dialog .titleText {
+    background-position: left top;
+    color: #15428B;
+    cursor: move;
+    float: left;
+    font: bold 11px tahoma, arial, verdana, sans-serif;
+    margin: 0;
+    opacity: 1;
+    padding: 0;
+}
+
+.stbr-dialog a.close {
+    background: url("/Content/Images/popupImages/tool-textclose.gif") no-repeat scroll 0 0 transparent;
+    border-radius: 0px 0px 0px 0px;
+    border-width: 0px;
+    color: #222222;
+    height: 15px;
+    margin: -7px 0 0;
+    outline: medium none;
+    position: absolute;
+    right: 0.1em;
+    top: 50%;
+    width: 43px;
+    /* opacity: 1;*/
+}
+
+.stbr-dialog a.close:hover {
+    background: url("/Content/Images/popupImages/tool-textclose-over.gif") no-repeat scroll 0 0 transparent;
+    color: #0070A3;
+}
+
+.stbr-dialog .wndHolder {
+    /* opacity: 1;*/
+    background: none repeat scroll 0 0 #CBDDF3;
+    border: 0 none;
+    color: #362B36;
+    cursor: auto;
+    height: auto;
+    overflow: hidden;
+    padding: 0px;
+    position: relative;
+    top: 0px;
+    width: auto;
+}
+
+.stbr-dialog .wndLeftBorder {
+    background: url("/Content/Images/popupImages/left-right.png") repeat-y scroll 0 0 transparent;
+    color: #362B36;
+    display: block;
+    padding-left: 6px;
+}
+
+.stbr-dialog .wndRightBorder {
+    background: url("/Content/Images/popupImages/left-right.png") repeat-y scroll right 0 transparent;
+    color: #362B36;
+
+    padding-right: 6px;
+}
+
+.stbr-dialog .wndMC {
+    background: none repeat scroll 0 0 #CAD9EC;
+    border-color: #A3BAE9 #DFE8F6 #DFE8F6 #A3BAE9;
+    border-style: solid;
+    border-width: 1px;
+    color: #362B36;
+    font: 11px tahoma, arial, helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.stbr-dialog .wndBody {
+    background: none repeat scroll 0 0 transparent !important;
+    border-color: #DFE8F6 #A3BAE9 #A3BAE9 #DFE8F6;
+    border-style: solid;
+    border-width: 1px;
+    bottom: 0px;
+    color: #362B36;
+    margin: 0px;
+}
+
+.stbr-dialog .wndNoBorder {
+    border-style: solid;
+    border-width: 0px;
+    color: #99BBE8;
+    color: #362B36;
+    margin: 0px;
+    padding: 0px;
+}
+
+.stbr-dialog .wndPanelBwrap {
+    border-style: solid;
+    border-width: 0px;
+    color: #362B36;
+    font: 11px tahoma, arial, helvetica, sans-serif;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.stbr-dialog .wndContent {
+    background: none repeat scroll 0 0 white;
+    border-style: solid;
+    border-width: 0px;
+    color: #362B36;
+    position: relative;
+}
+
+.stbr-dialog .popup-footer {
+    background: url("/Content/Images/popupImages/left-corners.png") no-repeat scroll 0 bottom transparent;
+    color: #362B36;
+    display: block;
+    margin: 0px;
+    padding-left: 6px;
+}
+
+.stbr-dialog .footerBr {
+    background: url("/Content/Images/popupImages/right-corners.png") no-repeat scroll right bottom transparent;
+    color: #362B36;
+    margin: 0;
+
+    padding-right: 6px;
+}
+
+.stbr-dialog .footerBc {
+    background: url("/Content/Images/popupImages/top-bottom.png") repeat-x scroll 0 bottom transparent;
+    color: #362B36;
+    font-size: 0;
+    height: 6px;
+    line-height: 0;
+}
+
+.stbr-dialog .dragShadow {
+    border-color: #99BBE8;
+    border-style: solid;
+    border-width: 1px;
+    color: #362B36;
+    display: none;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.stbr-overlay {
+    background: url("/Content/Images/popupImages/overlay.png") repeat-x scroll 50% 50% #AAAAAA;
+    display: none;
+    filter: Alpha(Opacity=30);
+    height: 100%;
+    left: 0px;
+    margin: 0px;
+    opacity: 0.3;
+    overflow: auto;
+    padding: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1001;
+}
+
+.confirm-dialog-content { }
+
+.confirm-dialog-content input {
+    font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}

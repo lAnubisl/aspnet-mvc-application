@@ -1,10 +1,20 @@
 ﻿@{
     Layout = null;
 }
+@model PresentationService.Models.AdminModels.ProductModels.ProductUploadImageModel
 <!DOCTYPE html>
 <html>
 <head>
     <title>UploadImage</title>
+    @if (Model.Success)
+    {
+        <script type="text/javascript">
+            if (window.parent['setNewImage']) {
+                var fn = window.parent['setNewImage'];
+                fn(result);
+            }
+        </script>
+    }
 </head>
 <body>
     <div>

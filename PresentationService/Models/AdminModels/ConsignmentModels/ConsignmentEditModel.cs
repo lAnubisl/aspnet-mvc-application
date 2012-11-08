@@ -21,7 +21,11 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
             if (consignment.IncomingProducts != null && consignment.IncomingProducts.Any())
             {
                 Products = consignment.IncomingProducts.Select(p => new ConsignmentEditItemModel(p)).ToList();
-            }                
+            }
+            else
+            {
+                Products = new List<ConsignmentEditItemModel>();
+            }    
         }
 
         public IList<ConsignmentEditItemModel> Products { get; set; }

@@ -110,7 +110,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Helpers\ProductImageHelper.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -164,6 +163,13 @@
     <Content Include="Content\Images\pattern\bg-8.png" />
     <Content Include="Content\Images\pattern\bg-9.png" />
     <Content Include="Content\Images\pattern\bg1.jpg" />
+    <Content Include="Content\Images\popupImages\left-corners.png" />
+    <Content Include="Content\Images\popupImages\left-right.png" />
+    <Content Include="Content\Images\popupImages\overlay.png" />
+    <Content Include="Content\Images\popupImages\right-corners.png" />
+    <Content Include="Content\Images\popupImages\tool-textclose-over.gif" />
+    <Content Include="Content\Images\popupImages\tool-textclose.gif" />
+    <Content Include="Content\Images\popupImages\top-bottom.png" />
     <Content Include="Content\Images\portfolio-item-1.jpg" />
     <Content Include="Content\Images\portfolio-item-10.jpg" />
     <Content Include="Content\Images\portfolio-item-11.jpg" />
@@ -552,11 +558,12 @@
     <Content Include="Content\Scripts\google_map_plugin.js" />
     <Content Include="Content\Scripts\header.js" />
     <Content Include="Content\Scripts\jquery-1.7.2.min.js" />
-    <Content Include="Content\Scripts\jquery-ui-1.9.0.custom.min.js" />
+    <Content Include="Content\Scripts\jquery-ui-1.9.1.custom.min.js" />
     <Content Include="Content\Scripts\jquery.backstretch.min.js" />
     <Content Include="Content\Scripts\jquery.flexslider.js" />
     <Content Include="Content\Scripts\jquery.isotope.min.js" />
     <Content Include="Content\Scripts\knockout-2.1.0.js" />
+    <Content Include="Content\Scripts\popup.js" />
     <Content Include="Content\Scripts\prettyPhoto.js" />
     <Content Include="Content\Scripts\twitter.js" />
     <Content Include="Content\Styles\admin\admin.css" />
@@ -573,7 +580,8 @@
     <Content Include="Content\Styles\colors\color-tealgreen.css" />
     <Content Include="Content\Styles\colors\color-yellow.css" />
     <Content Include="Content\Styles\flexslider.css" />
-    <Content Include="Content\Styles\jquery-ui-1.9.0.custom.min.css" />
+    <Content Include="Content\Styles\jquery-ui-1.9.1.custom.min.css" />
+    <Content Include="Content\Styles\popups.css" />
     <Content Include="Content\Styles\prettyPhoto.css" />
     <Content Include="Content\Styles\socialize-bookmarks.css" />
     <Content Include="Content\Styles\style.css" />

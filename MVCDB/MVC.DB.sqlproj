@@ -114,6 +114,8 @@
     <Build Include="dbo\Tables\Role.sql" />
     <Build Include="dbo\Views\AvailableProduct.sql" />
     <Build Include="dbo\Stored Procedures\parent_categories_for_categoryId.sql" />
+    <Build Include="dbo\Tables\Image.sql" />
+    <Build Include="dbo\Tables\ProductToImage.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MVC.DB.publish.xml" />

@@ -3,6 +3,21 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+@section Head
+{
+    <script type="text/javascript">
+        
+        var win;
+        setNewImage = function (imageUrl) {
+            win.close();
+            $('#FileNames').val(imageUrl);
+        };
+        function OpenFileUploadPopUp() {
+            win = $.Popup('frameDialog', { url: "@Url.Action("UploadImage")", title: "Загрузка изображения" });
+        }
+    </script>
+}
+
 @{Html.BeginForm(Model.ProductId == default(long) ? "Add" : "Edit", "Product");}
 <div>
     <div>@Html.LabelFor(m => m.ProductName)</div>
@@ -30,11 +45,12 @@
 
 <div>
     <div>@Html.LabelFor(m => m.IsUnlimitedProduct)</div>
-    @Html.EditorFor(m => m.IsUnlimitedProduct)
+    @Html.CheckBoxFor(m => m.IsUnlimitedProduct)
 </div>
 
 <div>
-    <input type="submit" value="Подтвердить" />
+    <a href="#" onclick="OpenFileUploadPopUp();" class="button medium grey left-aligned">Добавить изображение</a>
+    <a href="#" onclick="$('form').submit();" class="button medium grey">Сохранить</a>
 </div>
 
 @Html.HiddenFor(m => m.ProductId)

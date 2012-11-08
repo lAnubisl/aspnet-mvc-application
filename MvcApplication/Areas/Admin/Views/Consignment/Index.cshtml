@@ -1,21 +1,19 @@
 ﻿@model PresentationService.Models.AdminModels.ConsignmentModels.ConsignmentIndexModel
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    var isOddRow = false;
 }
-<table class="consignmentLoadTable">
-    <thead>
-        <td>Дата поставки</td>
-        <td>Email поставщика</td>
-        <td>Количество наименований товара</td>
-        <td>Количество товара</td>
-        <td class="lastHeaderColumn" onclick="javascript:location.href='@Url.Action("Add", "Consignment")'"></td>
-    </thead>
-    @if(Model.Consignments != null)
+
+<div class="section-title">
+    <h1 class="title">Список <span>разгрузок</span></h1>
+</div>
+
+<a href="@Url.Action("Add")" class="button medium grey">Добавить</a>
+<table class="categories-table">
+    @if (Model.Consignments != null)
     {
         foreach (var consignment in Model.Consignments)
         {
-            @Html.DisplayFor(m => consignment, new { isOddRow = (isOddRow = !isOddRow)})
+            @Html.DisplayFor(m => consignment, new { isOddRow = true, leftPadding = 10 })
         }
     }
 </table>

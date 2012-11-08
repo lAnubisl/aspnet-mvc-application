@@ -1,19 +1,15 @@
 ﻿@model PresentationService.Models.ProductModels.ViewProductModel
-@using MVCApplication.Common
-@using MVCApplication.Controllers.Helpers
 <div id="item">
     <h4>@Model.ProductName</h4>
     <br />
     <div class="big_view">
-        <img src="@Url.Content(Html.ProductImage(Model.ProductImages.First(), ImageSize.Big))" alt="@Model.ProductName" title="@Model.ProductName" height="319" />
-        <br />
         <span>$@Model.ProductPrice</span>
     </div>
     <div class="scroll">
         @foreach(var image in Model.ProductImages)
         {
             <a href="#">
-                <img src="@Url.Content(Html.ProductImage(image, ImageSize.Small))" alt="@Model.ProductName" title="@Model.ProductName" height="62" />
+                <img src="@image" alt="@Model.ProductName" title="@Model.ProductName" height="62" />
             </a> 
         }
     </div>

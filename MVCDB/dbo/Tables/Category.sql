@@ -7,3 +7,4 @@
     CONSTRAINT [FK_Category_Category] FOREIGN KEY ([ParentCategoryId]) REFERENCES [dbo].[Category] ([CategoryId])
 );
 
+GO
