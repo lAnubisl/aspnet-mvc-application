@@ -10,12 +10,12 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 --INSERT INTO [dbo].[Role] ([RoleId], [Name]) VALUES (1, 'Admin'), (2, 'User')
-INSERT INTO [ConsignmentStatus] (ConsignmentStatusId, Name) VALUES (1, 'Waiting'), (2, 'Completed')
+--INSERT INTO [ConsignmentStatus] (ConsignmentStatusId, Name) VALUES (1, 'Waiting'), (2, 'Completed')
 --INSERT INTO [User] (FirstName, LastName, Email, RoleId) VALUES ('Alexander', 'Panfilenok', 'alexander.panfilenok@gmail.com', 1)
 
 --INSERT INTO Category (ParentCategoryId, Name, [Description]) VALUES (NULL, 'Подушки', 'Подушечки')
 
 --INSERT INTO Product (UserId, Name, Price, CategoryId) VALUES (1, 'Белая подушка', 15, 1)
 
-INSERT INTO Consignment (UserId, CreationDate, ConsignmentStatusId) VALUES (1, GETDATE(), 2)
-INSERT INTO IncomingProduct (ConsignmentId, ProductId, [Count]) VALUES (1, 1, 100)
+--INSERT INTO Consignment (UserId, CreationDate, ConsignmentStatusId) VALUES (1, GETDATE(), 2)
+--INSERT INTO IncomingProduct (ConsignmentId, ProductId, [Count]) VALUES (1, 1, 100)

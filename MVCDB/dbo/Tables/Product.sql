@@ -5,6 +5,7 @@
     [Price]       FLOAT (53)     NULL,
     [Name]        NVARCHAR (50)  NULL,
     [Description] NVARCHAR (MAX) NULL,
+    [IsUnlimitedProduct] BIT NOT NULL DEFAULT 0, 
     CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED ([ProductId] ASC),
     CONSTRAINT [FK_Product_Category] FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Category] ([CategoryId]),
     CONSTRAINT [FK_Product_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([UserId])
