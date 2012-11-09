@@ -11,7 +11,7 @@
     <Setting Name="FacebookApiUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://graph.facebook.com/me/?access_token=</Value>
     </Setting>
-    <Setting Name="ProductDefaultImage" Type="System.String" Scope="User">
+    <Setting Name="ProductDefaultImage" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://lh5.googleusercontent.com/-bYwEfHwHb6g/UJvBhRoI6mI/AAAAAAAAI-c/Bdd3AQH6Fhc/w297-h297-n-k/No_image_available.svg.png</Value>
     </Setting>
   </Settings>
