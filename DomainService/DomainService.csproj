@@ -50,7 +50,9 @@
     <Compile Include="DomainModels\Consignment.cs" />
     <Compile Include="DomainModels\Image.cs" />
     <Compile Include="DomainServiceInterfaces\IAvailableProductDomainService.cs" />
+    <Compile Include="DomainServiceInterfaces\IImageDomainService.cs" />
     <Compile Include="DomainServices\AvailableProductDomainService.cs" />
+    <Compile Include="DomainServices\ImageDomainService.cs" />
     <Compile Include="Enumerations\ConsignmentStatus.cs" />
     <Compile Include="DomainModels\DomainObject.cs" />
     <Compile Include="DomainModels\IDomainObject.cs" />

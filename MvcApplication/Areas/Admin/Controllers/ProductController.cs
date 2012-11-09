@@ -1,7 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using MVCApplication.Controllers.Base;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.ProductModels;
+using PresentationService.Properties;
 
 namespace MVCApplication.Areas.Admin.Controllers
 {
@@ -60,7 +62,16 @@ namespace MVCApplication.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                var url = model.ImageUrl;
+
+                if (string.IsNullOrEmpty(url))
+                {
+                    url = string.Format("{0}/{1}.jpg", Settings.Default.ProductImagesPath, Guid.NewGuid());
+                }
+
+                productPresentationService.SaveProductImage(model.File, url);
+
+                model.SuccessModel(url);
             }
 
             return View("UploadImage", model);

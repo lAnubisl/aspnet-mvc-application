@@ -9,7 +9,7 @@
         
         var win;
         setNewImage = function (imageUrl) {
-            win.close();
+            win.destroy();
             $('#FileNames').val(imageUrl);
         };
         function OpenFileUploadPopUp() {
@@ -54,6 +54,5 @@
 </div>
 
 @Html.HiddenFor(m => m.ProductId)
-@Html.HiddenFor(m => m.FileNames)
 
 @{Html.EndForm();}

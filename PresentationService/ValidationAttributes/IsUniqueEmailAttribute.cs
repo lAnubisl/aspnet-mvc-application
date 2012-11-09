@@ -3,9 +3,9 @@ using DomainService.DomainServiceInterfaces;
 
 namespace PresentationService.ValidationAttributes
 {
-    internal sealed class IsUniqueEmail : ValidationAttribute
+    internal sealed class IsUniqueEmailAttribute : ValidationAttribute
     {
-        public IsUniqueEmail()
+        public IsUniqueEmailAttribute()
         {
             ErrorMessage = "{0} уже зарегистрирован в системе";
         }
@@ -16,7 +16,7 @@ namespace PresentationService.ValidationAttributes
             {
                 var email = value.ToString();
 
-                if (!string.IsNullOrEmpty(value.ToString()))
+                if (!string.IsNullOrEmpty(email))
                 {
                     var userDomainService = IOC.ContainerInstance.Resolve<IUserDomainService>();
                     if (!userDomainService.IsUniqueEmail(email))

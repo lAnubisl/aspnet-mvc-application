@@ -32,6 +32,10 @@ namespace PresentationService.Models.AdminModels.ProductModels
             {
                 CategoryId = product.Category.Id;
             }
+            
+            Images = (product.Images != null && product.Images.Any()) 
+                ? product.Images.Select(x => x.URL).ToList()
+                : new List<string>();
         }
 
         public long ProductId { get; set; }
@@ -51,9 +55,9 @@ namespace PresentationService.Models.AdminModels.ProductModels
         [DisplayName("Категория")]
         public long CategoryId { get; set; }
 
-        public string FileNames { get; set; }
-
         public User CreatedBy { get; set; }
+
+        public IList<string> Images { get; set; } 
 
         public IEnumerable<CategorySelectListItemModel> AvailableCategories { get; set; }
     }
