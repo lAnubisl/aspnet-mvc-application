@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web;
 using DomainService.DomainModels;
 using PresentationService.Models.AdminModels.ProductModels;
 
@@ -7,6 +8,8 @@ namespace PresentationService.Interfaces.Admin
     public interface IProductPresentationService : IBasePresentationService
     {     
         void SaveProductEditModel(ProductEditModel model);
+
+        string SaveProductImage(HttpPostedFileBase file, string url);
 
         ProductIndexModel LoadProductIndexModel();
 

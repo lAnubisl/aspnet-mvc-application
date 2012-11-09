@@ -1,33 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
 using System.Linq;
+using System.Web;
 using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
-using PresentationService.Helpers;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.ProductModels;
 using PresentationService.Models.AdminModels.ProductModels.Items;
-using Image = System.Drawing.Image;
+using PresentationService.Properties;
 
 namespace PresentationService.Services.Admin
 {
     public class ProductPresentationService : IProductPresentationService
     {
         private readonly IProductDomainService productDomainService;
-
+        private readonly IImageDomainService imageDomainService;
         private readonly ICategoryDomainService categoryDomainService;
 
         public ProductPresentationService(
             IProductDomainService productDomainService,
-            ICategoryDomainService categoryDomainService)
+            ICategoryDomainService categoryDomainService, 
+            IImageDomainService imageDomainService)
         {
             this.productDomainService = productDomainService;
             this.categoryDomainService = categoryDomainService;
+            this.imageDomainService = imageDomainService;
         }
-      
+
+        public string SaveProductImage(HttpPostedFileBase file, string url)
+        {
+            if (!string.IsNullOrEmpty(url))
+            {
+                if (file != null)
+                {
+                    var fileName = url.Substring(url.LastIndexOf('/') + 1);
+                    file.SaveAs(string.Format("{0}{1}/{2}", AppDomain.CurrentDomain.BaseDirectory, Settings.Default.ProductImagesPath, fileName));
+                }
+
+                imageDomainService.Save(new Image { URL = url });
+                return url;
+            }
+
+            return null;
+        }
+
         public ProductIndexModel LoadProductIndexModel()
         {
             return new ProductIndexModel(productDomainService.Load().Select(p => new ProductIndexItemModel(p.Name, p.Id)));

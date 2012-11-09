@@ -623,8 +623,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Shared\EditorTemplates\" />
-    <Folder Include="Content\Images\Products\Big\" />
-    <Folder Include="Content\Images\Products\Small\" />
+    <Folder Include="Content\Images\Products\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Category\Menu.cshtml" />

@@ -112,20 +112,18 @@
     <Compile Include="Services\ProductPresentationService.cs" />
     <Compile Include="Services\UserPresentationService.cs" />
     <Compile Include="ValidationAttributes\CategoryShouldHaveUniqueNameAttribute.cs" />
-    <Compile Include="ValidationAttributes\CheckLinkAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonEmailRegexAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonLinkRegexAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonRequiredAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonStringLengthAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonStringRequiredAttribute.cs" />
-    <Compile Include="ValidationAttributes\HttpsLinkAttribute.cs" />
+    <Compile Include="ValidationAttributes\FileValidationAttribute.cs" />
     <Compile Include="ValidationAttributes\ProductIdFromDatabaseAttribute.cs" />
     <Compile Include="ValidationAttributes\ParentShouldNotBeCurrentChildAttribute.cs" />
     <Compile Include="ValidationAttributes\PasswordValidationAttribute.cs" />
-    <Compile Include="ValidationAttributes\IsUniqueEmail.cs" />
+    <Compile Include="ValidationAttributes\IsUniqueEmailAttribute.cs" />
     <Compile Include="ValidationAttributes\ProductCountCorrectAttribute.cs" />
     <Compile Include="ValidationAttributes\ProductNameCombinedWithIdAttribute.cs" />
-    <Compile Include="ValidationAttributes\WordsCountAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Anubis.Utils\Anubis.Utils.csproj">

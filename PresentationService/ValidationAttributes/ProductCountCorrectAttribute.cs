@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using Foolproof;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PresentationService.ValidationAttributes
 {

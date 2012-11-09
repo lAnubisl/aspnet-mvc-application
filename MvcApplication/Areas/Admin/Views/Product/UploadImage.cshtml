@@ -6,12 +6,12 @@
 <html>
 <head>
     <title>UploadImage</title>
-    @if (Model.Success)
+    @if (!string.IsNullOrEmpty(Model.URL))
     {
         <script type="text/javascript">
             if (window.parent['setNewImage']) {
                 var fn = window.parent['setNewImage'];
-                fn(result);
+                fn("@Model.URL");
             }
         </script>
     }
