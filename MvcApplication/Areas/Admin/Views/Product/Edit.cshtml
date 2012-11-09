@@ -13,7 +13,7 @@
             $('#FileNames').val(imageUrl);
         };
         function OpenFileUploadPopUp() {
-            win = $.Popup('frameDialog', { url: "@Url.Action("UploadImage")", title: "Загрузка изображения" });
+            win = $.Popup('frameDialog', { url: "@Url.Action("UploadImage")", title: "Загрузка изображения", width: 400, height: 300 });
         }
     </script>
 }
