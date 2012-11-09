@@ -581,7 +581,7 @@
     <Content Include="Content\Styles\colors\color-yellow.css" />
     <Content Include="Content\Styles\flexslider.css" />
     <Content Include="Content\Styles\jquery-ui-1.9.1.custom.min.css" />
-    <Content Include="Content\Styles\popups.css" />
+    <Content Include="Content\Styles\popup.css" />
     <Content Include="Content\Styles\prettyPhoto.css" />
     <Content Include="Content\Styles\socialize-bookmarks.css" />
     <Content Include="Content\Styles\style.css" />
