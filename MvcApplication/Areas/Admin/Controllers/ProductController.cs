@@ -54,5 +54,16 @@ namespace MVCApplication.Areas.Admin.Controllers
         {
             return View("UploadImage", new ProductUploadImageModel());
         }
+
+        [HttpPost]
+        public ActionResult UploadImage(ProductUploadImageModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                
+            }
+
+            return View("UploadImage", model);
+        }
     }
 }

@@ -19,7 +19,8 @@
 <body>
     <div>
         <form method="POST" enctype="multipart/form-data">
-            <input type="file" name="qqfile"/>
+            @Html.TextBoxFor(m => m.ImageUrl)
+            @Html.TextBoxFor(m => m.File, new { type = "file" })
             <input type="submit"/>
         </form>
     </div>
