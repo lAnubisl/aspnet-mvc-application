@@ -5,18 +5,27 @@
 
 @section Head
 {
+    <script type="text/javascript" src="/Content/Scripts/admin/knockout-models/ProductEditModel.js"></script>
     <script type="text/javascript">
-        
         var win;
+        var model;
         setNewImage = function (imageUrl) {
             win.destroy();
-            $('#FileNames').val(imageUrl);
+            model.AddImage(imageUrl);
         };
         function OpenFileUploadPopUp() {
             win = $.Popup('frameDialog', { url: "@Url.Action("UploadImage")", title: "Загрузка изображения", width: 400, height: 300 });
         }
+        $(function () {
+            model = new ProductEditModel(@Html.Raw(Json.Encode(Model.Images)), '@Url.Action("DeleteImage")');
+            ko.applyBindings(model);
+        });
     </script>
 }
+
+<div class="section-title">
+    <h1 class="title">Редактирование <span>продукта</span></h1>
+</div>
 
 @{Html.BeginForm(Model.ProductId == default(long) ? "Add" : "Edit", "Product");}
 <div>
@@ -46,6 +55,16 @@
 <div>
     <div>@Html.LabelFor(m => m.IsUnlimitedProduct)</div>
     @Html.CheckBoxFor(m => m.IsUnlimitedProduct)
+</div>
+
+<div data-bind="foreach: Images" style="width: 100%; float: left;">
+    <div style="float: left; width: 150px;">
+        <div style="float: right;">
+            <a href="#" data-bind="click: $parent.RemoveImage">Убрать</a>
+        </div>
+        <input type="hidden" data-bind="value: $data, attr: { name: 'Images['+$index()+']'}" />
+        <img data-bind="attr: {src : $data}" style="width: 150px;"/>
+    </div>
 </div>
 
 <div>

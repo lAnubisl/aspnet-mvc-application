@@ -81,6 +81,8 @@ namespace PresentationService.Services.Admin
                 product.Id = model.ProductId;
                 product.Category = categoryDomainService.Load(model.CategoryId);
                 product.CreatedBy = model.CreatedBy;
+                product.IsUnlimitedProduct = model.IsUnlimitedProduct;
+                AddImagesToProduct(product, imageDomainService.LoadByURLs(model.Images));
                 productDomainService.Save(product);
             }
         }
@@ -88,6 +90,35 @@ namespace PresentationService.Services.Admin
         public IEnumerable<Product> LoadProductsForTerm(string term)
         {
             return productDomainService.LoadProductsForTerm(term);
+        }
+
+        public void DeleteImage(string imageUrl)
+        {
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                var image = imageDomainService.LoadByURL(imageUrl);
+                if (image != null)
+                {
+                    imageDomainService.Delete(image);
+                }
+            }
+        }
+
+        private static void AddImagesToProduct(Product product, IEnumerable<Image> images)
+        {
+            if (product.Images == null)
+            {
+                product.Images = new List<Image>();
+            }
+            else
+            {
+                product.Images.Clear();
+            }
+
+            foreach (var image in images)
+            {
+                product.Images.Add(image);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 using PresentationService.ValidationAttributes;
@@ -6,11 +7,11 @@ using PresentationService.ValidationAttributes;
 namespace PresentationService.Models.AdminModels.ProductModels
 {
     public class ProductUploadImageModel : IValidatableObject
-    {       
-        [FileValidation(MaxFileSize = 1 * 1024 * 1024)]
+    {
+        [FileValidation(MaxFileSize = 1 * 1024 * 1024), DisplayName("Файл для загрузки")]
         public HttpPostedFileBase File { get; set; }
 
-        [CommonLinkRegex]
+        [CommonLinkRegex, DisplayName("Ссылка на изображение")]
         public string ImageUrl { get; set; }
 
         public string URL { get; private set; }

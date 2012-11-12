@@ -76,5 +76,12 @@ namespace MVCApplication.Areas.Admin.Controllers
 
             return View("UploadImage", model);
         }
+
+        [HttpPost]
+        public JsonResult DeleteImage(string imageUrl)
+        {
+            productPresentationService.DeleteImage(imageUrl);
+            return new JsonResult();
+        }
     }
 }

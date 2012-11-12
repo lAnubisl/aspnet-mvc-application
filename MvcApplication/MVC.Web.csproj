@@ -551,6 +551,7 @@
     <Content Include="Content\ckeditor\skins\v2\templates.css" />
     <Content Include="Content\ckeditor\themes\default\theme.js" />
     <Content Include="Content\Scripts\admin\knockout-models\ConsignmentEditModel.js" />
+    <Content Include="Content\Scripts\admin\knockout-models\ProductEditModel.js" />
     <Content Include="Content\Scripts\bra.photostream.js" />
     <Content Include="Content\Scripts\comment-form-validate.js" />
     <Content Include="Content\Scripts\contact-form-validate.js" />

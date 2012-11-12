@@ -16,7 +16,7 @@ namespace PresentationService.Services
 
         public HomeIndexModel LoadHomeIndexModel()
         {
-            return new HomeIndexModel(productDomainService.LoadTopProducts(6, DateTime.Now, DateTime.Now));
+            return new HomeIndexModel(productDomainService.LoadTopProducts(8, DateTime.Now, DateTime.Now));
         }
     }
 }

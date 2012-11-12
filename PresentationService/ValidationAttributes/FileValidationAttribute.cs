@@ -24,11 +24,9 @@ namespace PresentationService.ValidationAttributes
                 catch
                 {
                 }
-
-                return true;
             }
 
-            return false;
+            return true;
         }
     }
 }

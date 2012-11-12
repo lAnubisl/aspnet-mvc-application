@@ -1,26 +1,44 @@
 ﻿@model PresentationService.Models.ProductModels.ViewProductModel
-<div id="item">
-    <h4>@Model.ProductName</h4>
-    <br />
-    <div class="big_view">
-        <span>$@Model.ProductPrice</span>
-    </div>
-    <div class="scroll">
-        @foreach(var image in Model.ProductImages)
-        {
-            <a href="#">
-                <img src="@image" alt="@Model.ProductName" title="@Model.ProductName" height="62" />
-            </a> 
-        }
-    </div>
+<div class="section-title">
+
+    <h1 class="title">Информация <span>о товаре</span></h1>
+
 </div>
-<div class="description">
-    <p>
-        <strong>Описание</strong>
-        <br />
-        @Model.ProductDescription
-    </p>
-    <p>
-        <a href="#" class="buy">Купить</a>
-    </p>
+<div class="one-third">
+
+    <h2 class="title">@Model.ProductName</h2>
+
+    <p>@Model.ProductDescription</p>
+    <a href="#" class="button small rectangle orange">Launch website &raquo;</a>
+    <br />
+    <br />
+
+    <h2 class="title">Services used:</h2>
+
+    <ul>
+        <li>Web design</li>
+        <li>Logo design</li>
+        <li>CMS solution</li>
+        <li>SEO</li>
+    </ul>
+    <br />
+    <br />
+
+    <ul class="item-nav">
+        <li class="prev"><a href="#" title="Previous item">Prev</a></li>
+        <li class="all"><a href="#" title="All items">All</a></li>
+        <li class="next"><a href="#" title="Next item">Next</a></li>
+    </ul>
+</div>
+<div class="two-third last">
+    <div class="flexslider" id="portfolio-slider">
+        <ul class="slides">
+            @foreach (var image in Model.ProductImages)
+            {
+                <li>
+                    <img src="@image" alt="" />
+                </li>
+            }
+        </ul>
+    </div>
 </div>

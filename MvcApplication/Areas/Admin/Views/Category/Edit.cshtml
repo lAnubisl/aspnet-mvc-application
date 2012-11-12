@@ -3,6 +3,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<div class="section-title">
+    <h1 class="title">Редактирование <span>категории</span></h1>
+</div>
+
 @{Html.BeginForm(Model.CategoryId == default(long) ? "Add" : "Edit", "Category");}
 @Html.HiddenFor(m => m.CategoryId)
 <div>

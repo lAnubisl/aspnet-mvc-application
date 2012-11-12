@@ -2,7 +2,7 @@
 @model PresentationService.Models.ProductModels.ProductSmallModel
 
 <li class="col4 item web">
-    <img src="@Model.ProductImage" alt="@Model.ProductName" title="@Model.ProductName" />
+    <img src="@Model.ProductImage" alt="@Model.ProductName" title="@Model.ProductName" onclick="location.href='@Url.Action("View", "Product", new { id = Model.ProductId })'" />
     <div class="col4 item-info">
         <h3 class="title"><a href="@Url.Action("View", "Product", new { id = Model.ProductId })">@Model.ProductName</a></h3>
     </div>
@@ -11,7 +11,7 @@
             <h4>Web design</h4>
             <p>Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae vitae explicabo.</p>
             <a href="@Url.Action("View", "Product", new { id = Model.ProductId })" class="view">details</a>
-            <a href="@Model.ProductImage" class="preview" data-rel="prettyPhoto[web]">preview</a>
+            <a href="@Model.ProductImage" class="preview" data-rel="prettyPhoto[web]">Детали</a>
         </div>
     </div>
 </li>

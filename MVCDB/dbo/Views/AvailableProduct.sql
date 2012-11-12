@@ -13,7 +13,7 @@ FROM (
 		dbo.Product AS P 
 	LEFT JOIN dbo.IncomingProduct AS IP 
 		ON P.ProductId = IP.ProductId 
-	INNER JOIN dbo.Consignment AS C 
+	LEFT JOIN dbo.Consignment AS C 
 		ON IP.ConsignmentId = C.ConsignmentId
     WHERE 
 		P.IsUnlimitedProduct = 1 OR C.ConsignmentStatusId = 2 
