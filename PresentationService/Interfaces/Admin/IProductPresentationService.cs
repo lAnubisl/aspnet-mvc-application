@@ -16,5 +16,7 @@ namespace PresentationService.Interfaces.Admin
         ProductEditModel LoadProductEditModel(long id);
 
         IEnumerable<Product> LoadProductsForTerm(string term);
+
+        void DeleteImage(string imageUrl);
     }
 }

@@ -6,3 +6,5 @@
 )
 
 GO
+
+CREATE UNIQUE INDEX [IX_Image_Column] ON [dbo].[Image] ([URL])

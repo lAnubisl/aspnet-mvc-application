@@ -11,9 +11,12 @@
 <table class="categories-table">
     @if (Model.Products != null)
     {
+        var isOddRow = true;
         foreach (var category in Model.Products)
         {
-            @Html.DisplayFor(m => category, new { isOddRow = true })
+            @Html.DisplayFor(m => category, new { isOddRow })
+            isOddRow = !isOddRow;
+
         }
     }
 </table>

@@ -5,28 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Authentication page</h2>
-
-@if (MVCApplication.MvcApplication.LoggedInUser == null)
+@section Scripts
 {
-    <p>
-        <a href="@Settings.Default.FacebookUrlAuth">Log In with facebook</a>
-        or
-        <a href="@Settings.Default.GoogleUrlAuth">Log In with google</a>
-        or
-        @Html.ActionLink("Log In", "LogOn", "User")
-        or
-        @Html.ActionLink("Register", "Register", "User")
-    </p>
-} else
-{
-    <p>
-        You logined as @Html.Raw(Html.Encode(MVCApplication.MvcApplication.LoggedInUser.FullName))
-    </p>
-    
-    @Html.ActionLink("Log Out", "LogOff", "User");
-}
-
     <script type="text/javascript">
 
         if (window.location.hash != 0) {
@@ -51,3 +31,27 @@
             }
 
     </script>
+}
+
+<h2>Authentication page</h2>
+
+@if (MVCApplication.MvcApplication.LoggedInUser == null)
+{
+    <p>
+        <a href="@Settings.Default.FacebookUrlAuth">Log In with facebook</a>
+        or
+        <a href="@Settings.Default.GoogleUrlAuth">Log In with google</a>
+        or
+        @Html.ActionLink("Log In", "LogOn", "User")
+        or
+        @Html.ActionLink("Register", "Register", "User")
+    </p>
+} 
+else
+{
+    <p>
+        You logined as @Html.Raw(Html.Encode(MVCApplication.MvcApplication.LoggedInUser.FullName))
+    </p>
+    
+    @Html.ActionLink("Log Out", "LogOff", "User")
+}

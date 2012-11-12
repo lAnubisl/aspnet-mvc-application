@@ -14,8 +14,8 @@ AS
 		While exists(select CategoryId from Category where (CategoryId not in (select * from @table)) and (ParentCategoryId in (select * from @table))) 
 			insert into @table 
 			select CategoryId from Category 
-				where (CategoryId not in (select * from @table))
-				and (ParentCategoryId in (select * from @table)) 
+				where (CategoryId not in (select CategoryId from @table))
+				and (ParentCategoryId in (select CategoryId from @table)) 
 
 		Select * from Category where CategoryId not in (select * from @table)
 	END
