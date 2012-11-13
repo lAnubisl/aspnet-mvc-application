@@ -37,9 +37,17 @@
 @if (MVCApplication.MvcApplication.LoggedInUser == null)
 {
     <p>
-        <a href="@Settings.Default.FacebookUrlAuth">Log In with facebook</a>
+        @try
+        {
+            <text>@Settings.Default.FacebookUrlAuth;</text>
+            
+        } catch (Exception e)
+        {
+<text>@e.Message</text>
+        }
+@*        <a href="@Settings.Default.FacebookUrlAuth">Log In with facebook</a>
         or
-        <a href="@Settings.Default.GoogleUrlAuth">Log In with google</a>
+        <a href="@Settings.Default.GoogleUrlAuth">Log In with google</a>*@
         or
         @Html.ActionLink("Log In", "LogOn", "User")
         or

@@ -27,7 +27,7 @@ namespace MvcApplication.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://www.facebook.com/dialog/oauth?client_id=343004015780294&state=fb&redirect" +
             "_uri=http://localhost:8413/user/Authentication/&scope=user_about_me,email&respon" +
-            "se_type=token")]
+            "se_type=token\r\n")]
         public string FacebookUrlAuth {
             get {
                 return ((string)(this["FacebookUrlAuth"]));
