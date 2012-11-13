@@ -34,10 +34,9 @@
 }
 
 <h2>Authentication page</h2>
-@*
 @if (MVCApplication.MvcApplication.LoggedInUser == null)
 {
-    <p>
+@*    <p>
         <a href="@Settings.Default.FacebookUrlAuth">Log In with facebook</a>
         or
         <a href="@Settings.Default.GoogleUrlAuth">Log In with google</a>
@@ -45,7 +44,7 @@
         @Html.ActionLink("Log In", "LogOn", "User")
         or
         @Html.ActionLink("Register", "Register", "User")
-    </p>
+    </p>*@
 } 
 else
 {
@@ -54,4 +53,4 @@ else
     </p>
     
     @Html.ActionLink("Log Out", "LogOff", "User")
-}*@
+}
