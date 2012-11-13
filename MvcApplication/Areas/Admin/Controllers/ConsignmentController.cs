@@ -11,7 +11,6 @@ namespace MVCApplication.Areas.Admin.Controllers
     public class ConsignmentController : CheckModelIsNullController
     {
         private readonly IConsignmentPresentationService consignmentPresentationService;
-
         private readonly IProductPresentationService productPresentationService;
 
         public ConsignmentController(IConsignmentPresentationService consignmentPresentationService, IProductPresentationService productPresentationService)
@@ -25,13 +24,11 @@ namespace MVCApplication.Areas.Admin.Controllers
             return View(consignmentPresentationService.LoadConsignmentIndexModel());
         }
 
-        [HttpGet]
         public ActionResult Add()
         {
             return Edit(default(long));
         }
 
-        [HttpGet]
         public ActionResult Edit(long id)
         {
             var model = consignmentPresentationService.LoadConsignmentEditModel(id);
@@ -43,7 +40,6 @@ namespace MVCApplication.Areas.Admin.Controllers
             return RedirectToAction("Details", new { id });
         }
 
-        [HttpGet]
         public ActionResult Details(long id)
         {
             return View(consignmentPresentationService.LoadConsignmentDetailsModel(id));
@@ -61,7 +57,7 @@ namespace MVCApplication.Areas.Admin.Controllers
             return View("Edit", consignmentEditModel);
         }
 
-        [HttpGet, OutputCache(Duration = 0, NoStore = false)]
+        [OutputCache(Duration = 0, NoStore = false)]
         public JsonResult ProductNames(string term)
         {
             return Json(productPresentationService.LoadProductsForTerm(term).Select(p => new { value = p.Name }), JsonRequestBehavior.AllowGet);

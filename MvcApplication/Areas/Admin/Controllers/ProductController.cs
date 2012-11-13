@@ -22,7 +22,6 @@ namespace MVCApplication.Areas.Admin.Controllers
             return View(productPresentationService.LoadProductIndexModel());
         }
 
-        [HttpGet]
         public ActionResult Add()
         {
             return Edit(default(long));
@@ -34,7 +33,6 @@ namespace MVCApplication.Areas.Admin.Controllers
             return Edit(model);
         }
 
-        [HttpGet]
         public ActionResult Edit(long id)
         {
             return View("Edit", productPresentationService.LoadProductEditModel(id));
