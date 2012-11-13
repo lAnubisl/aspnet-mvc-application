@@ -667,10 +667,10 @@
     <Content Include="Content\Images\prettyPhoto\light_square\.DS_Store" />
     <Content Include="Areas\Admin\Views\Product\UploadImage.cshtml" />
     <None Include="Properties\PublishProfiles\File System.pubxml" />
-    <None Include="Properties\Settings.settings">
+    <Content Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
