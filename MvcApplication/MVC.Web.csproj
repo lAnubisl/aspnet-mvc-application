@@ -99,7 +99,6 @@
     <Compile Include="Common\SystemUser.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\Base\CheckModelIsNullController.cs" />
-    <Compile Include="Controllers\Helpers\IncomingProductHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
