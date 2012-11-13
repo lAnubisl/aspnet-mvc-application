@@ -25,21 +25,21 @@ namespace MvcApplication.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://www.facebook.com/dialog/oauth?client_id=343004015780294&state=fb&redirect" +
-            "_uri=http://localhost:8413/user/Authentication/&scope=user_about_me,email&respon" +
-            "se_type=token\r\n")]
-        public string FacebookUrlAuth {
+        [global::System.Configuration.DefaultSettingValueAttribute(@"https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email&state=gl&redirect_uri=http://localhost:8413/User/Authentication&response_type=token&client_id=246889657486.apps.googleusercontent.com")]
+        public string GoogleUrlAuth {
             get {
-                return ((string)(this["FacebookUrlAuth"]));
+                return ((string)(this["GoogleUrlAuth"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email&state=gl&redirect_uri=http://localhost:8413/User/Authentication&response_type=token&client_id=246889657486.apps.googleusercontent.com")]
-        public string GoogleUrlAuth {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.facebook.com/dialog/oauth?client_id=343004015780294&state=fb&redirect" +
+            "_uri=http://localhost:8413/user/Authentication/&scope=user_about_me,email&respon" +
+            "se_type=token")]
+        public string FacebookUrlAuth {
             get {
-                return ((string)(this["GoogleUrlAuth"]));
+                return ((string)(this["FacebookUrlAuth"]));
             }
         }
     }
