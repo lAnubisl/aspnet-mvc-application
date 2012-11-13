@@ -14,7 +14,7 @@
     <RootNamespace>MvcApplication</RootNamespace>
     <AssemblyName>MvcApplication</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <MvcBuildViews>true</MvcBuildViews>
+    <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
     <FileUpgradeFlags>
@@ -592,9 +592,11 @@
     </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
