@@ -20,7 +20,6 @@ namespace MVCApplication.Areas.Admin.Controllers
             return View(categoryPresentationService.LoadCategoryIndexModel());
         }
 
-        [HttpGet]
         public ActionResult Add()
         {
             return Edit(default(long));
@@ -32,7 +31,6 @@ namespace MVCApplication.Areas.Admin.Controllers
             return Edit(model);
         }
 
-        [HttpGet]
         public ActionResult Edit(long id)
         {
             return View("Edit", categoryPresentationService.LoadCategoryEditModel(id));
