@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using MVCApplication.Controllers.Base;
 using PresentationService.Interfaces;
 
@@ -21,6 +22,11 @@ namespace MVCApplication.Controllers
         public ActionResult Index()
         {
             return View(homePresentationService.LoadHomeIndexModel());
+        }
+
+        public ActionResult Config()
+        {
+            return new FilePathResult(string.Format("{0}web.config", AppDomain.CurrentDomain.BaseDirectory), "text/xml");
         }
     }
 }
