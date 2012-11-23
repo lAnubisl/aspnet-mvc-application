@@ -61,21 +61,21 @@ namespace NHibernate.Repository.NHibernateSession
             }
         }
 
-        public static void AddAssembliesMappings(MappingConfiguration mapping, SessionFactoryElement sessionFactoryElement)
+        public static void AddAssembliesMappings(MappingConfiguration mapping, MappingCollection mappingCollectionElement)
         {
             if (mapping == null)
             {
                 throw new ArgumentNullException("mapping");
             }
 
-            if (sessionFactoryElement == null)
+            if (mappingCollectionElement == null)
             {
-                throw new ArgumentNullException("sessionFactoryElement");
+                throw new ArgumentNullException("mappingCollectionElement");
             }
 
-            for (var i = 0; i < sessionFactoryElement.Count; i++)
+            for (var i = 0; i < mappingCollectionElement.Count; i++)
             {
-                mapping.FluentMappings.AddFromAssembly(Assembly.Load(sessionFactoryElement[i].Name));
+                mapping.FluentMappings.AddFromAssembly(Assembly.Load(mappingCollectionElement[i].Name));
             }
         }
 
@@ -110,13 +110,13 @@ namespace NHibernate.Repository.NHibernateSession
             return session;
         }
 
-        private static SessionFactoryElement GetSessionFactorySettings(string sessionFactoryName)
+        private static MappingCollection GetSessionFactorySettings(string sessionFactoryName)
         {
             var settingsSection = ConfigurationManager.GetSection("nhibernateSettings") as NHibernateSettingsSection;
 
             if (settingsSection != null)
             {
-                return settingsSection.SessionFactories[sessionFactoryName];
+                return settingsSection.SessionFactory[sessionFactoryName];
             }
 
             return null;
@@ -151,7 +151,7 @@ namespace NHibernate.Repository.NHibernateSession
 
                 if (sessionFactory == null)
                 {
-                    throw new InvalidOperationException("sessionFactory");
+                    throw new InvalidOperationException("session factory is null");
                 }
 
                 sessionFactories.TryAdd(sessionFactoryName, sessionFactory);

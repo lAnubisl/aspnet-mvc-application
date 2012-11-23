@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MVCApplication.Controllers.Base
+namespace MvcApplication.Controllers.Base
 {
     [ValidateInput(false)]
     public abstract class CheckModelIsNullController : Controller

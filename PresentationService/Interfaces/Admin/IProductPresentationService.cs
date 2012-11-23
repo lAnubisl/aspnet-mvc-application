@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using DomainService.DomainModels;
 using PresentationService.Models.AdminModels.ProductModels;
@@ -9,7 +10,7 @@ namespace PresentationService.Interfaces.Admin
     {     
         void SaveProductEditModel(ProductEditModel model);
 
-        string SaveProductImage(HttpPostedFileBase file, string url);
+        string SaveProductImage(HttpPostedFileBase file, Uri url);
 
         ProductIndexModel LoadProductIndexModel();
 
@@ -17,6 +18,6 @@ namespace PresentationService.Interfaces.Admin
 
         IEnumerable<Product> LoadProductsForTerm(string term);
 
-        void DeleteImage(string imageUrl);
+        void DeleteImage(Uri imageUrl);
     }
 }

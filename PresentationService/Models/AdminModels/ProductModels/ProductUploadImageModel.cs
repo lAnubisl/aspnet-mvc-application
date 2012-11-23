@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
@@ -12,18 +13,18 @@ namespace PresentationService.Models.AdminModels.ProductModels
         public HttpPostedFileBase File { get; set; }
 
         [CommonLinkRegex, DisplayName("Ссылка на изображение")]
-        public string ImageUrl { get; set; }
+        public Uri ImageUrl { get; set; }
 
-        public string URL { get; private set; }
+        public Uri Url { get; private set; }
 
-        public void SuccessModel(string fileUrl)
+        public void SuccessModel(Uri fileUrl)
         {
-            URL = fileUrl;
+            Url = fileUrl;
         }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (File == null && string.IsNullOrEmpty(ImageUrl))
+            if (File == null && ImageUrl == null)
             {
                 yield return new ValidationResult("Вы должны или выбрать файл изображения или ввести URL на изображение.");
             }

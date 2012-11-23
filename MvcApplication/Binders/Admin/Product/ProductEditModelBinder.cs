@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using PresentationService.Interfaces.Admin;
 
-namespace MVCApplication.Binders.Admin.Product
+namespace MvcApplication.Binders.Admin.Product
 {
     public class ProductEditModelBinder : DefaultModelBinder
     {
@@ -16,6 +16,11 @@ namespace MVCApplication.Binders.Admin.Product
         protected override object CreateModel(
             ControllerContext controllerContext, ModelBindingContext bindingContext, Type modelType)
         {
+            if (controllerContext == null)
+            {
+                throw new ArgumentNullException("controllerContext");
+            }
+
             var obj = controllerContext.RouteData.Values["id"];
             var id = obj != null ? Convert.ToInt64(obj) : default(long);
             var model = productPresentationService.LoadProductEditModel(id);

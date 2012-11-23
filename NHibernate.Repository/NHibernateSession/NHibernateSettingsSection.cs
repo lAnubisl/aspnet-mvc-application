@@ -10,12 +10,12 @@ namespace NHibernate.Repository.NHibernateSession
     public class NHibernateSettingsSection : ConfigurationSection
     {
         [ConfigurationProperty("sessionFactories", IsDefaultCollection = false)]
-        [ConfigurationCollection(typeof(SessionFactoriesCollection), AddItemName = "sessionFactory", ClearItemsName = "clearFactories")]
-        public SessionFactoriesCollection SessionFactories
+        [ConfigurationCollection(typeof(SessionFactoryCollection), AddItemName = "sessionFactory", ClearItemsName = "clearFactories")]
+        public SessionFactoryCollection SessionFactory
         {
             get
             {
-                var sessionFactoriesCollection = (SessionFactoriesCollection)base["sessionFactories"];
+                var sessionFactoriesCollection = (SessionFactoryCollection)base["sessionFactories"];
                 return sessionFactoriesCollection;
             }
         }

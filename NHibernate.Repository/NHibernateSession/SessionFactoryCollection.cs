@@ -3,13 +3,13 @@ using System.Configuration;
 
 namespace NHibernate.Repository.NHibernateSession
 {
-    [ConfigurationCollection(typeof(SessionFactoryElement))]
-    public sealed class SessionFactoriesCollection : ConfigurationElementCollection
+    [ConfigurationCollection(typeof(MappingCollection))]
+    public sealed class SessionFactoryCollection : ConfigurationElementCollection
     {
-        public SessionFactoriesCollection()
+        public SessionFactoryCollection()
         {
             AddElementName = "sessionFactory";
-            var sessionFactory = (SessionFactoryElement)CreateNewElement();
+            var sessionFactory = (MappingCollection)CreateNewElement();
             Add(sessionFactory);
         }
 
@@ -18,11 +18,11 @@ namespace NHibernate.Repository.NHibernateSession
             get { return ConfigurationElementCollectionType.AddRemoveClearMap; }
         }
 
-        public SessionFactoryElement this[int index]
+        public MappingCollection this[int index]
         {
             get
             {
-                return (SessionFactoryElement)BaseGet(index);
+                return (MappingCollection)BaseGet(index);
             }
 
             set
@@ -36,25 +36,25 @@ namespace NHibernate.Repository.NHibernateSession
             }
         }
 
-        public new SessionFactoryElement this[string name]
+        public new MappingCollection this[string name]
         {
             get
             {
-                return (SessionFactoryElement)BaseGet(name);
+                return (MappingCollection)BaseGet(name);
             }
         }
 
-        public int IndexOf(SessionFactoryElement sessionFactory)
+        public int IndexOf(MappingCollection sessionFactory)
         {
             return BaseIndexOf(sessionFactory);
         }
 
-        public void Add(SessionFactoryElement sessionFactory)
+        public void Add(MappingCollection sessionFactory)
         {
             BaseAdd(sessionFactory);
         }
 
-        public void Remove(SessionFactoryElement sessionFactory)
+        public void Remove(MappingCollection sessionFactory)
         {
             if (sessionFactory == null)
             {
@@ -84,12 +84,12 @@ namespace NHibernate.Repository.NHibernateSession
 
         protected override ConfigurationElement CreateNewElement()
         {
-            return new SessionFactoryElement();
+            return new MappingCollection();
         }
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((SessionFactoryElement)element).Name;
+            return ((MappingCollection)element).Name;
         }
 
         protected override void BaseAdd(ConfigurationElement element)

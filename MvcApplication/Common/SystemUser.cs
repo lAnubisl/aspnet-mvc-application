@@ -1,9 +1,10 @@
-﻿using System.Security.Principal;
+﻿using System;
+using System.Security.Principal;
 using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
 using PresentationService;
 
-namespace MVCApplication.Common
+namespace MvcApplication.Common
 {
     public class SystemUser : GenericPrincipal
     {
@@ -12,6 +13,11 @@ namespace MVCApplication.Common
         public SystemUser(IIdentity identity, string[] roles)
             : base(identity, roles)
         {
+            if (identity == null)
+            {
+                throw new ArgumentNullException("identity");
+            }
+
             var userDomainService = IOC.ContainerInstance.Resolve<IUserDomainService>();
             currentUser = userDomainService.LoadByEmail(identity.Name.Split('/')[1]);
         }

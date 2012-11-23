@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using MVCApplication.Controllers.Base;
+using MvcApplication.Controllers.Base;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.CategoryModels;
 
-namespace MVCApplication.Areas.Admin.Controllers
+namespace MvcApplication.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class CategoryController : CheckModelIsNullController

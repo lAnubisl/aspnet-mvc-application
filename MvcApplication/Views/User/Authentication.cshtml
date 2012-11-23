@@ -8,8 +8,8 @@
 @section Scripts
 {
     <script type="text/javascript">
-
-        if (window.location.hash != 0) {
+        $(document).ready(function () {
+            if (window.location.hash != 0) {
                 var state = window.location.hash.split(/[=&]/)[1];
                 var accessToken = window.location.hash.split(/[=&]/)[3];
                 var form = document.createElement("form");
@@ -27,27 +27,19 @@
                 form.appendChild(field);
 
                 document.body.appendChild(form);
-                form.submit();
+                //form.submit();
             }
-
+        });
     </script>
 }
 
 <h2>Authentication page</h2>
-@if (MVCApplication.MvcApplication.LoggedInUser == null)
+@if (MvcApplication.MvcApplication.LoggedInUser == null)
 {
     <p>
-        @try
-        {
-            <text>@Settings.Default.FacebookUrlAuth;</text>
-            
-        } catch (Exception e)
-        {
-<text>@e.Message</text>
-        }
-@*        <a href="@Settings.Default.FacebookUrlAuth">Log In with facebook</a>
+        <a href="@Settings.Default.FacebookUrlAuth">Log In with facebook</a>
         or
-        <a href="@Settings.Default.GoogleUrlAuth">Log In with google</a>*@
+        <a href="@Settings.Default.GoogleUrlAuth">Log In with google</a>
         or
         @Html.ActionLink("Log In", "LogOn", "User")
         or
@@ -57,7 +49,7 @@
 else
 {
     <p>
-        You logined as @Html.Raw(Html.Encode(MVCApplication.MvcApplication.LoggedInUser.FullName))
+        You logined as @Html.Raw(Html.Encode(MvcApplication.MvcApplication.LoggedInUser.FullName))
     </p>
     
     @Html.ActionLink("Log Out", "LogOff", "User")

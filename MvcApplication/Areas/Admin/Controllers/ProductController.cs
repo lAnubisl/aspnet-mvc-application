@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Web.Mvc;
-using MVCApplication.Controllers.Base;
+using MvcApplication.Controllers.Base;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.ProductModels;
 using PresentationService.Properties;
 
-namespace MVCApplication.Areas.Admin.Controllers
+namespace MvcApplication.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class ProductController : CheckModelIsNullController
@@ -58,13 +58,13 @@ namespace MVCApplication.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult UploadImage(ProductUploadImageModel model)
         {
-            if (ModelState.IsValid)
+            if (model != null && ModelState.IsValid)
             {
                 var url = model.ImageUrl;
 
-                if (string.IsNullOrEmpty(url))
+                if (url == null)
                 {
-                    url = string.Format("{0}/{1}.jpg", Settings.Default.ProductImagesPath, Guid.NewGuid());
+                    url = new Uri(string.Format("{0}/{1}.jpg", Settings.Default.ProductImagesPath, Guid.NewGuid()));
                 }
 
                 productPresentationService.SaveProductImage(model.File, url);
@@ -76,7 +76,7 @@ namespace MVCApplication.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult DeleteImage(string imageUrl)
+        public JsonResult DeleteImage(Uri imageUrl)
         {
             productPresentationService.DeleteImage(imageUrl);
             return new JsonResult();

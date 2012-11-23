@@ -8,14 +8,14 @@ namespace DomainService.DomainServices
 {
     public class ImageDomainService : GenericDomainService<Image, IGenericRepository<Image>>, IImageDomainService
     {
-        public IList<Image> LoadByURLs(IEnumerable<string> urls)
+        public IList<Image> LoadByUrls(IEnumerable<string> urls)
         {
-            return Repository.Query().Where(x => urls.Contains(x.URL)).ToList();
+            return Repository.Query().Where(x => urls.Contains(x.Url)).ToList();
         }
 
-        public Image LoadByURL(string url)
+        public Image LoadByUrl(string url)
         {
-            return Repository.Query().SingleOrDefault(x => x.URL == url);
+            return Repository.Query().SingleOrDefault(x => x.Url == url);
         }
     }
 }

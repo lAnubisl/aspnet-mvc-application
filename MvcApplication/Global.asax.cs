@@ -7,18 +7,18 @@ using System.Web.Routing;
 using System.Web.Security;
 using DomainService.DomainModels;
 using log4net;
-using MVCApplication.Binders.Admin.Category;
-using MVCApplication.Binders.Admin.Consignment;
-using MVCApplication.Binders.Admin.Product;
-using MVCApplication.Common;
-using MVCApplication.Common.CastleInstallers;
+using MvcApplication.Binders.Admin.Category;
+using MvcApplication.Binders.Admin.Consignment;
+using MvcApplication.Binders.Admin.Product;
+using MvcApplication.Common;
+using MvcApplication.Common.CastleInstallers;
 using PresentationService;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.CategoryModels;
 using PresentationService.Models.AdminModels.ConsignmentModels;
 using PresentationService.Models.AdminModels.ProductModels;
 
-namespace MVCApplication
+namespace MvcApplication
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -39,11 +39,6 @@ namespace MVCApplication
             }
         }
 
-        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-        {
-            filters.Add(new HandleErrorAttribute());
-        }
-
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -58,10 +53,11 @@ namespace MVCApplication
             ////routes.MapRoute("TraderStaticPage","Trader/{*page}", new { controller = "TraderStatic", action = "Redirect" }, new { page = @"[\w%/]+.html$" });
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Application_Start should not be static or it will not called")]
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            RegisterGlobalFilters(GlobalFilters.Filters);
+            GlobalFilters.Filters.Add(new HandleErrorAttribute());
             RegisterRoutes(RouteTable.Routes);
 
             // Configure log4net
@@ -98,6 +94,7 @@ namespace MVCApplication
             IOC.ContainerInstance.Dispose();
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "Catches all errors in application")]
         protected void Application_Error(object sender, EventArgs e)
         {
             try

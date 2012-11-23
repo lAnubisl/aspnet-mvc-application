@@ -5,8 +5,9 @@ namespace DomainService.DomainServiceInterfaces
 {
     public interface IImageDomainService : IGenericDomainService<Image>
     {
-        IList<Image> LoadByURLs(IEnumerable<string> urls);
+        IList<Image> LoadByUrls(IEnumerable<string> urls);
 
-        Image LoadByURL(string url);
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1054:UriParametersShouldNotBeStrings", MessageId = "0#", Justification = "url is a string property representation of database field")]
+        Image LoadByUrl(string url);
     }
 }

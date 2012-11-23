@@ -3,7 +3,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace MVCApplication.Common.CastleInstallers
+namespace MvcApplication.Common.CastleInstallers
 {
     public class ControllerInstaller : IWindsorInstaller
     {
