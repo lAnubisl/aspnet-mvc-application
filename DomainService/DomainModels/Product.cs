@@ -16,6 +16,7 @@ namespace DomainService.DomainModels
 
         public virtual bool IsUnlimitedProduct { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly", Justification = "This property is needed for ORM binding")]
         public virtual IList<Image> Images { get; set; }
 
         public override int GetHashCode()

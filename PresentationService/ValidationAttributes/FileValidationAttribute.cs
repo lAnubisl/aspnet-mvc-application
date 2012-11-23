@@ -14,15 +14,9 @@ namespace PresentationService.ValidationAttributes
             var file = value as HttpPostedFileBase;
             if (file != null && file.ContentLength <= MaxFileSize)
             {
-                try
+                using (var img = Image.FromStream(file.InputStream))
                 {
-                    using (var img = Image.FromStream(file.InputStream))
-                    {
-                        return img.RawFormat.Equals(ImageFormat.Jpeg);
-                    }
-                }
-                catch
-                {
+                    return img.RawFormat.Equals(ImageFormat.Jpeg);
                 }
             }
 

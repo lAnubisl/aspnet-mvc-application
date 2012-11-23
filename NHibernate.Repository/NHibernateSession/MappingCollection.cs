@@ -2,20 +2,20 @@ using System.Configuration;
 
 namespace NHibernate.Repository.NHibernateSession
 {
-    public class SessionFactoryElement : ConfigurationElementCollection
+    public class MappingCollection : ConfigurationElementCollection
     {
-        public SessionFactoryElement()
+        public MappingCollection()
         {
             AddElementName = "mapping";
         }
 
-        public SessionFactoryElement(string name, string connectionString)
+        public MappingCollection(string name, string connectionString)
         {
             Name = name;
             ConnectionString = connectionString;
         }
 
-        [ConfigurationProperty("name", IsRequired = true, IsKey = true, DefaultValue = "rewrwer")]
+        [ConfigurationProperty("name", IsRequired = true, IsKey = true)]
         public string Name
         {
             get

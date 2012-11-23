@@ -3,11 +3,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DomainService.Enumerations;
-using MVCApplication.Controllers.Base;
+using MvcApplication.Controllers.Base;
 using PresentationService.Interfaces;
 using PresentationService.Models.UserModels;
 
-namespace MVCApplication.Controllers
+namespace MvcApplication.Controllers
 {
     public class UserController : CheckModelIsNullController
     {
@@ -19,7 +19,6 @@ namespace MVCApplication.Controllers
             this.userPresentationService = userPresentationService;
         }
 
-        [HttpGet]
         public ActionResult Authentication()
         {
             if (!string.IsNullOrEmpty(Request[ReturnUrlToken]))
@@ -30,13 +29,11 @@ namespace MVCApplication.Controllers
             return View();
         }
 
-        [HttpGet]
         public ActionResult LogOn()
         {
             return View();
         }
 
-        [HttpGet]
         public ActionResult Register()
         {
             return View();
@@ -58,7 +55,7 @@ namespace MVCApplication.Controllers
         [HttpPost]
         public ActionResult LogOn(LogOnUserModel model)
         {
-            if (ModelState.IsValid)
+            if (model != null && ModelState.IsValid)
             {
                 var cookieModel = userPresentationService.LoadCookieModel(model.Email);
                 if (cookieModel != null)
@@ -75,7 +72,7 @@ namespace MVCApplication.Controllers
         [HttpPost]
         public ActionResult Register(RegisterUserModel model)
         {
-            if (ModelState.IsValid)
+            if (model != null && ModelState.IsValid)
             {
                 if (userPresentationService.RegisterNewUser(model))
                 {

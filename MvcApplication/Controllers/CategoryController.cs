@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
-using MVCApplication.Controllers.Base;
+using MvcApplication.Controllers.Base;
 using PresentationService.Interfaces;
 
-namespace MVCApplication.Controllers
+namespace MvcApplication.Controllers
 {
     public class CategoryController : CheckModelIsNullController
     {

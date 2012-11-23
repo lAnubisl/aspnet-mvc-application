@@ -18,7 +18,7 @@ namespace PresentationService.Models.ProductModels
             ProductPrice = product.Price;
             ProductId = product.Id;
             ProductImage = product.Images != null && product.Images.Any() 
-                ? product.Images.First().URL 
+                ? product.Images.First().Url 
                 : Settings.Default.ProductDefaultImage;
         }
 

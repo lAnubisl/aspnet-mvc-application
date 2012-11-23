@@ -2,7 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace MVCApplication.Common.CastleInstallers
+namespace MvcApplication.Common.CastleInstallers
 {
     public class PresentationServiceInstaller : IWindsorInstaller
     {

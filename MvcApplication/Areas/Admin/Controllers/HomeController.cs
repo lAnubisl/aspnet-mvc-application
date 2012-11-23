@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using MVCApplication.Controllers.Base;
+using MvcApplication.Controllers.Base;
 
-namespace MVCApplication.Areas.Admin.Controllers
+namespace MvcApplication.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class HomeController : CheckModelIsNullController

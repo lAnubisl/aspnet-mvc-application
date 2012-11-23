@@ -36,6 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -607,6 +608,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Anubis.Utils\Anubis.Utils.csproj">
+      <Project>{dafe9ada-476e-415c-a6f2-8a797b3c4e52}</Project>
+      <Name>Anubis.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DomainService\DomainService.csproj">
       <Project>{794F3B04-7D46-4F1A-A497-20AF9A9C31AB}</Project>
       <Name>DomainService</Name>
@@ -673,6 +678,7 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

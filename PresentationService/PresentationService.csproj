@@ -89,7 +89,6 @@
     <Compile Include="Models\ProductModels\TopProductsModel.cs" />
     <Compile Include="Models\ProductModels\ViewProductModel.cs" />
     <Compile Include="Models\ShoppingCard\ShoppingCardModel.cs" />
-    <Compile Include="Models\ProductModels\EditProductModel.cs" />
     <Compile Include="Models\UserModels\FacebookUser.cs" />
     <Compile Include="Models\UserModels\GoogleUser.cs" />
     <Compile Include="Models\UserModels\IServiceUser.cs" />

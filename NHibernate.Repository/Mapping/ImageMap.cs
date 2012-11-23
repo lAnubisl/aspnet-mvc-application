@@ -8,7 +8,7 @@ namespace NHibernate.Repository.Mapping
         public ImageMap()
         {
             Id(x => x.Id).Column("ImageId");
-            Map(x => x.URL);
+            Map(x => x.Url);
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using PresentationService.Interfaces.Admin;
 
-namespace MVCApplication.Binders.Admin.Category
+namespace MvcApplication.Binders.Admin.Category
 {
     public class CategoryEditModelBinder : DefaultModelBinder
     {

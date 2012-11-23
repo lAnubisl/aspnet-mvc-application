@@ -27,18 +27,19 @@ namespace PresentationService.Services.Admin
             this.imageDomainService = imageDomainService;
         }
 
-        public string SaveProductImage(HttpPostedFileBase file, string url)
+        public string SaveProductImage(HttpPostedFileBase file, Uri url)
         {
-            if (!string.IsNullOrEmpty(url))
+            if (url != null)
             {
+                var imageUrl = url.ToString();
                 if (file != null)
-                {
-                    var fileName = url.Substring(url.LastIndexOf('/') + 1);
+                {                 
+                    var fileName = imageUrl.Substring(imageUrl.LastIndexOf('/') + 1);
                     file.SaveAs(string.Format("{0}{1}/{2}", AppDomain.CurrentDomain.BaseDirectory, Settings.Default.ProductImagesPath, fileName));
                 }
 
-                imageDomainService.Save(new Image { URL = url });
-                return url;
+                imageDomainService.Save(new Image { Url = imageUrl });
+                return imageUrl;
             }
 
             return null;
@@ -82,7 +83,7 @@ namespace PresentationService.Services.Admin
                 product.Category = categoryDomainService.Load(model.CategoryId);
                 product.CreatedBy = model.CreatedBy;
                 product.IsUnlimitedProduct = model.IsUnlimitedProduct;
-                AddImagesToProduct(product, imageDomainService.LoadByURLs(model.Images));
+                AddImagesToProduct(product, imageDomainService.LoadByUrls(model.Images));
                 productDomainService.Save(product);
             }
         }
@@ -92,11 +93,11 @@ namespace PresentationService.Services.Admin
             return productDomainService.LoadProductsForTerm(term);
         }
 
-        public void DeleteImage(string imageUrl)
+        public void DeleteImage(Uri imageUrl)
         {
-            if (!string.IsNullOrEmpty(imageUrl))
+            if (imageUrl != null)
             {
-                var image = imageDomainService.LoadByURL(imageUrl);
+                var image = imageDomainService.LoadByUrl(imageUrl.ToString());
                 if (image != null)
                 {
                     imageDomainService.Delete(image);

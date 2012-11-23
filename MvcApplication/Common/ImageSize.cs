@@ -1,4 +1,4 @@
-﻿namespace MVCApplication.Common
+﻿namespace MvcApplication.Common
 {
     public enum ImageSize
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace MVCApplication.Areas.Admin
+namespace MvcApplication.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration
     {

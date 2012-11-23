@@ -10,6 +10,9 @@ namespace PresentationService.Models.AdminModels.ProductModels
 {
     public class ProductEditModel
     {
+        private readonly IEnumerable<CategorySelectListItemModel> availableCategories;
+        private readonly IEnumerable<string> images; 
+
         public ProductEditModel(Product product, IEnumerable<Category> availableCategories)
         {
             if (product == null)
@@ -27,14 +30,14 @@ namespace PresentationService.Models.AdminModels.ProductModels
             ProductName = product.Name;
             ProductId = product.Id;
             IsUnlimitedProduct = product.IsUnlimitedProduct;
-            AvailableCategories = availableCategories.Select(x => new CategorySelectListItemModel(x));
+            this.availableCategories = availableCategories.Select(x => new CategorySelectListItemModel(x));
             if (product.Category != null)
             {
                 CategoryId = product.Category.Id;
             }
             
-            Images = (product.Images != null && product.Images.Any()) 
-                ? product.Images.Select(x => x.URL).ToList()
+            images = (product.Images != null && product.Images.Any()) 
+                ? product.Images.Select(x => x.Url).ToList()
                 : new List<string>();
         }
 
@@ -57,8 +60,14 @@ namespace PresentationService.Models.AdminModels.ProductModels
 
         public User CreatedBy { get; set; }
 
-        public IList<string> Images { get; set; } 
+        public IEnumerable<string> Images
+        {
+            get { return images; }
+        }
 
-        public IEnumerable<CategorySelectListItemModel> AvailableCategories { get; set; }
+        public IEnumerable<CategorySelectListItemModel> AvailableCategories
+        {
+            get { return availableCategories; }
+        }
     }
 }

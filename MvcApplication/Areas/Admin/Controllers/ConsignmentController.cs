@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using DomainService.Enumerations;
-using MVCApplication.Controllers.Base;
+using MvcApplication.Controllers.Base;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.ConsignmentModels;
 
-namespace MVCApplication.Areas.Admin.Controllers
+namespace MvcApplication.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class ConsignmentController : CheckModelIsNullController

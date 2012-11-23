@@ -18,7 +18,7 @@ namespace PresentationService.Models.ProductModels
             ProductPrice = product.Price;
             ProductName = product.Name;
             ProductId = product.Id;
-            ProductImages = product.Images.Select(x => x.URL).ToList();
+            ProductImages = product.Images.Select(x => x.Url).ToList();
         }
 
         public long ProductId { get; private set; }
