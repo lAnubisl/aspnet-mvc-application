@@ -34,7 +34,7 @@ namespace DomainService.DomainServices
 
         public IEnumerable<Product> LoadProductsForTerm(string term)
         {
-            return Repository.Query().Where(p => p.Name.Contains(term)).ToList();
+            return Repository.Query().Where(p => p.Name.ToLower().Contains(term.ToLower())).ToList();
         }
 
         #endregion
