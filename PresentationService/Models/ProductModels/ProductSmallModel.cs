@@ -7,6 +7,12 @@ namespace PresentationService.Models.ProductModels
 {
     public class ProductSmallModel
     {
+        private readonly long productId;
+        private readonly string productImage;
+        private readonly string productName;
+        private readonly float productPrice;
+        private readonly string productDescription;
+
         public ProductSmallModel(Product product)
         {
             if (product == null)
@@ -14,20 +20,38 @@ namespace PresentationService.Models.ProductModels
                 throw new ArgumentNullException("product");
             }
 
-            ProductName = product.Name;
-            ProductPrice = product.Price;
-            ProductId = product.Id;
-            ProductImage = product.Images != null && product.Images.Any() 
+            productName = product.Name;
+            productPrice = product.Price;
+            productDescription = product.Description;
+            productId = product.Id;
+            productImage = product.Images != null && product.Images.Any() 
                 ? product.Images.First().Url 
                 : Settings.Default.ProductDefaultImage;
         }
 
-        public string ProductImage { get; private set; }
+        public string ProductImage
+        {
+            get { return productImage; }
+        }
 
-        public long ProductId { get; private set; }
+        public long ProductId
+        {
+            get { return productId; }
+        }
 
-        public float ProductPrice { get; private set; }
+        public float ProductPrice
+        {
+            get { return productPrice; }
+        }
 
-        public string ProductName { get; private set; }
+        public string ProductName
+        {
+            get { return productName; }
+        }
+
+        public string ProduceDescription
+        {
+            get { return productDescription; }
+        }
     }
 }

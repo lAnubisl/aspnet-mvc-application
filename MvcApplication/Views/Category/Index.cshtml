@@ -1,0 +1,12 @@
+﻿@model PresentationService.Models.CategoryModels.CategoryViewModel
+<div class="section-title text-align-center">
+    <h1 class="title">@Model.CategoryName</h1>
+</div>
+<div class="portfolio-grid">
+    <ul id="thumbs">
+        @foreach (var product in Model.Products)
+        {
+            @Html.DisplayFor(m => product)
+        }
+    </ul>
+</div>

@@ -21,6 +21,11 @@ namespace DomainService.DomainServices
             return Repository.Query().Where(c => c.ParentCategory.Id == parentCategoryId).ToList();
         }
 
+        public Category LoadBySeoURL(string seoURL)
+        {
+            return Repository.Query().SingleOrDefault(c => c.SeoURL == seoURL);
+        }
+
         public IList<Category> LoadRootCategories()
         {
             return Repository.Query().Where(c => c.ParentCategory == null).ToList();

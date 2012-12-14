@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
 using DomainService.Enumerations;
@@ -14,10 +15,13 @@ namespace PresentationService.Services.Admin
 
         private readonly IProductDomainService productDomainService;
 
-        public ConsignmentPresentationService(IConsignmentDomainService consignmentDomainService, IProductDomainService productDomainService)
+        private readonly IUserDomainService userDomainService;
+
+        public ConsignmentPresentationService(IConsignmentDomainService consignmentDomainService, IProductDomainService productDomainService, IUserDomainService userDomainService)
         {
             this.consignmentDomainService = consignmentDomainService;
             this.productDomainService = productDomainService;
+            this.userDomainService = userDomainService;
         }
 
         public ConsignmentIndexModel LoadConsignmentIndexModel()
@@ -39,16 +43,18 @@ namespace PresentationService.Services.Admin
             return null;
         }
 
-        public void SaveConsignmentEditModel(ConsignmentEditModel consignmentEditModel, User user)
+        public void SaveConsignmentEditModel(ConsignmentEditModel consignmentEditModel, long userId)
         {
             if (consignmentEditModel == null)
             {
                 throw new ArgumentNullException("consignmentEditModel");
             }
 
+            var user = userDomainService.Load(userId);
+
             if (user == null)
             {
-                throw new ArgumentNullException("user");
+                throw new InvalidOperationException("There is no such user in the system");
             }
 
             var consignment = consignmentEditModel.Id != default(long)
@@ -61,12 +67,20 @@ namespace PresentationService.Services.Admin
                 consignment.IncomingProducts.Clear();
                 foreach (var product in consignmentEditModel.Products)
                 {
-                    consignment.IncomingProducts.Add(new IncomingProduct
+                    var existingProduct = consignment.IncomingProducts.SingleOrDefault(x => x.Product.Name == product.Name);
+                    if (existingProduct != null)
                     {
-                        Consignment = consignment,
-                        Count = product.Count,
-                        Product = productDomainService.LoadByName(product.Name)
-                    });
+                        existingProduct.Count += product.Count;
+                    }
+                    else
+                    {
+                        consignment.IncomingProducts.Add(new IncomingProduct
+                        {
+                            Consignment = consignment,
+                            Count = product.Count,
+                            Product = productDomainService.LoadByName(product.Name)
+                        });
+                    }
                 }
 
                 consignmentDomainService.Save(consignment);

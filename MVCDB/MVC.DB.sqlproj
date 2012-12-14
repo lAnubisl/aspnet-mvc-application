@@ -125,9 +125,6 @@
     <None Include="StaticCodeAnalysis.SuppressMessages.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="dbo\Script.PostDeployment.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <RefactorLog Include="MVC.DB.refactorlog" />
   </ItemGroup>
 </Project>

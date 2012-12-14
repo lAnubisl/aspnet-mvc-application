@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using DomainService.DomainModels;
 using PresentationService.ValidationAttributes;
 
@@ -21,10 +22,10 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels.Items
             Name = incomingProduct.Product.Name;
         }
 
-        [ProductCountCorrect]
+        [Display(Name = "ProductCount", ResourceType = typeof(Resources.EntityNames)), PositiveNumber]
         public long Count { get; set; }
 
-        [ProductNameCombinedWithId]
+        [Display(Name = "ProductName", ResourceType = typeof(Resources.EntityNames)), CommonRequired, RealProductName]
         public string Name { get; set; }
     }
 }

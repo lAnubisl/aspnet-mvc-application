@@ -7,7 +7,7 @@ namespace PresentationService.ValidationAttributes
     {
         public IsUniqueEmailAttribute()
         {
-            ErrorMessage = "{0} уже зарегистрирован в системе";
+            ErrorMessage = Resources.ValidationMessages.X_AlreadyExistsInTheSystem;
         }
 
         public override bool IsValid(object value)

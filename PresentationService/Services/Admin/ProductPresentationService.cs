@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.ProductModels;
-using PresentationService.Models.AdminModels.ProductModels.Items;
 using PresentationService.Properties;
 
 namespace PresentationService.Services.Admin
@@ -39,6 +37,7 @@ namespace PresentationService.Services.Admin
                 }
 
                 imageDomainService.Save(new Image { Url = imageUrl });
+
                 return imageUrl;
             }
 
@@ -47,7 +46,7 @@ namespace PresentationService.Services.Admin
 
         public ProductIndexModel LoadProductIndexModel()
         {
-            return new ProductIndexModel(productDomainService.Load().Select(p => new ProductIndexItemModel(p.Name, p.Id)));
+            return new ProductIndexModel(productDomainService.Load());
         }
 
         public ProductEditModel LoadProductEditModel(long id)

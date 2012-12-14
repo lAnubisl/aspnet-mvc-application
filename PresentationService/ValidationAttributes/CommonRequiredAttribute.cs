@@ -8,7 +8,7 @@ namespace PresentationService.ValidationAttributes
     {
         public CommonRequiredAttribute()
         {
-            ErrorMessage = "{0} is Required.";
+            ErrorMessage = Resources.ValidationMessages.X_IsRequired;
         }
     }
 }

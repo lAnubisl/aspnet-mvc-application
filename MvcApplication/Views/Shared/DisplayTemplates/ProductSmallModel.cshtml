@@ -4,12 +4,15 @@
 <li class="col4 item web">
     <img src="@Model.ProductImage" alt="@Model.ProductName" title="@Model.ProductName" onclick="location.href='@Url.Action("View", "Product", new { id = Model.ProductId })'" />
     <div class="col4 item-info">
-        <h3 class="title"><a href="@Url.Action("View", "Product", new { id = Model.ProductId })">@Model.ProductName</a></h3>
+        <h3 class="title">
+            @Model.ProductName<br />
+            <a href="@Url.Action("View", "Product", new { id = Model.ProductId })">@Model.ProductPrice$</a>
+        </h3>
     </div>
     <div class="item-info-overlay">
         <div>
-            <h4>Web design</h4>
-            <p>Etiam eget mi enim, non ultricies nisi voluptatem, illo inventore veritatis et quasi architecto beatae vitae explicabo.</p>
+            <h4>Описание:</h4>
+            <p>@Model.ProduceDescription</p>
             <a href="@Url.Action("View", "Product", new { id = Model.ProductId })" class="view">details</a>
             <a href="@Model.ProductImage" class="preview" data-rel="prettyPhoto[web]">Детали</a>
         </div>

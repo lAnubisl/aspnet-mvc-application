@@ -8,3 +8,7 @@
     CONSTRAINT [FK_IncomingProduct_Product] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product] ([ProductId])
 );
 
+
+GO
+
+CREATE UNIQUE INDEX [IX_IncomingProduct_ProductConsignment] ON [dbo].[IncomingProduct] ([ConsignmentId], [ProductId])

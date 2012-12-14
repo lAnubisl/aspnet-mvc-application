@@ -102,6 +102,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Resources\EntityNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ValidationMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationMessages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\Admin\CategoryPresentationService.cs" />
     <Compile Include="Services\Admin\ConsignmentPresentationService.cs" />
     <Compile Include="Services\Admin\ProductPresentationService.cs" />
@@ -113,16 +123,15 @@
     <Compile Include="ValidationAttributes\CategoryShouldHaveUniqueNameAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonEmailRegexAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonLinkRegexAttribute.cs" />
+    <Compile Include="ValidationAttributes\PositiveNumberAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonRequiredAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonStringLengthAttribute.cs" />
     <Compile Include="ValidationAttributes\CommonStringRequiredAttribute.cs" />
     <Compile Include="ValidationAttributes\FileValidationAttribute.cs" />
-    <Compile Include="ValidationAttributes\ProductIdFromDatabaseAttribute.cs" />
     <Compile Include="ValidationAttributes\ParentShouldNotBeCurrentChildAttribute.cs" />
     <Compile Include="ValidationAttributes\PasswordValidationAttribute.cs" />
     <Compile Include="ValidationAttributes\IsUniqueEmailAttribute.cs" />
-    <Compile Include="ValidationAttributes\ProductCountCorrectAttribute.cs" />
-    <Compile Include="ValidationAttributes\ProductNameCombinedWithIdAttribute.cs" />
+    <Compile Include="ValidationAttributes\RealProductNameAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Anubis.Utils\Anubis.Utils.csproj">
@@ -142,7 +151,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EntityNames.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EntityNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ValidationMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(ProjectDir)\..\External\StyleCop\StyleCop.Targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

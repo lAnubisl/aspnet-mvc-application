@@ -25,6 +25,7 @@ namespace PresentationService.Models.AdminModels.CategoryModels
             CategoryId = category.Id;
             CategoryName = category.Name;
             CategoryDescription = category.Description;
+            SeoURL = category.SeoURL;
             ParentCategories = parentCategories.Select(c => new CategorySelectListItemModel(c));
         }
 
@@ -33,6 +34,8 @@ namespace PresentationService.Models.AdminModels.CategoryModels
 
         [DisplayName("Описание")]
         public string CategoryDescription { get; set; }
+
+        public string SeoURL { get; set; }
 
         public long CategoryId { get; set; }
 

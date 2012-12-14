@@ -15,12 +15,12 @@ namespace PresentationService.Services
             this.categoryDomainService = categoryDomainService;
         }
 
-        public CategoryViewModel LoadCategoryViewModel(long categoryId)
+        public CategoryViewModel LoadCategoryViewModel(string seoURL)
         {
-            var category = categoryDomainService.Load(categoryId);
+            var category = categoryDomainService.LoadBySeoURL(seoURL);
             if (category != null)
             {
-                return new CategoryViewModel(category, productDomainService.LoadByCategoryId(categoryId));
+                return new CategoryViewModel(category, productDomainService.LoadByCategoryId(category.Id));
             }
 
             return null;

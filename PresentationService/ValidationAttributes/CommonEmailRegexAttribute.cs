@@ -8,7 +8,7 @@ namespace PresentationService.ValidationAttributes
     {
         public CommonEmailRegexAttribute() : base(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$")
         {
-            ErrorMessage = "Please enter valid {0}.";
+            ErrorMessage = Resources.ValidationMessages.PleaseEnterValid_X;
         }
     }
 }

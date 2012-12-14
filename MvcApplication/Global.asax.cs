@@ -46,7 +46,7 @@ namespace MvcApplication
             routes.IgnoreRoute("{*resource}", new { resource = string.Format(@".*\.({0})(/.*)?", string.Join("|", IgnoreExtentions.ToArray())) });
 
             routes.MapRoute("Home", "{action}", new { controller = "Home", action = "Index" }, Namespaces);
-            routes.MapRoute("Add", "{controller}/Add", new { controller = "Category", action = "Add" }, Namespaces);
+            routes.MapRoute("CategorySeoURL", "Category/{seoURL}", new { controller = "Category", action = "Index", seoUrl = string.Empty }, Namespaces);
             routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional }, Namespaces);
 
             ////This route supports links to static html pages ex.: http://www.domain.com/Traider/test/mypage.html
