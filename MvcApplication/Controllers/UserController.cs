@@ -46,7 +46,7 @@ namespace MvcApplication.Controllers
             if (cookieModel != null)
             {
                 RegisterAuthCookie(cookieModel.FullName, cookieModel.Email, cookieModel.Role);
-                RedirectFromLogonPage();
+                return RedirectFromLogonPage();
             }
 
             return RedirectToAction("Authentication");

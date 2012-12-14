@@ -14,6 +14,8 @@ namespace DomainService.DomainModels
 
         public virtual string Description { get; set; }
 
+        public virtual string SeoURL { get; set; }
+
         public override int GetHashCode()
         {
             return string.Concat("Category", Name, ParentCategory, Description).GetHashCode();

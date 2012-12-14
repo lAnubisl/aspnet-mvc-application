@@ -12,11 +12,21 @@ namespace PresentationService.ValidationAttributes
         public override bool IsValid(object value)
         {
             var file = value as HttpPostedFileBase;
-            if (file != null && file.ContentLength <= MaxFileSize)
+            if (file != null)
             {
+                if (file.ContentLength > MaxFileSize)
+                {
+                    ErrorMessage = Resources.ValidationMessages.FileExceedsTheSizeLimit;
+                    return false;
+                }
+
                 using (var img = Image.FromStream(file.InputStream))
                 {
-                    return img.RawFormat.Equals(ImageFormat.Jpeg);
+                    if (!img.RawFormat.Equals(ImageFormat.Jpeg))
+                    {
+                        ErrorMessage = Resources.ValidationMessages.FileFormatIsNotAllowed;
+                        return false;
+                    }
                 }
             }
 

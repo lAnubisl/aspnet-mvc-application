@@ -1,9 +1,4 @@
 ﻿@model PresentationService.Models.HomeModels.HomeIndexModel
-<div class="section-title text-align-center">
-    <h1 class="title">Hello and welcome, we are Brankic1979, one of <a href="http://themeforest.net">ThemeForest's</a> top authors.</h1>
-    <p>We like to make things for web, in fact we are little bit too obsessed.</p>
-</div>
-
 <div class="slideshow-container">
     <div class="flexslider" id="index-slider">
         <ul class="slides">
@@ -33,16 +28,6 @@
         </ul>
     </div>
 </div>
-<div class="filterable">
-    <ul id="portfolio-nav">
-        <li class="current"><a href="#" data-filter="*">All</a><span>/</span></li>
-        <li><a data-filter=".web" href="#">Web design</a><span>/</span></li>
-        <li><a data-filter=".logo-design" href="#">Logo</a><span>/</span></li>
-        <li><a data-filter=".branding" href="#branding">Branding</a><span>/</span></li>
-        <li><a data-filter=".video" href="#">Video</a><span>/</span></li>
-        <li><a data-filter=".video" href="#">Photography</a></li>
-    </ul>
-</div>
 <div class="portfolio-grid">
     <ul id="thumbs">
         @foreach (var product in Model.TopProducts)
@@ -50,4 +35,7 @@
             @Html.DisplayFor(m => product)
         }
     </ul>
+</div>
+<div style="text-align: center;">
+   <a href="#" class="button medium grey">Смотреть все продукты</a> 
 </div>

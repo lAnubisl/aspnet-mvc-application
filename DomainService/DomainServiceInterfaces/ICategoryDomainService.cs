@@ -14,6 +14,8 @@ namespace DomainService.DomainServiceInterfaces
         /// <returns></returns>
         IList<Category> LoadByParentCategoryId(long parentCategoryId);
 
+        Category LoadBySeoURL(string seoURL);
+
         IList<Category> LoadRootCategories();
 
         IList<Category> LoadDependencySaveParentsForCategoryId(long categoryId);

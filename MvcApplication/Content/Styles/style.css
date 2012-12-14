@@ -1010,7 +1010,7 @@ ul.colored-counter-list > li:before {
 }
 .item-info h3, .item-info-overlay h3 {
 	font-size: 15px;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Lucida Console';
 	font-style: normal;
 	font-weight: 300;
 	line-height: 17px;
@@ -1018,6 +1018,10 @@ ul.colored-counter-list > li:before {
 }
 .item-info h3.title a {
 	color: #676767;
+}
+.item-info h3.title {
+    text-align: center;
+    width: 206px;
 }
 .item-info-overlay h3.title a {
 	color: #fff;

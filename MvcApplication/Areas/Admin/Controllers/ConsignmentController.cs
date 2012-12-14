@@ -50,7 +50,7 @@ namespace MvcApplication.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                consignmentPresentationService.SaveConsignmentEditModel(consignmentEditModel, MvcApplication.LoggedInUser);
+                consignmentPresentationService.SaveConsignmentEditModel(consignmentEditModel, MvcApplication.LoggedInUser.Id);
                 return RedirectToAction("Index"); 
             }
 

@@ -29,6 +29,7 @@ namespace PresentationService.Services.Admin
             {
                 category.Name = model.CategoryName;
                 category.Description = model.CategoryDescription;
+                category.SeoURL = model.SeoURL;
                 category.ParentCategory = model.ParentCategoryId.HasValue 
                     ? categoryDomainService.Load(model.ParentCategoryId.Value) 
                     : null;

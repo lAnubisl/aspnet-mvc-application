@@ -9,7 +9,7 @@ namespace PresentationService.Interfaces.Admin
 
         ConsignmentEditModel LoadConsignmentEditModel(long consignmentId);
 
-        void SaveConsignmentEditModel(ConsignmentEditModel consignmentEditModel, User user);
+        void SaveConsignmentEditModel(ConsignmentEditModel consignmentEditModel, long userId);
 
         ConsignmentDetailsModel LoadConsignmentDetailsModel(long consignmentId);
     }

@@ -20,6 +20,13 @@
     @Html.TextBoxFor(m => m.CategoryName)
     @Html.ValidationMessageFor(m => m.CategoryName)
 </div>
+
+<div>
+    <p><strong>@Html.LabelFor(m => m.SeoURL)</strong> <em>(*)</em></p>
+    @Html.TextBoxFor(m => m.SeoURL)
+    @Html.ValidationMessageFor(m => m.SeoURL)
+</div>
+
 <p><strong>@Html.LabelFor(m => m.CategoryDescription)</strong></p>
 @Html.TextAreaFor(m => m.CategoryDescription, new { @class = "ckeditor" })
 <div>

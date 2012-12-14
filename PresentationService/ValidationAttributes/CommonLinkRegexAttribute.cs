@@ -9,12 +9,12 @@ namespace PresentationService.ValidationAttributes
         public CommonLinkRegexAttribute()
             : base(@"(\w+:{0,1}\w*@)?([\S ]+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?")
         {
-            ErrorMessage = "Please enter a valid {0}";
+            ErrorMessage = Resources.ValidationMessages.PleaseEnterValid_X;
         }
 
         public CommonLinkRegexAttribute(string pattern) : base(pattern)
         {
-            ErrorMessage = "Please enter a valid {0}";
+            ErrorMessage = Resources.ValidationMessages.PleaseEnterValid_X;
         }
     }
 }

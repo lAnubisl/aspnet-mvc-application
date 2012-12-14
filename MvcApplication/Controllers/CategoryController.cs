@@ -13,9 +13,9 @@ namespace MvcApplication.Controllers
             this.categoryPresentationService = categoryPresentationService;
         }
 
-        public ActionResult View(long id)
+        public ActionResult Index(string seoURL)
         {
-            return View(categoryPresentationService.LoadCategoryViewModel(id));
+            return View(categoryPresentationService.LoadCategoryViewModel(seoURL));
         }
 
         public ActionResult Menu()

@@ -4,7 +4,7 @@ namespace PresentationService.Interfaces
 {
     public interface ICategoryPresentationService : IBasePresentationService
     {
-        CategoryViewModel LoadCategoryViewModel(long categoryId);
+        CategoryViewModel LoadCategoryViewModel(string seoURL);
 
         CategoryMenuModel LoadCategoryMenuModel();
     }

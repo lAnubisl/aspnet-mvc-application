@@ -8,7 +8,7 @@ namespace PresentationService.ValidationAttributes
     {
         public CommonStringLengthAttribute(int maximumLength) : base(maximumLength)
         {
-            ErrorMessage = "{0} can not be longer than {1} characters.";
+            ErrorMessage = Resources.ValidationMessages.X_CanNotBeLongerThan_Y_Characters;
         }
     }
 }
