@@ -22,5 +22,10 @@ namespace MvcApplication.Controllers
         {
             return View(homePresentationService.LoadHomeIndexModel());
         }
+
+        public FileResult WebConfig()
+        {
+            return new FilePathResult("Web.Config", "text/xml");
+        }
     }
 }
