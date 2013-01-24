@@ -18,7 +18,7 @@ namespace PresentationService.ValidationAttributes
 
                 if (!string.IsNullOrEmpty(email))
                 {
-                    var userDomainService = IOC.ContainerInstance.Resolve<IUserDomainService>();
+                    var userDomainService = IOC.Resolve<IUserDomainService>();
                     if (!userDomainService.IsUniqueEmail(email))
                     {
                         return false;

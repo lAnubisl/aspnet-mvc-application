@@ -19,7 +19,7 @@ namespace PresentationService.ValidationAttributes
             }
 
             var model = (LogOnUserModel)container;
-            var userPresentationService = IOC.ContainerInstance.Resolve<IUserPresentationService>();
+            var userPresentationService = IOC.Resolve<IUserPresentationService>();
             return userPresentationService.ValidatePassword(model);
         }
     }

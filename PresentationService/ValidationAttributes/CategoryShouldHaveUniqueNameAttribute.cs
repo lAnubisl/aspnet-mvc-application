@@ -21,7 +21,7 @@ namespace PresentationService.ValidationAttributes
                 if (!string.IsNullOrEmpty(value.ToString()))
                 {
                     var model = (CategoryEditModel)container;
-                    var domainService = IOC.ContainerInstance.Resolve<ICategoryDomainService>();
+                    var domainService = IOC.Resolve<ICategoryDomainService>();
                     if (!domainService.IsUniqueName(model.CategoryId, name))
                     {
                         return false;

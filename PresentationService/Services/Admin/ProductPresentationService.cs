@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Web;
 using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
@@ -33,7 +34,7 @@ namespace PresentationService.Services.Admin
                 if (file != null)
                 {                 
                     var fileName = imageUrl.Substring(imageUrl.LastIndexOf('/') + 1);
-                    file.SaveAs(string.Format("{0}{1}/{2}", AppDomain.CurrentDomain.BaseDirectory, Settings.Default.ProductImagesPath, fileName));
+                    file.SaveAs(string.Format(CultureInfo.CurrentCulture, "{0}{1}/{2}", AppDomain.CurrentDomain.BaseDirectory, Settings.Default.ProductImagesPath, fileName));
                 }
 
                 imageDomainService.Save(new Image { Url = imageUrl });

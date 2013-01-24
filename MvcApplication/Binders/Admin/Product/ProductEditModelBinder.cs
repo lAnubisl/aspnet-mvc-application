@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Web.Mvc;
 using PresentationService.Interfaces.Admin;
 
@@ -22,7 +23,7 @@ namespace MvcApplication.Binders.Admin.Product
             }
 
             var obj = controllerContext.RouteData.Values["id"];
-            var id = obj != null ? Convert.ToInt64(obj) : default(long);
+            var id = obj != null ? Convert.ToInt64(obj, CultureInfo.InvariantCulture) : default(long);
             var model = productPresentationService.LoadProductEditModel(id);
             model.CreatedBy = MvcApplication.LoggedInUser;
             return model;

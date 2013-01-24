@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using DomainService.DomainServiceInterfaces;
 
 namespace PresentationService.ValidationAttributes
@@ -14,10 +15,10 @@ namespace PresentationService.ValidationAttributes
                 var productName = value as string;
                 if (!string.IsNullOrEmpty(productName))
                 {
-                    var service = IOC.ContainerInstance.Resolve<IProductDomainService>();
+                    var service = IOC.Resolve<IProductDomainService>();
                     if (service.LoadByName(productName) == null)
                     {
-                        ErrorMessage = string.Format(Resources.ValidationMessages.Product_X_DoesNotExistsInTheSystem, productName);
+                        ErrorMessage = string.Format(CultureInfo.CurrentCulture, Resources.ValidationMessages.Product_X_DoesNotExistsInTheSystem, productName);
                         return false;
                     }
                 }

@@ -61,6 +61,42 @@ namespace PresentationService.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Категория.
+        /// </summary>
+        public static string Category {
+            get {
+                return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Описание.
+        /// </summary>
+        public static string CategoryDescription {
+            get {
+                return ResourceManager.GetString("CategoryDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Название.
+        /// </summary>
+        public static string CategoryName {
+            get {
+                return ResourceManager.GetString("CategoryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Родительская категория.
+        /// </summary>
+        public static string CategoryParent {
+            get {
+                return ResourceManager.GetString("CategoryParent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Количество продукта.
         /// </summary>
         public static string ProductCount {
@@ -70,11 +106,65 @@ namespace PresentationService.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Описание.
+        /// </summary>
+        public static string ProductDescription {
+            get {
+                return ResourceManager.GetString("ProductDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Файл для загрузки.
+        /// </summary>
+        public static string ProductImageFile {
+            get {
+                return ResourceManager.GetString("ProductImageFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ссфлка на изображение.
+        /// </summary>
+        public static string ProductImageUrl {
+            get {
+                return ResourceManager.GetString("ProductImageUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Название продукта.
         /// </summary>
         public static string ProductName {
             get {
                 return ResourceManager.GetString("ProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена.
+        /// </summary>
+        public static string ProductPrice {
+            get {
+                return ResourceManager.GetString("ProductPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Неограниченное количество.
+        /// </summary>
+        public static string ProductUnlimited {
+            get {
+                return ResourceManager.GetString("ProductUnlimited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string UserEmail {
+            get {
+                return ResourceManager.GetString("UserEmail", resourceCulture);
             }
         }
     }

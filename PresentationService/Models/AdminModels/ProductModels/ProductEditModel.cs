@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using DomainService.DomainModels;
 using PresentationService.Models.AdminModels.CategoryModels.Items;
+using PresentationService.Resources;
 using PresentationService.ValidationAttributes;
 
 namespace PresentationService.Models.AdminModels.ProductModels
@@ -43,19 +44,19 @@ namespace PresentationService.Models.AdminModels.ProductModels
 
         public long ProductId { get; set; }
 
-        [DisplayName("Название"), CommonRequired, CommonStringLength(50)]
+        [Display(Name = "ProductName", ResourceType = typeof(EntityNames)), CommonRequired, CommonStringLength(50)]
         public string ProductName { get; set; }
 
-        [DisplayName("Цена")]
+        [Display(Name = "ProductPrice", ResourceType = typeof(EntityNames))]
         public float ProductPrice { get;  set; }
 
-        [DisplayName("Описание"), CommonRequired]
+        [Display(Name = "ProductDescription", ResourceType = typeof(EntityNames)), CommonRequired]
         public string ProductDescription { get; set; }
 
-        [DisplayName("Неограниченное количество")]
+        [Display(Name = "ProductUnlimited", ResourceType = typeof(EntityNames))]
         public bool IsUnlimitedProduct { get; set; }
 
-        [DisplayName("Категория")]
+        [Display(Name = "Category", ResourceType = typeof(EntityNames))]
         public long CategoryId { get; set; }
 
         public User CreatedBy { get; set; }

@@ -18,7 +18,7 @@ namespace MvcApplication.Common
                 throw new ArgumentNullException("identity");
             }
 
-            var userDomainService = IOC.ContainerInstance.Resolve<IUserDomainService>();
+            var userDomainService = IOC.Resolve<IUserDomainService>();
             currentUser = userDomainService.LoadByEmail(identity.Name.Split('/')[1]);
         }
 

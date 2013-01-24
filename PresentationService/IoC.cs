@@ -1,4 +1,5 @@
-﻿using Castle.Windsor;
+﻿using System;
+using Castle.Windsor;
 
 namespace PresentationService
 {
@@ -10,6 +11,26 @@ namespace PresentationService
         public static IWindsorContainer ContainerInstance
         {
             get { return Container; }
+        }
+
+        public static void Dispose()
+        {
+            Container.Dispose();
+        }
+
+        public static void Release(object obj)
+        {
+            Container.Release(obj);
+        }
+
+        public static T Resolve<T>()
+        {
+            return Container.Resolve<T>();
+        }
+
+        public static object Resolve(Type type)
+        {
+            return Container.Resolve(type);
         }
     }
 }

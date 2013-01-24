@@ -117,10 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="CategoryDescription" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="CategoryParent" xml:space="preserve">
+    <value>Родительская категория</value>
+  </data>
   <data name="ProductCount" xml:space="preserve">
     <value>Количество продукта</value>
   </data>
+  <data name="ProductDescription" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="ProductImageFile" xml:space="preserve">
+    <value>Файл для загрузки</value>
+  </data>
+  <data name="ProductImageUrl" xml:space="preserve">
+    <value>Ссфлка на изображение</value>
+  </data>
   <data name="ProductName" xml:space="preserve">
     <value>Название продукта</value>
+  </data>
+  <data name="ProductPrice" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="ProductUnlimited" xml:space="preserve">
+    <value>Неограниченное количество</value>
+  </data>
+  <data name="UserEmail" xml:space="preserve">
+    <value>Email</value>
   </data>
 </root>

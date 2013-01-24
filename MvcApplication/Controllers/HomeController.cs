@@ -18,14 +18,10 @@ namespace MvcApplication.Controllers
             return RedirectToAction("Authentication", "user");
         }
 
+        [OutputCache(Duration = 10)]
         public ActionResult Index()
         {
             return View(homePresentationService.LoadHomeIndexModel());
-        }
-
-        public FileResult WebConfig()
-        {
-            return new FilePathResult("Web.Config", "text/xml");
         }
     }
 }

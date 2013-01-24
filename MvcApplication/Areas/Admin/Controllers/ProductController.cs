@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Web.Mvc;
 using MvcApplication.Controllers.Base;
 using PresentationService.Interfaces.Admin;
@@ -64,7 +65,7 @@ namespace MvcApplication.Areas.Admin.Controllers
 
                 if (url == null)
                 {
-                    url = new Uri(string.Format("{0}/{1}.jpg", Settings.Default.ProductImagesPath, Guid.NewGuid()));
+                    url = new Uri(string.Format(CultureInfo.InvariantCulture, "{0}/{1}.jpg", Settings.Default.ProductImagesPath, Guid.NewGuid()));
                 }
 
                 productPresentationService.SaveProductImage(model.File, url);
