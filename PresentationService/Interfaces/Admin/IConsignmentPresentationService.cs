@@ -1,5 +1,4 @@
-﻿using DomainService.DomainModels;
-using PresentationService.Models.AdminModels.ConsignmentModels;
+﻿using PresentationService.Models.AdminModels.ConsignmentModels;
 
 namespace PresentationService.Interfaces.Admin
 {

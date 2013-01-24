@@ -95,7 +95,7 @@
     <Compile Include="Common\CastleInstallers\DomainServiceInstaller.cs" />
     <Compile Include="Common\CastleInstallers\PresentationServiceInstaller.cs" />
     <Compile Include="Common\CastleInstallers\RepositoryInstaller.cs" />
-    <Compile Include="Common\CastleControllerFactory.cs" />
+    <Compile Include="Common\ControllerFactory.cs" />
     <Compile Include="Common\ImageSize.cs" />
     <Compile Include="Common\SystemUser.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -586,6 +586,7 @@
     <Content Include="Content\Styles\prettyPhoto.css" />
     <Content Include="Content\Styles\socialize-bookmarks.css" />
     <Content Include="Content\Styles\style.css" />
+    <CodeAnalysisDictionary Include="CustomDictionary.xml" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">

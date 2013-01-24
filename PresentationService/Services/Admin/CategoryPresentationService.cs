@@ -45,8 +45,7 @@ namespace PresentationService.Services.Admin
                 : new Category();
             if (category != null)
             {
-                var parentCategories = categoryDomainService.LoadDependencySaveParentsForCategoryId(categoryId);
-                var model = new CategoryEditModel(category, parentCategories);
+                var model = new CategoryEditModel(category, categoryDomainService.LoadDependencySaveParentsForCategoryId(categoryId));
                 if (category.ParentCategory != null)
                 {
                     model.ParentCategoryId = category.ParentCategory.Id;

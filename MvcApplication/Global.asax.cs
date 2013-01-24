@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -43,7 +44,7 @@ namespace MvcApplication
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
-            routes.IgnoreRoute("{*resource}", new { resource = string.Format(@".*\.({0})(/.*)?", string.Join("|", IgnoreExtentions.ToArray())) });
+            routes.IgnoreRoute("{*resource}", new { resource = string.Format(CultureInfo.InvariantCulture, @".*\.({0})(/.*)?", string.Join("|", IgnoreExtentions.ToArray())) });
 
             routes.MapRoute("Home", "{action}", new { controller = "Home", action = "Index" }, Namespaces);
             routes.MapRoute("CategorySeoURL", "Category/{seoURL}", new { controller = "Category", action = "Index", seoUrl = string.Empty }, Namespaces);
@@ -72,12 +73,12 @@ namespace MvcApplication
 
             AddModelBinders();
 
-            ControllerBuilder.Current.SetControllerFactory(new CastleControllerFactory());
+            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-            if (IgnoreExtentions.All(ext => !Request.RawUrl.EndsWith("." + ext)) && HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
+            if (Request.CurrentExecutionFilePathExtension != null && IgnoreExtentions.All(ext => !Request.CurrentExecutionFilePathExtension.Equals("." + ext)) && HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 var identity = HttpContext.Current.User.Identity as FormsIdentity;
                 if (identity != null)
@@ -91,7 +92,7 @@ namespace MvcApplication
 
         protected void Application_End(object sender, EventArgs e)
         {
-            IOC.ContainerInstance.Dispose();
+            IOC.Dispose();
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "Catches all errors in application")]
@@ -116,9 +117,9 @@ namespace MvcApplication
 
         private static void AddModelBinders()
         {
-            ModelBinders.Binders.Add(typeof(CategoryEditModel), new CategoryEditModelBinder(IOC.ContainerInstance.Resolve<ICategoryPresentationService>()));
-            ModelBinders.Binders.Add(typeof(ProductEditModel), new ProductEditModelBinder(IOC.ContainerInstance.Resolve<IProductPresentationService>()));
-            ModelBinders.Binders.Add(typeof(ConsignmentEditModel), new ConsignmentEditModelBinder(IOC.ContainerInstance.Resolve<IConsignmentPresentationService>()));
+            ModelBinders.Binders.Add(typeof(CategoryEditModel), new CategoryEditModelBinder(IOC.Resolve<ICategoryPresentationService>()));
+            ModelBinders.Binders.Add(typeof(ProductEditModel), new ProductEditModelBinder(IOC.Resolve<IProductPresentationService>()));
+            ModelBinders.Binders.Add(typeof(ConsignmentEditModel), new ConsignmentEditModelBinder(IOC.Resolve<IConsignmentPresentationService>()));
         }
     }
 }
