@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using DomainService.DomainModels;
 
 namespace PresentationService.Models.ProductModels
 {
     public class TopProductsModel
     {
-        public TopProductsModel(IEnumerable<DomainService.DomainModels.Product> products)
+        public TopProductsModel(IEnumerable<Product> products)
         {
             Products = products;
         }
 
-        public IEnumerable<DomainService.DomainModels.Product> Products { get; private set; }
+        public IEnumerable<Product> Products { get; private set; }
     }
 }

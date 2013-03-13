@@ -8,6 +8,8 @@ namespace PresentationService.Models.CategoryModels
 {
     public class CategoryMenuModel
     {
+        private readonly IEnumerable<CategoryMenuElementModel> rootCategories;
+
         public CategoryMenuModel(IEnumerable<Category> rootCategories)
         {
             if (rootCategories == null)
@@ -15,9 +17,15 @@ namespace PresentationService.Models.CategoryModels
                 throw new ArgumentNullException("rootCategories");
             }
 
-            RootCategories = rootCategories.Select(c => new CategoryMenuElementModel(c, c.ChildCategories));
+            this.rootCategories = rootCategories.Select(c => new CategoryMenuElementModel(c, c.ChildCategories));
         }
 
-        public IEnumerable<CategoryMenuElementModel> RootCategories { get; private set; } 
+        public IEnumerable<CategoryMenuElementModel> RootCategories 
+        { 
+            get 
+            { 
+                return this.rootCategories; 
+            } 
+        } 
     }
 }

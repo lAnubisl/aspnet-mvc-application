@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using DomainService.DomainModels;
 
 namespace PresentationService.Models.ProductModels
 {
     public class ListProductModel
     {
-        public ListProductModel(IEnumerable<DomainService.DomainModels.Product> products, long categoryId)
+        public ListProductModel(IEnumerable<Product> products, long categoryId)
         {
             CategoryId = categoryId;
             Products = products;
@@ -12,6 +13,6 @@ namespace PresentationService.Models.ProductModels
 
         public long CategoryId { get; private set; }
 
-        public IEnumerable<DomainService.DomainModels.Product> Products { get; private set; }
+        public IEnumerable<Product> Products { get; private set; }
     }
 }
