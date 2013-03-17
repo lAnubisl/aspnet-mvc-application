@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using DomainService.DomainModels;
 
 namespace PresentationService.Models.ProductModels
