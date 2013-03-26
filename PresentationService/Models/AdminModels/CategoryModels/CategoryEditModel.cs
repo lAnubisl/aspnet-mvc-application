@@ -12,8 +12,10 @@ namespace PresentationService.Models.AdminModels.CategoryModels
     public class CategoryEditModel
     {
         private readonly IEnumerable<CategorySelectListItemModel> parentCategoryModels;
+        private readonly long categoryId;
+        private readonly bool canBeDeleted;
 
-        public CategoryEditModel(Category category, IEnumerable<Category> parentCategories)
+        internal CategoryEditModel(Category category, IEnumerable<Category> parentCategories, bool canBeDeleted)
         {
             if (category == null)
             {
@@ -25,10 +27,16 @@ namespace PresentationService.Models.AdminModels.CategoryModels
                 throw new ArgumentNullException("parentCategories");
             }
 
-            CategoryId = category.Id;
+            this.categoryId = category.Id;
+            this.canBeDeleted = canBeDeleted;
             CategoryName = category.Name;
             CategoryDescription = category.Description;
             SeoURL = category.SeoURL;
+            if (category.ParentCategory != null)
+            {
+                ParentCategoryId = category.ParentCategory.Id;
+            }
+
             parentCategoryModels = parentCategories.Select(c => new CategorySelectListItemModel(c));
         }
 
@@ -40,7 +48,21 @@ namespace PresentationService.Models.AdminModels.CategoryModels
 
         public string SeoURL { get; set; }
 
-        public long CategoryId { get; set; }
+        public long CategoryId
+        { 
+            get 
+            { 
+                return this.categoryId; 
+            } 
+        }
+
+        public bool CanBeDeleted
+        {
+            get
+            {
+                return this.canBeDeleted;
+            }
+        }
 
         [Display(Name = "CategoryParent", ResourceType = typeof(EntityNames)), ParentShouldNotBeCurrentChild]
         public long? ParentCategoryId { get; set; }

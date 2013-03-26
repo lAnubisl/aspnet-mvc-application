@@ -10,7 +10,7 @@ namespace PresentationService.Models.CategoryModels
     {
         private readonly IEnumerable<CategoryMenuElementModel> rootCategories;
 
-        public CategoryMenuModel(IEnumerable<Category> rootCategories)
+        internal CategoryMenuModel(IEnumerable<Category> rootCategories)
         {
             if (rootCategories == null)
             {

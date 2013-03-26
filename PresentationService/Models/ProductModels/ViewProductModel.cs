@@ -12,7 +12,7 @@ namespace PresentationService.Models.ProductModels
         private readonly string productName, productDescription;
         private readonly IEnumerable<string> productImages;
 
-        public ViewProductModel(Product product)
+        internal ViewProductModel(Product product)
         {
             if (product == null)
             {

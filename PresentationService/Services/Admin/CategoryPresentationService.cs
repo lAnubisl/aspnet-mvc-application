@@ -38,6 +38,20 @@ namespace PresentationService.Services.Admin
             }
         }
 
+        public bool CanBeDeleted(long categoryId)
+        {
+            return !categoryDomainService.HasChildCategories(categoryId) &&
+                !categoryDomainService.HasProducts(categoryId);
+        }
+
+        public void DeleteCategory(long categoryId)
+        {
+            if (CanBeDeleted(categoryId))
+            {
+                 categoryDomainService.Delete(categoryId);
+            }
+        }
+
         public CategoryEditModel LoadCategoryEditModel(long categoryId)
         {
             var category = categoryId != default(long) 
@@ -45,17 +59,9 @@ namespace PresentationService.Services.Admin
                 : new Category();
             if (category != null)
             {
-                var model = new CategoryEditModel(category, categoryDomainService.LoadDependencySaveParentsForCategoryId(categoryId));
-                if (category.ParentCategory != null)
-                {
-                    model.ParentCategoryId = category.ParentCategory.Id;
-                }
-                else
-                {
-                    model.ParentCategoryId = null;
-                }
-
-                return model;
+                var parentCategories = categoryDomainService.LoadDependencySaveParentsForCategoryId(categoryId);
+                var canBeDeleted = CanBeDeleted(categoryId);
+                return new CategoryEditModel(category, parentCategories, canBeDeleted);
             }
 
             return null;

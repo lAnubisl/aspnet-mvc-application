@@ -10,7 +10,7 @@ namespace PresentationService.Models.HomeModels
     {
         private readonly IEnumerable<ProductSmallModel> topProducts;
 
-        public HomeIndexModel(IEnumerable<Product> topProducts)
+        internal HomeIndexModel(IEnumerable<Product> topProducts)
         {
             if (topProducts == null)
             {

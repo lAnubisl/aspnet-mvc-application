@@ -31,6 +31,8 @@
 @Html.TextAreaFor(m => m.CategoryDescription, new { @class = "ckeditor" })
 <div>
     <a href="#" onclick="$('form').submit();" class="button medium grey">Сохранить</a>
-    <a href="#" class="button medium grey">Удалить</a>
+    @if (Model.CanBeDeleted){
+        <a href="#" onclick="deleteEntity('@Url.Action("Delete", "Category")','@Model.CategoryId')" class="button medium grey">Удалить</a>
+    }
 </div>
 @{Html.EndForm();}

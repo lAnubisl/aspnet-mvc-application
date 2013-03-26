@@ -8,16 +8,24 @@ namespace PresentationService.Models.AdminModels.CategoryModels
 {
     public class CategoryIndexModel
     {
-        public CategoryIndexModel(IEnumerable<Category> rootCategories)
+        private readonly IEnumerable<CategoryIndexItemModel> categories;
+
+        internal CategoryIndexModel(IEnumerable<Category> rootCategories)
         {
             if (rootCategories == null)
             {
                 throw new ArgumentNullException("rootCategories");
             }
 
-            Categories = rootCategories.Select(c => new CategoryIndexItemModel(c));
+            this.categories = rootCategories.Select(c => new CategoryIndexItemModel(c));
         }
 
-        public IEnumerable<CategoryIndexItemModel> Categories { get; private set; } 
+        public IEnumerable<CategoryIndexItemModel> Categories
+        {
+            get
+            {
+                return this.categories;
+            }
+        }
     }
 }

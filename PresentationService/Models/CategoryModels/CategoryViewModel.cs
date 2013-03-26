@@ -13,7 +13,7 @@ namespace PresentationService.Models.CategoryModels
         private readonly IEnumerable<ProductSmallModel> products;
         private readonly IEnumerable<CategoryListElementModel> subCategories;
 
-        public CategoryViewModel(Category category, IEnumerable<Product> products)
+        internal CategoryViewModel(Category category, IEnumerable<Product> products)
         {
             if (category == null)
             {

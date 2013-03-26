@@ -8,7 +8,7 @@ namespace PresentationService.Models.ProductModels
         private readonly long categoryId;
         private readonly IEnumerable<Product> products;
 
-        public ListProductModel(IEnumerable<Product> products, long categoryId)
+        internal ListProductModel(IEnumerable<Product> products, long categoryId)
         {
             this.categoryId = categoryId;
             this.products = products;

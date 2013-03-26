@@ -11,7 +11,7 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
     {
         private readonly IEnumerable<ConsignmentEditItemModel> products; 
 
-        public ConsignmentEditModel(Consignment consignment)
+        internal ConsignmentEditModel(Consignment consignment)
         {
             if (consignment == null)
             {
@@ -22,17 +22,17 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
             Status = consignment.Status;
             if (consignment.IncomingProducts != null && consignment.IncomingProducts.Any())
             {
-                products = consignment.IncomingProducts.Select(p => new ConsignmentEditItemModel(p)).ToList();
+                this.products = consignment.IncomingProducts.Select(p => new ConsignmentEditItemModel(p)).ToList();
             }
             else
             {
-                products = new List<ConsignmentEditItemModel>();
+                this.products = new List<ConsignmentEditItemModel>();
             }    
         }
 
         public IEnumerable<ConsignmentEditItemModel> Products
         {
-            get { return products; }
+            get { return this.products; }
         }
 
         public long Id { get; set; }

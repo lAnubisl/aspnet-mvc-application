@@ -11,7 +11,7 @@ namespace PresentationService.Models.ProductModels
         private readonly float productPrice;
         private readonly string productImage, productName, productDescription;
 
-        public ProductSmallModel(Product product)
+        internal ProductSmallModel(Product product)
         {
             if (product == null)
             {

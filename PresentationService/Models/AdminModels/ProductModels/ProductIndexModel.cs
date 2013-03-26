@@ -8,16 +8,24 @@ namespace PresentationService.Models.AdminModels.ProductModels
 {
     public class ProductIndexModel
     {
-        public ProductIndexModel(IEnumerable<Product> products)
+        private readonly IEnumerable<ProductIndexItemModel> products;
+
+        internal ProductIndexModel(IEnumerable<Product> products)
         {
             if (products == null)
             {
                 throw new ArgumentNullException("products");
             }
 
-            Products = products.Select(p => new ProductIndexItemModel(p.Name, p.Id));
+            this.products = products.Select(p => new ProductIndexItemModel(p.Name, p.Id));
         }
 
-        public IEnumerable<ProductIndexItemModel> Products { get; private set; }
+        public IEnumerable<ProductIndexItemModel> Products
+        {
+            get
+            {
+                return this.products;
+            }
+        }
     }
 }

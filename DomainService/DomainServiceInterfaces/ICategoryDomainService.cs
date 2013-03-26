@@ -19,5 +19,9 @@ namespace DomainService.DomainServiceInterfaces
         IList<Category> LoadRootCategories();
 
         IList<Category> LoadDependencySaveParentsForCategoryId(long categoryId);
+
+        bool HasChildCategories(long categoryId);
+
+        bool HasProducts(long categoryId);
     }
 }

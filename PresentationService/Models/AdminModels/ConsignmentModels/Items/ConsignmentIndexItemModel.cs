@@ -4,23 +4,57 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels.Items
 {
     public class ConsignmentIndexItemModel
     {
-        public ConsignmentIndexItemModel(long consignmentId, DateTime dateLoad, string userEmail, long countProducts, long countDifferentProducts)
+        private readonly long consignmentId, countProducts, countDifferentProducts;
+        private readonly string userEmail;
+        private readonly DateTime dateLoad;
+
+        internal ConsignmentIndexItemModel(long consignmentId, DateTime dateLoad, string userEmail, long countProducts, long countDifferentProducts)
         {
-            ConsignmentId = consignmentId;
-            DateLoad = dateLoad;
-            UserEmail = userEmail;
-            CountProducts = countProducts;
-            CountDifferentProducts = countDifferentProducts;
+            this.consignmentId = consignmentId;
+            this.dateLoad = dateLoad;
+            this.userEmail = userEmail;
+            this.countProducts = countProducts;
+            this.countDifferentProducts = countDifferentProducts;
         }
 
-        public long ConsignmentId { get; private set; }
+        public long ConsignmentId
+        {
+            get
+            {
+                return this.consignmentId;
+            }
+        }
 
-        public DateTime DateLoad { get; private set; }
+        public DateTime DateLoad
+        {
+            get
+            {
+                return this.dateLoad;
+            }
+        }
 
-        public string UserEmail { get; private set; }
+        public string UserEmail
+        {
+            get
+            {
+                return this.userEmail;
+            }
+        }
 
-        public long CountProducts { get; private set; }
+        public long CountProducts
+        {
+            get
+            {
+                return this.countProducts;
+            }
+        }
 
-        public long CountDifferentProducts { get; private set; }
+        public long CountDifferentProducts
+        {
+            get
+            {
+                return this.countDifferentProducts;
+            }
+        }
     }
 }

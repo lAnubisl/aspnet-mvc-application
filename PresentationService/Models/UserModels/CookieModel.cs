@@ -6,26 +6,53 @@ namespace PresentationService.Models.UserModels
 {
     public class CookieModel
     {
-        public CookieModel(User user)
+        private readonly string firstName, lastName, email;
+        private readonly Role role;
+
+        internal CookieModel(User user)
         {
             if (user == null)
             {
                 throw new ArgumentNullException("user");
             }
 
-            FirstName = user.FirstName;
-            LastName = user.LastName;
-            Email = user.Email;
-            Role = user.Role;
+            this.firstName = user.FirstName;
+            this.lastName = user.LastName;
+            this.email = user.Email;
+            this.role = user.Role;
         }
 
-        public string FirstName { get; set; }
+        public string FirstName
+        {
+            get
+            {
+                return this.firstName;
+            }
+        }
 
-        public string LastName { get; set; }
+        public string LastName
+        {
+            get
+            {
+                return this.lastName;
+            }
+        }
 
-        public string Email { get; set; }
+        public string Email
+        {
+            get
+            {
+                return this.email;
+            }
+        }
 
-        public Role Role { get; set; }
+        public Role Role
+        {
+            get
+            {
+                return this.role;
+            }
+        }
 
         public string FullName
         {

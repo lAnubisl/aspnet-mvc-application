@@ -7,7 +7,7 @@ namespace PresentationService.Models.ProductModels
     {
         private readonly IEnumerable<Product> products;
 
-        public TopProductsModel(IEnumerable<Product> products)
+        internal TopProductsModel(IEnumerable<Product> products)
         {
             this.products = products;
         }

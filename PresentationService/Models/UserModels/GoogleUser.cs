@@ -21,7 +21,7 @@ namespace PresentationService.Models.UserModels
         {
         }
 
-        public GoogleUser(string email, string firstName, string lastName)
+        internal GoogleUser(string email, string firstName, string lastName)
         {
             this.email = email;
             this.firstName = firstName;

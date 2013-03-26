@@ -11,7 +11,7 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels.Items
         {
         }
 
-        public ConsignmentEditItemModel(IncomingProduct incomingProduct)
+        internal ConsignmentEditItemModel(IncomingProduct incomingProduct)
         {
             if (incomingProduct == null)
             {
