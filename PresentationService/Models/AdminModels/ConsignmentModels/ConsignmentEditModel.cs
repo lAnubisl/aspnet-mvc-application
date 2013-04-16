@@ -9,6 +9,7 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
 {
     public class ConsignmentEditModel
     {
+        private readonly long consignmentId;
         private readonly IEnumerable<ConsignmentEditItemModel> products; 
 
         internal ConsignmentEditModel(Consignment consignment)
@@ -18,7 +19,7 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
                 throw new ArgumentNullException("consignment");
             }
 
-            Id = consignment.Id;
+            this.consignmentId = consignment.Id;
             Status = consignment.Status;
             if (consignment.IncomingProducts != null && consignment.IncomingProducts.Any())
             {
@@ -35,7 +36,13 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
             get { return this.products; }
         }
 
-        public long Id { get; set; }
+        public long Id 
+        { 
+            get 
+            { 
+                return this.consignmentId; 
+            } 
+        }
 
         public ConsignmentStatus Status { get; set; }
     }

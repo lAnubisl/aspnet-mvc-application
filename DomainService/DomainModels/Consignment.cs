@@ -16,6 +16,24 @@ namespace DomainService.DomainModels
 
         public virtual ConsignmentStatus Status { get; set; }
 
+        public virtual void AddIncomingProduct(IncomingProduct incomingProduct)
+        {
+            if (incomingProduct != null)
+            {
+                incomingProduct.Consignment = this;
+                this.IncomingProducts.Add(incomingProduct);
+            }
+        }
+
+        public virtual void RemoveIncomingProduct(IncomingProduct incomingProduct)
+        {
+            if (incomingProduct != null && this.IncomingProducts != null && this.IncomingProducts.Contains(incomingProduct))
+            {
+                this.IncomingProducts.Remove(incomingProduct);
+                incomingProduct.Consignment = null;
+            }
+        }
+
         public override int GetHashCode()
         {
             return string.Concat(GetType().FullName, User.GetHashCode(), CreationDate.GetHashCode()).GetHashCode();
