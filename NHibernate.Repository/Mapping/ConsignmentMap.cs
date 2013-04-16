@@ -13,7 +13,6 @@ namespace NHibernate.Repository.Mapping
             Map(x => x.CreationDate);
             Map(x => x.Status).Column("ConsignmentStatusId").CustomType<ConsignmentStatus>();
             HasMany(x => x.IncomingProducts)
-                .LazyLoad()
                 .Inverse()
                 .Cascade.AllDeleteOrphan()
                 .KeyColumn("ConsignmentId");
