@@ -2,14 +2,29 @@
 {
     public class ProductIndexItemModel
     {
-        public ProductIndexItemModel(string productName, long productId)
+        private readonly string productName;
+        private readonly long productId;
+
+        internal ProductIndexItemModel(string productName, long productId)
         {
-            ProductId = productId;
-            ProductName = productName;
+            this.productId = productId;
+            this.productName = productName;
         }
 
-        public string ProductName { get; private set; }
+        public string ProductName
+        {
+            get
+            {
+                return this.productName;
+            }
+        }
 
-        public long ProductId { get; private set; }
+        public long ProductId
+        {
+            get
+            {
+                return this.productId;
+            }
+        }
     }
 }

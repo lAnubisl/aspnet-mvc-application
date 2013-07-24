@@ -9,33 +9,40 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
 {
     public class ConsignmentEditModel
     {
+        private readonly long consignmentId;
         private readonly IEnumerable<ConsignmentEditItemModel> products; 
 
-        public ConsignmentEditModel(Consignment consignment)
+        internal ConsignmentEditModel(Consignment consignment)
         {
             if (consignment == null)
             {
                 throw new ArgumentNullException("consignment");
             }
 
-            Id = consignment.Id;
+            this.consignmentId = consignment.Id;
             Status = consignment.Status;
             if (consignment.IncomingProducts != null && consignment.IncomingProducts.Any())
             {
-                products = consignment.IncomingProducts.Select(p => new ConsignmentEditItemModel(p)).ToList();
+                this.products = consignment.IncomingProducts.Select(p => new ConsignmentEditItemModel(p)).ToList();
             }
             else
             {
-                products = new List<ConsignmentEditItemModel>();
+                this.products = new List<ConsignmentEditItemModel>();
             }    
         }
 
         public IEnumerable<ConsignmentEditItemModel> Products
         {
-            get { return products; }
+            get { return this.products; }
         }
 
-        public long Id { get; set; }
+        public long Id 
+        { 
+            get 
+            { 
+                return this.consignmentId; 
+            } 
+        }
 
         public ConsignmentStatus Status { get; set; }
     }

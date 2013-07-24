@@ -1,17 +1,33 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using DomainService.DomainModels;
 
 namespace PresentationService.Models.ProductModels
 {
     public class ListProductModel
     {
-        public ListProductModel(IEnumerable<DomainService.DomainModels.Product> products, long categoryId)
+        private readonly long categoryId;
+        private readonly IEnumerable<Product> products;
+
+        internal ListProductModel(IEnumerable<Product> products, long categoryId)
         {
-            CategoryId = categoryId;
-            Products = products;
+            this.categoryId = categoryId;
+            this.products = products;
         }
 
-        public long CategoryId { get; private set; }
+        public long CategoryId 
+        { 
+            get 
+            { 
+                return this.categoryId; 
+            } 
+        }
 
-        public IEnumerable<DomainService.DomainModels.Product> Products { get; private set; }
+        public IEnumerable<Product> Products 
+        { 
+            get 
+            { 
+                return this.products; 
+            } 
+        }
     }
 }

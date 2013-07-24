@@ -8,6 +8,8 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
 {
     public class ConsignmentIndexModel
     {
+        private readonly IEnumerable<ConsignmentIndexItemModel> consignments;
+
         public ConsignmentIndexModel(IEnumerable<Consignment> consignments)
         {
             if (consignments == null)
@@ -15,9 +17,15 @@ namespace PresentationService.Models.AdminModels.ConsignmentModels
                 throw new ArgumentNullException("consignments");
             }
 
-            Consignments = consignments.Select(p => new ConsignmentIndexItemModel(p.Id, p.CreationDate, p.User.Email, p.IncomingProducts.Sum(ip => ip.Count), p.IncomingProducts.Count));
+            this.consignments = consignments.Select(p => new ConsignmentIndexItemModel(p.Id, p.CreationDate, p.User.Email, p.IncomingProducts.Sum(ip => ip.Count), p.IncomingProducts.Count));
         }
 
-        public IEnumerable<ConsignmentIndexItemModel> Consignments { get; private set; }
+        public IEnumerable<ConsignmentIndexItemModel> Consignments 
+        {
+            get
+            {
+                return this.consignments;
+            }
+        }
     }
 }

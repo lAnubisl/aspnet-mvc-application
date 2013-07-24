@@ -7,26 +7,48 @@ namespace PresentationService.Models.AdminModels.CategoryModels.Items
 {
     public class CategoryIndexItemModel
     {
-        public CategoryIndexItemModel(Category category)
+        private readonly string categoryName;
+        private readonly long categoryId;
+        private readonly IEnumerable<CategoryIndexItemModel> subCategories;
+
+        internal CategoryIndexItemModel(Category category)
         {
             if (category == null)
             {
                 throw new ArgumentNullException("category");
             }
 
-            CategoryId = category.Id;
-            CategoryName = category.Name;
+            this.categoryId = category.Id;
+            this.categoryName = category.Name;
 
             if (category.ChildCategories != null)
             {
-                Subcategories = category.ChildCategories.Select(c => new CategoryIndexItemModel(c));
+                this.subCategories = category.ChildCategories.Select(c => new CategoryIndexItemModel(c));
             }
         }
 
-        public string CategoryName { get; private set; }
+        public string CategoryName
+        { 
+            get 
+            { 
+                return this.categoryName; 
+            } 
+        }
 
-        public long CategoryId { get; private set; }
+        public long CategoryId
+        { 
+            get 
+            { 
+                return this.categoryId; 
+            } 
+        }
 
-        public IEnumerable<CategoryIndexItemModel> Subcategories { get; private set; }
+        public IEnumerable<CategoryIndexItemModel> Subcategories
+        { 
+            get 
+            { 
+                return this.subCategories; 
+            } 
+        }
     }
 }

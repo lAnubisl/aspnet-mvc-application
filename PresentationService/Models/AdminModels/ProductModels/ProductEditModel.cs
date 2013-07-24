@@ -14,7 +14,7 @@ namespace PresentationService.Models.AdminModels.ProductModels
         private readonly IEnumerable<CategorySelectListItemModel> availableCategories;
         private readonly IEnumerable<string> images; 
 
-        public ProductEditModel(Product product, IEnumerable<Category> availableCategories)
+        internal ProductEditModel(Product product, IEnumerable<Category> availableCategories)
         {
             if (product == null)
             {
@@ -42,13 +42,13 @@ namespace PresentationService.Models.AdminModels.ProductModels
                 : new List<string>();
         }
 
-        public long ProductId { get; set; }
+        public long ProductId { get; private set; }
 
         [Display(Name = "ProductName", ResourceType = typeof(EntityNames)), CommonRequired, CommonStringLength(50)]
         public string ProductName { get; set; }
 
         [Display(Name = "ProductPrice", ResourceType = typeof(EntityNames))]
-        public float ProductPrice { get;  set; }
+        public float ProductPrice { get; set; }
 
         [Display(Name = "ProductDescription", ResourceType = typeof(EntityNames)), CommonRequired]
         public string ProductDescription { get; set; }

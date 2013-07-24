@@ -15,6 +15,16 @@ namespace DomainService.DomainServices
         {
         }
 
+        public bool HasChildCategories(long categoryId)
+        {
+            return Repository.Query().Any(category => category.ParentCategory.Id == categoryId);
+        }
+
+        public bool HasProducts(long categoryId)
+        {
+            return Repository.Query<Product>().Any(product => product.Category.Id == categoryId);
+        }
+
         public bool IsUniqueName(long categoryId, string categoryName)
         {
             return !Repository.Query().Any(category => category.Name.Equals(categoryName) && category.Id != categoryId);

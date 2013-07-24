@@ -6,15 +6,14 @@ using DomainService.DomainServiceInterfaces;
 using DomainService.Enumerations;
 using PresentationService.Interfaces.Admin;
 using PresentationService.Models.AdminModels.ConsignmentModels;
+using PresentationService.Models.AdminModels.ConsignmentModels.Items;
 
 namespace PresentationService.Services.Admin
 {
     public class ConsignmentPresentationService : IConsignmentPresentationService
     {
         private readonly IConsignmentDomainService consignmentDomainService;
-
         private readonly IProductDomainService productDomainService;
-
         private readonly IUserDomainService userDomainService;
 
         public ConsignmentPresentationService(IConsignmentDomainService consignmentDomainService, IProductDomainService productDomainService, IUserDomainService userDomainService)
@@ -64,25 +63,7 @@ namespace PresentationService.Services.Admin
             if (consignment != null)
             {
                 consignment.Status = consignmentEditModel.Status;
-                consignment.IncomingProducts.Clear();
-                foreach (var product in consignmentEditModel.Products)
-                {
-                    var existingProduct = consignment.IncomingProducts.SingleOrDefault(x => x.Product.Name == product.Name);
-                    if (existingProduct != null)
-                    {
-                        existingProduct.Count += product.Count;
-                    }
-                    else
-                    {
-                        consignment.IncomingProducts.Add(new IncomingProduct
-                        {
-                            Consignment = consignment,
-                            Count = product.Count,
-                            Product = productDomainService.LoadByName(product.Name)
-                        });
-                    }
-                }
-
+                FillIncomingProducts(consignment, consignmentEditModel.Products);
                 consignmentDomainService.Save(consignment);
             }
         }
@@ -96,6 +77,45 @@ namespace PresentationService.Services.Admin
             }
 
             return null;
+        }
+
+        private void FillIncomingProducts(Consignment consignment, IEnumerable<ConsignmentEditItemModel> products)
+        {
+            var productsToDelete = consignment.IncomingProducts.Where(ip => products.Select(p => p.Name).Contains(ip.Product.Name) == false).ToList();
+            foreach (var productToDelete in productsToDelete)
+            {
+                consignment.RemoveIncomingProduct(productToDelete);
+            }
+
+            var uniqueProducts = from p in products
+                                 group p by p.Name
+                                     into g
+                                     select new ConsignmentEditItemModel
+                                     {
+                                         Name = g.Key,
+                                         Count = g.Sum(x => x.Count)
+                                     };
+
+            foreach (var product in uniqueProducts)
+            {
+                var existingProduct = consignment.IncomingProducts.SingleOrDefault(x => x.Product.Name == product.Name);
+                if (existingProduct != null)
+                {
+                    existingProduct.Count = product.Count;
+                }
+                else
+                {
+                    var dbProduct = this.productDomainService.LoadByName(product.Name);
+                    if (dbProduct != null)
+                    {
+                        consignment.AddIncomingProduct(new IncomingProduct
+                        {
+                            Count = product.Count,
+                            Product = dbProduct
+                        });
+                    }
+                }
+            }
         }
     }
 }

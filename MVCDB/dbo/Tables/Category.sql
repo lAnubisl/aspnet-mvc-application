@@ -3,7 +3,7 @@
     [ParentCategoryId] BIGINT         NULL,
     [Name]             NVARCHAR (50)  NOT NULL,
     [Description]      NVARCHAR (MAX) NULL,
-    [SeoURL] NVARCHAR(255) NOT NULL, 
+    [SeoURL] NVARCHAR(255) NULL, 
     CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED ([CategoryId] ASC),
     CONSTRAINT [FK_Category_Category] FOREIGN KEY ([ParentCategoryId]) REFERENCES [dbo].[Category] ([CategoryId])
 );

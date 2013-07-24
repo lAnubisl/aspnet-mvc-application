@@ -1,6 +1,7 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,28 +9,21 @@ using System.Web.Routing;
 using System.Web.Security;
 using DomainService.DomainModels;
 using log4net;
-using MvcApplication.Binders.Admin.Category;
-using MvcApplication.Binders.Admin.Consignment;
-using MvcApplication.Binders.Admin.Product;
+using MvcApplication.App_Start;
 using MvcApplication.Common;
-using MvcApplication.Common.CastleInstallers;
 using PresentationService;
-using PresentationService.Interfaces.Admin;
-using PresentationService.Models.AdminModels.CategoryModels;
-using PresentationService.Models.AdminModels.ConsignmentModels;
-using PresentationService.Models.AdminModels.ProductModels;
+
+#endregion
 
 namespace MvcApplication
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
+    //// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
+    //// visit http://go.microsoft.com/?LinkId=9394801
     public class MvcApplication : HttpApplication
     {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(MvcApplication));
 
         private static readonly IList<string> IgnoreExtentions = new List<string> { "js", "css", "png", "gif", "jpg", "txt", "ico" };
-
-        private static readonly string[] Namespaces = new[] { "MvcApplication.Controllers" };
 
         public static User LoggedInUser
         {
@@ -44,20 +38,15 @@ namespace MvcApplication
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            GlobalFilters.Filters.Add(new HandleErrorAttribute());
-            RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes, IgnoreExtentions.ToArray());
+            CastleConfig.RegisterComponents();
+            BinderConfig.RegisterBinders();
 
-            // Configure log4net
+            //// Configure log4net
             log4net.Config.XmlConfigurator.Configure();
 
-            // Adds and configures all components using WindsorInstallers from executing assembly
-            IOC.ContainerInstance.Install(
-                new RepositoryInstaller(),
-                new DomainServiceInstaller(),
-                new PresentationServiceInstaller(),
-                new ControllerInstaller());
-
-            AddModelBinders();
+            //// Adds and configures all components using WindsorInstallers from executing assembly
 
             ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
         }
@@ -99,27 +88,6 @@ namespace MvcApplication
             {
                 ////DO NOTHING
             }
-        }
-
-        private static void RegisterRoutes(RouteCollection routes)
-        {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
-            routes.IgnoreRoute("{*resource}", new { resource = string.Format(CultureInfo.InvariantCulture, @".*\.({0})(/.*)?", string.Join("|", IgnoreExtentions.ToArray())) });
-
-            routes.MapRoute("Home", "{action}", new { controller = "Home", action = "Index" }, Namespaces);
-            routes.MapRoute("CategorySeoURL", "Category/{seoURL}", new { controller = "Category", action = "Index", seoUrl = string.Empty }, Namespaces);
-            routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional }, Namespaces);
-
-            ////This route supports links to static html pages ex.: http://www.domain.com/Traider/test/mypage.html
-            ////routes.MapRoute("TraderStaticPage","Trader/{*page}", new { controller = "TraderStatic", action = "Redirect" }, new { page = @"[\w%/]+.html$" });
-        }
-
-        private static void AddModelBinders()
-        {
-            ModelBinders.Binders.Add(typeof(CategoryEditModel), new CategoryEditModelBinder(IOC.Resolve<ICategoryPresentationService>()));
-            ModelBinders.Binders.Add(typeof(ProductEditModel), new ProductEditModelBinder(IOC.Resolve<IProductPresentationService>()));
-            ModelBinders.Binders.Add(typeof(ConsignmentEditModel), new ConsignmentEditModelBinder(IOC.Resolve<IConsignmentPresentationService>()));
         }
     }
 }

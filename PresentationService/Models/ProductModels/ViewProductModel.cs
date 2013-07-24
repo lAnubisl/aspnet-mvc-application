@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DomainService.DomainModels;
@@ -7,28 +7,63 @@ namespace PresentationService.Models.ProductModels
 {
     public class ViewProductModel
     {
-        public ViewProductModel(Product product)
+        private readonly long productId;
+        private readonly float productPrice;
+        private readonly string productName, productDescription;
+        private readonly IEnumerable<string> productImages;
+
+        internal ViewProductModel(Product product)
         {
             if (product == null)
             {
                 throw new ArgumentNullException("product");
             }
 
-            ProductDescription = product.Description;
-            ProductPrice = product.Price;
-            ProductName = product.Name;
-            ProductId = product.Id;
-            ProductImages = product.Images.Select(x => x.Url).ToList();
+            this.productDescription = product.Description;
+            this.productPrice = product.Price;
+            this.productName = product.Name;
+            this.productId = product.Id;
+            this.productImages = product.Images.Select(x => x.Url).ToList();
         }
 
-        public long ProductId { get; private set; }
+        public long ProductId
+        {
+            get
+            {
+                return this.productId;
+            }
+        }
+         
+        public string ProductName
+        {
+            get
+            {
+                return this.productName;
+            }
+        }
 
-        public string ProductName { get; private set; }
+        public float ProductPrice
+        {
+            get
+            {
+                return this.productPrice;
+            }
+        }
 
-        public float ProductPrice { get; private set; }
+        public string ProductDescription
+        { 
+            get 
+            { 
+                return this.productDescription;
+            }
+        }
 
-        public string ProductDescription { get; private set; }
-
-        public IEnumerable<string> ProductImages { get; private set; } 
+        public IEnumerable<string> ProductImages
+        {
+            get
+            {
+                return this.productImages;
+            }
+        }
     }
 }

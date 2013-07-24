@@ -3,7 +3,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace MvcApplication.Common.CastleInstallers
+namespace MvcApplication.App_Start.CastleInstallers
 {
     public class ControllerInstaller : IWindsorInstaller
     {
@@ -11,7 +11,7 @@ namespace MvcApplication.Common.CastleInstallers
         {
             if (container != null)
             {
-                container.Register(AllTypes.FromThisAssembly().BasedOn(typeof(IController)).LifestyleTransient());
+                container.Register(Classes.FromThisAssembly().BasedOn(typeof(IController)).LifestyleTransient());
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC.Web", "MvcApplication\MVC.Web.csproj", "{10FC0A8F-D20E-4E7E-B31F-011D308A86A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainService", "DomainService\DomainService.csproj", "{794F3B04-7D46-4F1A-A497-20AF9A9C31AB}"
@@ -8,8 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate.Repository", "NHibernate.Repository\NHibernate.Repository.csproj", "{EF91C2E1-DADA-4BE7-85CF-1424EDF4736C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationService", "PresentationService\PresentationService.csproj", "{36D414DB-8BD6-4E27-84CF-701BC07B2589}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MVC.DB", "MVCDB\MVC.DB.sqlproj", "{E9146AE5-F2F9-452D-AC22-EB672EB06DE4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anubis.Utils", "Anubis.Utils\Anubis.Utils.csproj", "{DAFE9ADA-476E-415C-A6F2-8A797B3C4E52}"
 EndProject
@@ -52,11 +50,6 @@ Global
 		{36D414DB-8BD6-4E27-84CF-701BC07B2589}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36D414DB-8BD6-4E27-84CF-701BC07B2589}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36D414DB-8BD6-4E27-84CF-701BC07B2589}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9146AE5-F2F9-452D-AC22-EB672EB06DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9146AE5-F2F9-452D-AC22-EB672EB06DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9146AE5-F2F9-452D-AC22-EB672EB06DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9146AE5-F2F9-452D-AC22-EB672EB06DE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9146AE5-F2F9-452D-AC22-EB672EB06DE4}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{DAFE9ADA-476E-415C-A6F2-8A797B3C4E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAFE9ADA-476E-415C-A6F2-8A797B3C4E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAFE9ADA-476E-415C-A6F2-8A797B3C4E52}.Release|Any CPU.ActiveCfg = Release|Any CPU

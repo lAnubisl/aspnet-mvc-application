@@ -21,7 +21,7 @@ namespace PresentationService.Models.UserModels
         {
         }
 
-        public FacebookUser(string email, string firstName, string lastName)
+        internal FacebookUser(string email, string firstName, string lastName)
         {
             this.email = email;
             this.firstName = firstName;

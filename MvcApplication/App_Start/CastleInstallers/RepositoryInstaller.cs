@@ -3,7 +3,7 @@ using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace MvcApplication.Common.CastleInstallers
+namespace MvcApplication.App_Start.CastleInstallers
 {
     public class RepositoryInstaller : IWindsorInstaller
     {
@@ -12,7 +12,7 @@ namespace MvcApplication.Common.CastleInstallers
             if (container != null)
             {
                 container
-                .Register(AllTypes.FromAssemblyNamed("NHibernate.Repository")
+                .Register(Classes.FromAssemblyNamed("NHibernate.Repository")
                 .BasedOn(typeof(NHibernate.Repository.Repository.GenericRepository<>))
                 .LifestyleSingleton()
                 .WithServiceDefaultInterfaces()

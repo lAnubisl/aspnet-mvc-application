@@ -2,7 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace MvcApplication.Common.CastleInstallers
+namespace MvcApplication.App_Start.CastleInstallers
 {
     public class DomainServiceInstaller : IWindsorInstaller
     {
@@ -11,7 +11,7 @@ namespace MvcApplication.Common.CastleInstallers
             if (container != null)
             {
                 container
-                .Register(AllTypes.FromAssemblyNamed("DomainService")
+                .Register(Classes.FromAssemblyNamed("DomainService")
                 .BasedOn(typeof(DomainService.DomainServices.GenericDomainService<,>))
                 .LifestyleSingleton()
                 .WithServiceDefaultInterfaces());

@@ -6,7 +6,7 @@
 }
 @section head
 {
-    <script type="text/javascript" src="/Content/Scripts/admin/knockout-models/ConsignmentEditModel.js"></script>
+    <script type="text/javascript" src="~/Content/Scripts/admin/knockout-models/ConsignmentEditModel.js"></script>
     <script type="text/javascript">
         $(function () {
             ko.applyBindings(new ConsignmentEditModel(@Html.Raw(Json.Encode(Model.Products))));

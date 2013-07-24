@@ -8,16 +8,16 @@ namespace MvcApplication.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class CategoryController : CheckModelIsNullController
     {
-        private readonly ICategoryPresentationService categoryPresentationService;
+        private readonly ICategoryPresentationService service;
 
         public CategoryController(ICategoryPresentationService categoryPresentationService)
         {
-            this.categoryPresentationService = categoryPresentationService;
+            this.service = categoryPresentationService;
         }
 
         public ActionResult Index()
         {
-            return View(categoryPresentationService.LoadCategoryIndexModel());
+            return View(service.LoadCategoryIndexModel());
         }
 
         public ActionResult Add()
@@ -33,7 +33,7 @@ namespace MvcApplication.Areas.Admin.Controllers
 
         public ActionResult Edit(long id)
         {
-            return View("Edit", categoryPresentationService.LoadCategoryEditModel(id));
+            return View("Edit", service.LoadCategoryEditModel(id));
         }
 
         [HttpPost]
@@ -41,11 +41,18 @@ namespace MvcApplication.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                categoryPresentationService.SaveCategoryEditModel(model);
+                service.SaveCategoryEditModel(model);
                 return RedirectToAction("Index");
             }
 
             return View("Edit", model);
+        }
+
+        [HttpPost]
+        public RedirectToRouteResult Delete(long id)
+        {
+            service.DeleteCategory(id);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -1,14 +1,23 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using DomainService.DomainModels;
 
 namespace PresentationService.Models.ProductModels
 {
     public class TopProductsModel
     {
-        public TopProductsModel(IEnumerable<DomainService.DomainModels.Product> products)
+        private readonly IEnumerable<Product> products;
+
+        internal TopProductsModel(IEnumerable<Product> products)
         {
-            Products = products;
+            this.products = products;
         }
 
-        public IEnumerable<DomainService.DomainModels.Product> Products { get; private set; }
+        public IEnumerable<Product> Products 
+        { 
+            get 
+            { 
+                return this.products; 
+            } 
+        }
     }
 }

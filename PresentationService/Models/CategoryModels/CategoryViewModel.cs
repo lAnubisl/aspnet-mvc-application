@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DomainService.DomainModels;
@@ -9,7 +9,11 @@ namespace PresentationService.Models.CategoryModels
 {
     public class CategoryViewModel
     {
-        public CategoryViewModel(Category category, IEnumerable<Product> products)
+        private readonly string categoryName, categoryDescription;
+        private readonly IEnumerable<ProductSmallModel> products;
+        private readonly IEnumerable<CategoryListElementModel> subCategories;
+
+        internal CategoryViewModel(Category category, IEnumerable<Product> products)
         {
             if (category == null)
             {
@@ -21,18 +25,42 @@ namespace PresentationService.Models.CategoryModels
                 throw new ArgumentNullException("products");
             }
 
-            Subcategories = category.ChildCategories.Select(c => new CategoryListElementModel(c));
-            Products = products.Select(p => new ProductSmallModel(p));
-            CategoryName = category.Name;
-            CategoryDescription = category.Description;
+            this.subCategories = category.ChildCategories.Select(c => new CategoryListElementModel(c));
+            this.products = products.Select(p => new ProductSmallModel(p));
+            this.categoryName = category.Name;
+            this.categoryDescription = category.Description;
         }
 
-        public string CategoryName { get; private set; }
+        public string CategoryName 
+        { 
+            get 
+            { 
+                return this.categoryName; 
+            } 
+        }
 
-        public string CategoryDescription { get; private set; }
+        public string CategoryDescription 
+        { 
+            get 
+            { 
+                return this.categoryDescription; 
+            } 
+        }
 
-        public IEnumerable<ProductSmallModel> Products { get; private set; }
+        public IEnumerable<ProductSmallModel> Products 
+        { 
+            get 
+            { 
+                return this.products; 
+            } 
+        }
 
-        public IEnumerable<CategoryListElementModel> Subcategories { get; private set; } 
+        public IEnumerable<CategoryListElementModel> Subcategories 
+        { 
+            get 
+            { 
+                return this.subCategories; 
+            } 
+        } 
     }
 }

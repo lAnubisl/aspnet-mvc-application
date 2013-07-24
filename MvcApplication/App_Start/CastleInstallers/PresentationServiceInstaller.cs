@@ -2,7 +2,7 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace MvcApplication.Common.CastleInstallers
+namespace MvcApplication.App_Start.CastleInstallers
 {
     public class PresentationServiceInstaller : IWindsorInstaller
     {
@@ -11,7 +11,7 @@ namespace MvcApplication.Common.CastleInstallers
             if (container != null)
             {
                 container
-                .Register(AllTypes.FromAssemblyNamed("PresentationService")
+                .Register(Classes.FromAssemblyNamed("PresentationService")
                               .BasedOn(typeof(PresentationService.Interfaces.IBasePresentationService))
                               .LifestyleSingleton()
                               .WithServiceDefaultInterfaces());

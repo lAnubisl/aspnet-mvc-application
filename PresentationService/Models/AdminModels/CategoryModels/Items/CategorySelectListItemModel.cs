@@ -5,19 +5,34 @@ namespace PresentationService.Models.AdminModels.CategoryModels.Items
 {
     public class CategorySelectListItemModel
     {
-        public CategorySelectListItemModel(Category category)
+        private readonly long categoryId;
+        private readonly string categoryName;
+
+        internal CategorySelectListItemModel(Category category)
         {
             if (category == null)
             {
                 throw new ArgumentNullException("category");
             }
 
-            CategoryId = category.Id;
-            CategoryName = category.Name;
+            this.categoryId = category.Id;
+            this.categoryName = category.Name;
         }
 
-        public long CategoryId { get; private set; }
+        public long CategoryId
+        {
+            get
+            {
+                return this.categoryId;
+            }
+        }
 
-        public string CategoryName { get; private set; }
+        public string CategoryName
+        {
+            get
+            {
+                return this.categoryName;
+            }
+        }
     }
 }
