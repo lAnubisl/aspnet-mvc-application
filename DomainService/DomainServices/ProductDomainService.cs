@@ -12,6 +12,10 @@ namespace DomainService.DomainServices
     {
         #region IProductDomainService Members
 
+        public ProductDomainService(IGenericRepository<Product> repository) : base(repository)
+        {
+        }
+
         public IList<Product> LoadByUserId(long userId)
         {
             return Repository.Query().Where(p => p.CreatedBy.Id == userId).ToList();

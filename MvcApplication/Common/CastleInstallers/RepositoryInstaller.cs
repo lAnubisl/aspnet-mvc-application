@@ -1,4 +1,5 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using System.Configuration;
+using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
@@ -15,7 +16,7 @@ namespace MvcApplication.Common.CastleInstallers
                 .BasedOn(typeof(NHibernate.Repository.Repository.GenericRepository<>))
                 .LifestyleSingleton()
                 .WithServiceDefaultInterfaces()
-                .Configure(c => c.DependsOn(Property.ForKey("sessionFactoryName").Eq("MVC"))));
+                .Configure(c => c.DependsOn(Property.ForKey("connectionString").Eq(ConfigurationManager.AppSettings["connectionString"]))));
             }
         }
     }

@@ -23,7 +23,7 @@ namespace NHibernate.Repository.NHibernateSession
 
         #endregion
 
-        private void CloseAllNHibernateSessions(object sender, EventArgs e)
+        private static void CloseAllNHibernateSessions(object sender, EventArgs e)
         {
             NHibernateSessionManager.CloseAllSessions();
         }

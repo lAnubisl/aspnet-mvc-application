@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Configuration;
 using System.Data;
 using System.Reflection;
 using System.Runtime.Remoting.Messaging;
@@ -21,9 +20,9 @@ namespace NHibernate.Repository.NHibernateSession
     {
         private const string SessionKey = "CONTEXT_SESSIONS";
 
-        private readonly SessionFactories sessionFactories = new SessionFactories();
-
         private static readonly Lazy<NHibernateSessionManager> Manager = new Lazy<NHibernateSessionManager>(() => new NHibernateSessionManager(), true);
+
+        private ISessionFactory sessionFactory;
 
         /// <summary>
         /// Private constructor to enforce singleton
@@ -61,24 +60,6 @@ namespace NHibernate.Repository.NHibernateSession
             }
         }
 
-        public static void AddAssembliesMappings(MappingConfiguration mapping, MappingCollection mappingCollectionElement)
-        {
-            if (mapping == null)
-            {
-                throw new ArgumentNullException("mapping");
-            }
-
-            if (mappingCollectionElement == null)
-            {
-                throw new ArgumentNullException("mappingCollectionElement");
-            }
-
-            for (var i = 0; i < mappingCollectionElement.Count; i++)
-            {
-                mapping.FluentMappings.AddFromAssembly(Assembly.Load(mappingCollectionElement[i].Name));
-            }
-        }
-
         public static void CloseAllSessions()
         {
             foreach (var contextSession in ContextSessions)
@@ -110,18 +91,6 @@ namespace NHibernate.Repository.NHibernateSession
             return session;
         }
 
-        private static MappingCollection GetSessionFactorySettings(string sessionFactoryName)
-        {
-            var settingsSection = ConfigurationManager.GetSection("nhibernateSettings") as NHibernateSettingsSection;
-
-            if (settingsSection != null)
-            {
-                return settingsSection.SessionFactory[sessionFactoryName];
-            }
-
-            return null;
-        }
-
         private ISessionFactory GetSessionFactoryFor(string sessionFactoryName)
         {
             if (string.IsNullOrEmpty(sessionFactoryName))
@@ -129,21 +98,13 @@ namespace NHibernate.Repository.NHibernateSession
                 throw new ArgumentException("sessionFactoryConfigPath may not be null nor empty");
             }
 
-            ////  Attempt to retrieve a stored SessionFactory from the hashtable.
-            ISessionFactory sessionFactory;
-
-            sessionFactories.TryGetValue(sessionFactoryName, out sessionFactory);
-
-            ////  Failed to find a matching SessionFactory so make a new one.
             if (sessionFactory == null)
             {
-                var sectionFactorySettings = GetSessionFactorySettings(sessionFactoryName);
-
                 sessionFactory = Fluently.Configure()
-                    .Mappings(m => AddAssembliesMappings(m, sectionFactorySettings))
+                    .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))
                     .Database(
                         MsSqlConfiguration.MsSql2008
-                            .ConnectionString(sectionFactorySettings.ConnectionString)
+                            .ConnectionString(sessionFactoryName)
                             .ShowSql()
                             .DefaultSchema("dbo")
                             .IsolationLevel(IsolationLevel.ReadCommitted))
@@ -153,8 +114,6 @@ namespace NHibernate.Repository.NHibernateSession
                 {
                     throw new InvalidOperationException("session factory is null");
                 }
-
-                sessionFactories.TryAdd(sessionFactoryName, sessionFactory);
             }
 
             return sessionFactory;

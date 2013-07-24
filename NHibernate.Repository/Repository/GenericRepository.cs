@@ -9,23 +9,23 @@ namespace NHibernate.Repository.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class, IDomainObject
     {
-        private readonly string sessionFactoryName;
+        private readonly string connectionString;
 
-        public GenericRepository(string sessionFactoryName)
+        public GenericRepository(string connectionString)
         {
-            if (string.IsNullOrEmpty(sessionFactoryName))
+            if (string.IsNullOrEmpty(connectionString))
             {
                 throw new ArgumentException("connectionString may not be null nor empty");
             }
 
-            this.sessionFactoryName = sessionFactoryName;
+            this.connectionString = connectionString;
         }
 
-        private ISession NHibernateSession
+        protected ISession NHibernateSession
         {
             get
             {
-                return NHibernateSessionManager.Instance.GetSessionFrom(sessionFactoryName);
+                return NHibernateSessionManager.Instance.GetSessionFrom(connectionString);
             }
         }
 

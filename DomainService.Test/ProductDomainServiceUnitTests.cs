@@ -23,7 +23,7 @@ namespace DomainService.Test
                     new Product { Name = "Product C" }
                 }.AsQueryable);
 
-            var service = new ProductDomainService {Repository = fakeDB.Object};
+            var service = new ProductDomainService(fakeDB.Object);
             Assert.IsTrue(service.LoadByName("Product A") != null);
             Assert.IsTrue(service.LoadByName("Product D") == null);
         }
@@ -38,7 +38,7 @@ namespace DomainService.Test
                     new Product { Name = "Product A" }
                 }.AsQueryable);
 
-            var service = new ProductDomainService { Repository = fakeDB.Object };
+            var service = new ProductDomainService(fakeDB.Object);
             service.LoadByName("Product A");
         }
 
@@ -56,7 +56,7 @@ namespace DomainService.Test
                     new Product { Name = "White umbrella" },
                     new Product { Name = "Black redemption" }
                 }.AsQueryable);
-            var service = new ProductDomainService { Repository = fakeDB.Object };
+            var service = new ProductDomainService(fakeDB.Object);
             Assert.IsTrue(service.LoadProductsForTerm("Red").Count() == 4);
         }
     }

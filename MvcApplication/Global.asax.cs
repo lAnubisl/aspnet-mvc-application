@@ -25,7 +25,7 @@ namespace MvcApplication
     // visit http://go.microsoft.com/?LinkId=9394801
     public class MvcApplication : HttpApplication
     {
-        public static readonly ILog Logger = LogManager.GetLogger(typeof(MvcApplication));
+        private static readonly ILog Logger = LogManager.GetLogger(typeof(MvcApplication));
 
         private static readonly IList<string> IgnoreExtentions = new List<string> { "js", "css", "png", "gif", "jpg", "txt", "ico" };
 
@@ -38,20 +38,6 @@ namespace MvcApplication
                 var systemUser = HttpContext.Current.User as SystemUser;
                 return systemUser != null ? systemUser.LoggedInUser : null;
             }
-        }
-
-        public static void RegisterRoutes(RouteCollection routes)
-        {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
-            routes.IgnoreRoute("{*resource}", new { resource = string.Format(CultureInfo.InvariantCulture, @".*\.({0})(/.*)?", string.Join("|", IgnoreExtentions.ToArray())) });
-
-            routes.MapRoute("Home", "{action}", new { controller = "Home", action = "Index" }, Namespaces);
-            routes.MapRoute("CategorySeoURL", "Category/{seoURL}", new { controller = "Category", action = "Index", seoUrl = string.Empty }, Namespaces);
-            routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional }, Namespaces);
-
-            ////This route supports links to static html pages ex.: http://www.domain.com/Traider/test/mypage.html
-            ////routes.MapRoute("TraderStaticPage","Trader/{*page}", new { controller = "TraderStatic", action = "Redirect" }, new { page = @"[\w%/]+.html$" });
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Application_Start should not be static or it will not called")]
@@ -113,6 +99,20 @@ namespace MvcApplication
             {
                 ////DO NOTHING
             }
+        }
+
+        private static void RegisterRoutes(RouteCollection routes)
+        {
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
+            routes.IgnoreRoute("{*resource}", new { resource = string.Format(CultureInfo.InvariantCulture, @".*\.({0})(/.*)?", string.Join("|", IgnoreExtentions.ToArray())) });
+
+            routes.MapRoute("Home", "{action}", new { controller = "Home", action = "Index" }, Namespaces);
+            routes.MapRoute("CategorySeoURL", "Category/{seoURL}", new { controller = "Category", action = "Index", seoUrl = string.Empty }, Namespaces);
+            routes.MapRoute("Default", "{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional }, Namespaces);
+
+            ////This route supports links to static html pages ex.: http://www.domain.com/Traider/test/mypage.html
+            ////routes.MapRoute("TraderStaticPage","Trader/{*page}", new { controller = "TraderStatic", action = "Redirect" }, new { page = @"[\w%/]+.html$" });
         }
 
         private static void AddModelBinders()

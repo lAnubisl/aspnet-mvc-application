@@ -10,7 +10,12 @@ namespace DomainService.DomainServices
         where TRepository : IGenericRepository<T>
         where T : IDomainObject
     {
-        public TRepository Repository { get; set; }
+        protected readonly TRepository Repository;
+
+        protected GenericDomainService(TRepository repository)
+        {
+            this.Repository = repository;
+        }
 
         #region IGenericDomainService<T> Members
 

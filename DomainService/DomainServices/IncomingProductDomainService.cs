@@ -7,5 +7,8 @@ namespace DomainService.DomainServices
     public class IncomingProductDomainService : GenericDomainService<IncomingProduct, IGenericRepository<IncomingProduct>>,
                                                 IIncomingProductDomainService
     {
+        public IncomingProductDomainService(IGenericRepository<IncomingProduct> repository) : base(repository)
+        {
+        }
     }
 }

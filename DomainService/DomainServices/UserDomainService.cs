@@ -9,6 +9,10 @@ namespace DomainService.DomainServices
     {
         #region IUserDomainService Members
 
+        public UserDomainService(IGenericRepository<User> repository) : base(repository)
+        {
+        }
+
         public User LoadByEmail(string email)
         {
             return Repository.Query().FirstOrDefault(u => u.Email == email);

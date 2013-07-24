@@ -12,6 +12,10 @@ namespace DomainService.DomainServices
     {
         #region IOrderDomainService Members
 
+        public OrderDomainService(IGenericRepository<Order> repository) : base(repository)
+        {
+        }
+
         public IList<Order> Load(long userId, OrderStatus status)
         {
             return Repository.Query().Where(o => o.Customer.Id == userId && o.Status == status).ToList();

@@ -11,6 +11,10 @@ namespace DomainService.DomainServices
     {
         #region ICategoryDomainService Members
 
+        public CategoryDomainService(ICategoryRepository repository) : base(repository)
+        {
+        }
+
         public bool IsUniqueName(long categoryId, string categoryName)
         {
             return !Repository.Query().Any(category => category.Name.Equals(categoryName) && category.Id != categoryId);

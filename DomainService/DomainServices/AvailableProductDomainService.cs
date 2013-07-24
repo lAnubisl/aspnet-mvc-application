@@ -1,14 +1,17 @@
-﻿using DomainService.DomainModels;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DomainService.DomainModels;
 using DomainService.DomainServiceInterfaces;
 using DomainService.RepositoryInterfaces;
 
 namespace DomainService.DomainServices
 {
-    using System.Collections.Generic;
-    using System.Linq;
-
     public class AvailableProductDomainService : GenericDomainService<AvailableProduct, IGenericRepository<AvailableProduct>>, IAvailableProductDomainService
     {
+        public AvailableProductDomainService(IGenericRepository<AvailableProduct> repository) : base(repository)
+        {
+        }
+
         public IList<AvailableProduct> LoadByUserId(long userId)
         {
             return Repository.Query().Where(p => p.CreatedBy.Id == userId).ToList();
