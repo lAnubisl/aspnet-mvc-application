@@ -23,7 +23,7 @@ namespace PresentationService.Services.Admin
             }
 
             var category = model.CategoryId != default(long)
-                               ? categoryDomainService.Load(model.CategoryId)
+                               ? this.categoryDomainService.Load(model.CategoryId)
                                : new Category();
             if (category != null)
             {
@@ -31,7 +31,7 @@ namespace PresentationService.Services.Admin
                 category.Description = model.CategoryDescription;
                 category.SeoURL = model.SeoURL;
                 category.ParentCategory = model.ParentCategoryId.HasValue 
-                    ? categoryDomainService.Load(model.ParentCategoryId.Value) 
+                    ? this.categoryDomainService.Load(model.ParentCategoryId.Value) 
                     : null;
 
                 categoryDomainService.Save(category);
